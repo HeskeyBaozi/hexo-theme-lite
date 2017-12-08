@@ -21,7 +21,7 @@ export class HexoConfig {
       this.dateTimeFormat = new DateTimeFormat(raw);
       this.page = new Pagination(raw);
       this.extensions = new Extensions(raw);
-      this.theme = new Theme(raw);
+      this.theme = new Theme(raw[ 'theme_config' ]);
     }
   }
 }
@@ -37,7 +37,7 @@ export class Site {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -53,7 +53,7 @@ export class URL {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -73,7 +73,7 @@ export class Directory {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -100,7 +100,7 @@ export class Writing {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -115,7 +115,7 @@ export class CategoryAndTags {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -129,7 +129,7 @@ export class DateTimeFormat {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -143,7 +143,7 @@ export class Pagination {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -157,7 +157,7 @@ export class Extensions {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -165,8 +165,12 @@ export class Extensions {
 }
 
 export class Theme {
-  menu = {};
-  menu_icons = {
+  menu: {
+    [key: string]: string
+  } = {};
+  menu_icons: {
+    [key: string]: string | boolean
+  } = {
     enable: false
   };
   social = {};
@@ -178,13 +182,16 @@ export class Theme {
     enable: false,
     url: ''
   };
+  background_picture = {
+    url: ''
+  };
   powered_by = '';
 
   constructor(raw?: any) {
     if (raw) {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, {[key]: raw[key]});
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }

@@ -5,6 +5,7 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "strict": true,
+    "noImplicitAny": false,
     "module": "esnext",
     "moduleResolution": "node",
     "target": "es5",
@@ -14,8 +15,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@": [
-        "./src"
+      "@/*": [
+        "./src/*"
       ]
     }
   },

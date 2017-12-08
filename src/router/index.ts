@@ -3,12 +3,25 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-export default new Router({
+
+export const router = new Router({
+  mode: 'hash',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: () => import('@/components/HelloWorld.vue')
+      component: () => import('../views/layout/AppLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'app-layout',
+          redirect: { name: 'HelloWorld' }
+        },
+        {
+          path: 'home',
+          name: 'HelloWorld',
+          component: () => import('../views/components/HelloWorld.vue')
+        }
+      ]
     }
   ]
 });

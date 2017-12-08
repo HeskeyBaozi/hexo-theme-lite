@@ -15,7 +15,6 @@ export class Article extends BasePost {
           } else {
             Object.assign(this, {[key]: raw[key]});
           }
-
         }
       }
     }

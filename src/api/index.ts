@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { HexoConfig } from './models/hexo-config.class';
-import { Category, PostsList, SpecificPostsList, Tag } from './models/posts-list.class';
-import { Article } from './models/article.class';
+import { HexoConfig } from '../models/hexo-config.class';
+import { Category, PostsList, SpecificPostsList, Tag } from '../models/posts-list.class';
+import { Article } from '../models/article.class';
 
 
 // GET /api/site.json
