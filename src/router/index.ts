@@ -9,17 +9,41 @@ export const router = new Router({
   routes: [
     {
       path: '/',
-      component: () => import('../views/layout/AppLayout.vue'),
+      component: () => import('@/views/layout/AppLayout.vue'),
       children: [
         {
           path: '',
-          name: 'app-layout',
-          redirect: { name: 'HelloWorld' }
+          redirect: { name: 'home-page' }
         },
         {
           path: 'home',
-          name: 'HelloWorld',
-          component: () => import('../views/components/HelloWorld.vue')
+          name: 'home-page',
+          component: () => import('@/views/pages/home/HomePage.vue')
+        },
+        {
+          path: 'archives',
+          name: 'archives-page',
+          component: () => import('@/views/pages/archives/ArchivesPage.vue')
+        },
+        {
+          path: 'categories',
+          name: 'categories-page',
+          component: () => import('@/views/pages/categories/CategoriesPage.vue')
+        },
+        {
+          path: 'tags',
+          name: 'tags-page',
+          component: () => import('@/views/pages/tags/TagsPage.vue')
+        },
+        {
+          path: 'posts/:slug',
+          name: 'post-page',
+          component: () => import('@/views/pages/article/ArticlePage.vue')
+        },
+        {
+          path: 'pages/:slug',
+          name: 'implicit-post-page',
+          component: () => import('@/views/pages/article/ArticlePage.vue')
         }
       ]
     }

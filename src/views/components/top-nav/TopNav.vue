@@ -69,7 +69,8 @@
     line-height: 40px;
     height: 40px;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgba(255, 255, 255, 0);
     }
   }
