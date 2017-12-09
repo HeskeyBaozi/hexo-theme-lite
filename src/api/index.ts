@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { HexoConfig } from '../models/hexo-config.class';
-import { Category, PostsList, SpecificPostsList, Tag } from '../models/posts-list.class';
-import { Article } from '../models/article.class';
+import { HexoConfig } from '@/models/hexo-config.class';
+import { Category, PostsList, SpecificPostsList, Tag } from '@/models/posts-list.class';
+import { Article, Page } from '@/models/article.class';
 
 
 // GET /api/site.json
@@ -45,7 +45,7 @@ export async function fetchAllCategories() {
 
 // GET /api/pages/about.json
 export async function fetchImplicitPageByName(pageName: string) {
-  return axios.get<Article>(`/api/pages/${pageName}.json`);
+  return axios.get<Page>(`/api/pages/${pageName}.json`);
 }
 
 
