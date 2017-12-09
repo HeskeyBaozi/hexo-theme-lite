@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import TopNav from '../components/top-nav/TopNav.vue';
-import TopHeader from '../components/top-header/TopHeader.vue';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
 import { Theme, Site } from '@/models/hexo-config.class';
 import { MetaState } from '@/store/modules/global';
+import TopNav from '../components/top-nav/TopNav.vue';
+import TopHeader from '../components/top-header/TopHeader.vue';
+import BottomFooter from '../components/bottom-footer/BottomFooter.vue';
 
 @Component({
   name: 'app-layout',
-  components: { TopNav, TopHeader }
+  components: { TopNav, TopHeader, BottomFooter }
 })
 export default class AppLayout extends Vue {
   get theme(): Theme {
@@ -20,7 +21,7 @@ export default class AppLayout extends Vue {
     return (this.$store.state.meta as MetaState).hexoConfig.site;
   }
 
-  asyncData({ store }: AsyncArgs) {
+  asyncData({ store }: AsyncArgs): Promise<void> {
     return store.dispatch(`meta/${Fetch_Meta}`);
   }
 

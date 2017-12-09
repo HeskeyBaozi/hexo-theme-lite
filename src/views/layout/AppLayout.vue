@@ -10,7 +10,7 @@
     </section>
 
     <footer class="app-footer container">
-
+      <bottom-footer :powered="theme.powered_by" :social="theme.social" :icons="theme.social_icons" :site="site" :background="theme.background"></bottom-footer>
     </footer>
 
   </div>
