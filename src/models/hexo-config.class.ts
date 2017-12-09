@@ -166,28 +166,58 @@ export class Extensions {
 
 export class Theme {
   menu: {
-    [key: string]: string
+    [ key: string ]: string
   } = {};
   menu_icons: {
-    [key: string]: string | boolean
+    [ key: string ]: string | boolean
   } = {
-    enable: false
-  };
+      enable: false
+    };
   social = {};
   social_icons = {
     enable: false
   };
 
-  avatar = {
-    enable: false,
-    url: ''
-  };
-  background = {
-    url: '',
-    css_size: '',
-    css_position: ''
-  };
+  avatar: ThemeAvatar = new ThemeAvatar();
+  background: ThemeBackground = new ThemeBackground();
   powered_by = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.getOwnPropertyNames(this)) {
+        if (raw.hasOwnProperty(key)) {
+          if (key === 'avatar') {
+            Object.assign(this, { [ key ]: new ThemeAvatar(raw[ key ]) })
+          } else if (key === 'background') {
+            Object.assign(this, { [ key ]: new ThemeBackground(raw[ key ]) })
+          } else {
+            Object.assign(this, { [ key ]: raw[ key ] });
+          }
+        }
+      }
+    }
+  }
+}
+
+export class ThemeAvatar {
+  enable = false;
+  url = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.getOwnPropertyNames(this)) {
+        if (raw.hasOwnProperty(key)) {
+          Object.assign(this, { [ key ]: raw[ key ] });
+        }
+      }
+    }
+  }
+}
+
+export class ThemeBackground {
+  url = '';
+  css_size = '';
+  css_position = '';
 
   constructor(raw?: any) {
     if (raw) {

@@ -1,19 +1,42 @@
 <template>
   <div id="app-layout">
-    <top-nav :config="theme.background" :menu="theme.menu" :icons="theme.menu_icons"></top-nav>
-    <header>
-
+    <top-nav :background="theme.background" :menu="theme.menu" :icons="theme.menu_icons"></top-nav>
+    <header class="app-header container">
+      <top-header :avatar="theme.avatar" :background="theme.background" :site="site"></top-header>
     </header>
-    <router-view></router-view>
+
+    <section class="app-body container">
+      <router-view></router-view>
+    </section>
+
+    <footer class="app-footer container">
+
+    </footer>
+
   </div>
 </template>
 
+<style lang="less" src="@/styles/helpers.less"></style>
 <style lang="less" scoped>
-  #app-layout {
-    height: 100vh;
-    width: 100%;
-  }
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-top: 8rem;
+}
 
+.app-footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 1rem;
+}
+
+.app-body {
+  box-sizing: border-box;
+  background-color: white;
+  padding: 1rem;
+}
 </style>
 
 <script lang="ts" src="./app-layout.component.ts"></script>

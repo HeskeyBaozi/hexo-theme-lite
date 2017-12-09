@@ -1,6 +1,6 @@
 <template>
   <div id="top-nav">
-    <blur-div :url="config.url" :css_size="config.css_size" :css_position="config.css_position" :blur="30" class="blur top-left-padding">
+    <blur-div :background="background" :blur="30" class="blur top-left-padding">
       <div class="container">
         <el-row type="flex" :gutter="10">
           <!--<= 768px-->
@@ -37,47 +37,47 @@
 
 
 <style lang="less" scoped>
-  #top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+#top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: white;
+}
+
+.blur {
+  display: flex;
+  align-items: center;
+}
+
+.menu-btn > span {
+  margin-right: 0.2rem;
+  text-shadow: 0 0 3px white;
+}
+
+.item-icon {
+  display: inline-block;
+  width: 1rem;
+  text-align: center;
+}
+
+.el-menu--horizontal {
+  display: flex;
+  justify-content: center;
+  .el-menu-item {
+    line-height: 40px;
     height: 40px;
-    background-color: white;
-  }
 
-  .blur {
-    display: flex;
-    align-items: center;
-  }
-
-  .menu-btn > span {
-    margin-right: .2rem;
-    text-shadow: 0 0 3px white;
-  }
-
-  .item-icon {
-    display: inline-block;
-    width: 1rem;
-    text-align: center;
-  }
-
-  .el-menu--horizontal {
-    display: flex;
-    justify-content: center;
-    .el-menu-item {
-      line-height: 40px;
-      height: 40px;
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0);
-      }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0);
     }
   }
+}
 
-  .el-menu {
-    background-color: rgba(255, 255, 255, 0);
-  }
+.el-menu {
+  background-color: rgba(255, 255, 255, 0);
+}
 </style>
 <style lang="less" src="../../../styles/helpers.less"></style>
 <script src="./top-nav.component.ts" lang="ts"></script>

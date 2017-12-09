@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
+import { ThemeBackground } from '@/models/hexo-config.class';
 
 
 @Component({
   name: 'top-nav',
   components: { BlurDiv },
   props: {
-    config: {
+    background: {
       required: true,
-      validator: (obj: object) => Object.keys(obj).some(key => key === 'url')
+      validator: obj => obj instanceof ThemeBackground
     },
     menu: {
       required: true
@@ -21,8 +22,8 @@ import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
 })
 export default class TopNav extends Vue {
   config: { url: string, css_size?: string, css_position?: string };
-  menu: { [key: string]: string };
-  icons: { [key: string]: string | boolean };
+  menu: { [ key: string ]: string };
+  icons: { [ key: string ]: string | boolean };
 
   get navItems() {
     return Object.keys(this.menu)

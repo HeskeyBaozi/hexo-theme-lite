@@ -1,27 +1,23 @@
+import Vue from 'vue';
 import Component from 'vue-class-component';
 import TopNav from '../components/top-nav/TopNav.vue';
+import TopHeader from '../components/top-header/TopHeader.vue';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
-import Vue from 'vue';
-import { Theme } from '@/models/hexo-config.class';
+import { Theme, Site } from '@/models/hexo-config.class';
 import { MetaState } from '@/store/modules/global';
 
 @Component({
   name: 'app-layout',
-  components: { TopNav },
-  // directives: {
-  //   image: {
-  //     bind(el: HTMLElement, binding: { value: { [key: string]: string } }) {
-  //       el.style.background = `url('${binding.value.url}') no-repeat fixed`;
-  //       el.style.backgroundSize = binding.value.cssSize || 'cover';
-  //       el.style.backgroundPosition = binding.value.cssPosition || '50% -50px';
-  //     }
-  //   }
-  // }
+  components: { TopNav, TopHeader }
 })
 export default class AppLayout extends Vue {
   get theme(): Theme {
     return (this.$store.state.meta as MetaState).hexoConfig.theme;
+  }
+
+  get site(): Site {
+    return (this.$store.state.meta as MetaState).hexoConfig.site;
   }
 
   asyncData({ store }: AsyncArgs) {
@@ -29,6 +25,11 @@ export default class AppLayout extends Vue {
   }
 
   beforeMount() {
-    document.body.style
+    // setting Title
+    document.title = this.site.title || 'Hexo - Lite Theme';
+
+    // setting Backgound Picture
+    const { url, css_size, css_position } = this.theme.background;
+    document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
   }
 }
