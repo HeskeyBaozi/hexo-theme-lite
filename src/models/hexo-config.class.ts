@@ -182,8 +182,10 @@ export class Theme {
     enable: false,
     url: ''
   };
-  background_picture = {
-    url: ''
+  background = {
+    url: '',
+    css_size: '',
+    css_position: ''
   };
   powered_by = '';
 

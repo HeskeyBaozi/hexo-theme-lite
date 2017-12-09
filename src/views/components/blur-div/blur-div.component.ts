@@ -11,11 +11,11 @@ export default Vue.extend({
       type: Number,
       'default': 5
     },
-    cssSize: {
+    css_size: {
       type: String,
       'default': 'cover'
     },
-    cssPosition: {
+    css_position: {
       type: String,
       'default': '50% -50px'
     }
@@ -43,8 +43,8 @@ export default Vue.extend({
           content: `''`,
           filter: `blur(${this.$props.blur}px)`,
           background: `url('${this.$props.url}') no-repeat fixed`,
-          backgroundSize: this.$props.cssSize,
-          backgroundPosition: this.$props.cssPosition,
+          backgroundSize: this.$props.css_size,
+          backgroundPosition: this.$props.css_position,
           height: '100%',
           width: '100%'
         }

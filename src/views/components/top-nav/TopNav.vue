@@ -1,6 +1,6 @@
 <template>
   <div id="top-nav">
-    <blur-div :url="bgPicture.url" :blur="30" class="blur top-left-padding">
+    <blur-div :url="config.url" :css_size="config.css_size" :css_position="config.css_position" :blur="30" class="blur top-left-padding">
       <div class="container">
         <el-row type="flex" :gutter="10">
           <!--<= 768px-->
