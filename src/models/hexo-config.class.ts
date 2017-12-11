@@ -164,10 +164,10 @@ export class Extensions {
   }
 }
 
+
+
 export class Theme {
-  menu: {
-    [ key: string ]: string
-  } = {};
+  menu: ThemeMenu = new ThemeMenu();
   menu_icons: {
     [ key: string ]: string | boolean
   } = {
@@ -187,12 +187,45 @@ export class Theme {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'avatar') {
-            Object.assign(this, { [ key ]: new ThemeAvatar(raw[ key ]) })
+            Object.assign(this, { [ key ]: new ThemeAvatar(raw[ key ]) });
           } else if (key === 'background') {
-            Object.assign(this, { [ key ]: new ThemeBackground(raw[ key ]) })
+            Object.assign(this, { [ key ]: new ThemeBackground(raw[ key ]) });
+          } else if (key === 'menu') {
+            Object.assign(this, { [ key ]: new ThemeMenu(raw[ key ]) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
+        }
+      }
+    }
+  }
+}
+
+export class ThemeMenu {
+  Home = '/home';
+  Archives = '/archives';
+  Categories = '/categories';
+  Tags = '/tags';
+
+  constructor(raw?: { [ key: string ]: string | boolean }) {
+    const extract: { [ key: string ]: string } = {
+      Home: '/home',
+      Archives: '/archives',
+      Categories: '/categories',
+      Tags: '/tags'
+    };
+
+    const basicKeys = Object.keys(extract);
+    if (raw) {
+      for (const basicKey of basicKeys) {
+        if (typeof raw[ basicKey ] === 'boolean' && raw[ basicKey ]) {
+          Object.assign(this, { [ basicKey ]: extract[ basicKey ] });
+        }
+      }
+
+      for (const otherKey of Object.keys(raw)) {
+        if (basicKeys.every(basicKey => otherKey !== basicKey)) {
+          Object.assign(this, { [ otherKey ]: raw[ otherKey ] });
         }
       }
     }

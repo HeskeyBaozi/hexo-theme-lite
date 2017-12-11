@@ -15,12 +15,14 @@
     "font-awesome": "^4.7.0",
     "moment": "^2.19.3",
     "normalize.css": "^7.0.0",
+    "nprogress": "^0.2.0",
     "vue": "^2.5.2",
     "vue-class-component": "^6.1.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.0.29",
     "autoprefixer": "^7.1.2",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
