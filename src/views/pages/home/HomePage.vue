@@ -1,6 +1,10 @@
 <template>
   <div id="home-page">
-    home
+    <article-card v-for="post of posts" 
+                  :key="post.slug" 
+                  :format="format" 
+                  type="card"
+                  :post="post"></article-card>
   </div>
 </template>
 

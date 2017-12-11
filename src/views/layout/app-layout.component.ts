@@ -31,7 +31,8 @@ export default class AppLayout extends Vue {
     document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
   }
 
-  asyncData({ store }: AsyncArgs): Promise<void> {
-    return store.dispatch(`meta/${Fetch_Meta}`);
+  // fetch initial global data
+  async asyncData({ store }: AsyncArgs) {
+    await store.dispatch(`meta/${Fetch_Meta}`);
   }
 }

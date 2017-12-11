@@ -5,12 +5,12 @@ import { fetchPostsList } from '@/api';
 
 export class HomeState {
     postsList = new PostsList();
-    page = 1;
+    page = 0;
 }
 
 const state = (): HomeState => ({
     postsList: new PostsList(),
-    page: 1
+    page: 0
 });
 
 const actions: ActionTree<HomeState, any> = {

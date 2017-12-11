@@ -1,7 +1,7 @@
-import { ActionTree, Module, MutationTree } from 'vuex';
+import { ActionTree, Module, MutationTree, GetterTree } from 'vuex';
 import { HexoConfig } from '@/models/hexo-config.class';
 import { fetchHexoConfig } from '@/api';
-import { Fetch_Meta, Reload_Meta } from '@/store/types';
+import { Fetch_Meta, Reload_Meta, Should_Pagination } from '@/store/types';
 
 export class MetaState {
   hexoConfig = new HexoConfig();
@@ -23,7 +23,11 @@ const mutations: MutationTree<MetaState> = {
     state.hexoConfig = new HexoConfig(data);
   }
 };
-const getters = {};
+const getters: GetterTree<MetaState, any> = {
+  [ Should_Pagination ](state): boolean {
+    return state.hexoConfig.page.per_page !== 0;
+  }
+};
 
 
 export class MetaModule implements Module<MetaState, any> {

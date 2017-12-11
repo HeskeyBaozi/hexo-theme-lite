@@ -5,7 +5,7 @@ import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
 
 @Component({
   name: 'bottom-footer',
-  components:{BlurDiv},
+  components: { BlurDiv },
   props: {
     powered: {
       type: String,
