@@ -3,6 +3,10 @@
     "quotemark": [
       true,
       "single"
+    ],
+    "semicolon": [
+      true,
+      "always"
     ]
   }
 }
