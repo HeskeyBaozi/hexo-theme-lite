@@ -5,6 +5,7 @@ import { router } from './router';
 import { store } from './store';
 import Component from 'vue-class-component';
 import axios from 'axios';
+import moment from 'moment';
 
 Component.registerHooks([
   'asyncData'
@@ -20,6 +21,11 @@ axios.interceptors.response.use(res => res, err => {
 });
 
 Vue.config.productionTip = false;
+
+Vue.filter('format', (value: string, format: string) => {
+  if (!value.length) return '';
+  return moment(value).format(format);
+})
 
 const app = new Vue({
   router,
