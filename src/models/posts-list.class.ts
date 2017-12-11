@@ -9,11 +9,10 @@ export class PostsList {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'data') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Item(one)) });
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
-
         }
       }
     }

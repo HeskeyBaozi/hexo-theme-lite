@@ -1,15 +1,15 @@
 import { ActionTree, Module, MutationTree } from 'vuex';
 import { HexoConfig } from '@/models/hexo-config.class';
 import { fetchHexoConfig } from '@/api';
-import { Fetch_Meta, Reload_Meta } from '../types';
+import { Fetch_Meta, Reload_Meta } from '@/store/types';
 
 export class MetaState {
   hexoConfig = new HexoConfig();
 }
 
-const state = {
+const state = (): MetaState => ({
   hexoConfig: new HexoConfig()
-};
+});
 
 
 const actions: ActionTree<MetaState, any> = {

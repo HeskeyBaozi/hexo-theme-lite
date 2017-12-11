@@ -7,6 +7,7 @@ import { MetaState } from '@/store/modules/global';
 import TopNav from '../components/top-nav/TopNav.vue';
 import TopHeader from '../components/top-header/TopHeader.vue';
 import BottomFooter from '../components/bottom-footer/BottomFooter.vue';
+import { HomeModule } from '@/store/modules/home.module';
 
 @Component({
   name: 'app-layout',
@@ -21,10 +22,6 @@ export default class AppLayout extends Vue {
     return (this.$store.state.meta as MetaState).hexoConfig.site;
   }
 
-  asyncData({ store }: AsyncArgs): Promise<void> {
-    return store.dispatch(`meta/${Fetch_Meta}`);
-  }
-
   beforeMount() {
     // setting Title
     document.title = this.site.title || 'Hexo - Lite Theme';
@@ -32,5 +29,9 @@ export default class AppLayout extends Vue {
     // setting Backgound Picture
     const { url, css_size, css_position } = this.theme.background;
     document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
+  }
+
+  asyncData({ store }: AsyncArgs): Promise<void> {
+    return store.dispatch(`meta/${Fetch_Meta}`);
   }
 }
