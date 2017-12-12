@@ -32,7 +32,7 @@ export default class ArchivesPage extends Vue {
   }
 
   async asyncData({ store }: AsyncArgs) {
-    const prePage: number = (store.state as RootState).home.page;
+    const prePage: number = (store.state as RootState).archives.page;
     // avoid double fetch initial data
     if (prePage !== 1) {
       await store.dispatch(`archives/${Fetch_Archives_Posts_List}`, { page: 1 });

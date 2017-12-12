@@ -1,25 +1,25 @@
 <template>
-  <div id="archives-page">
+  <div class="archives-page">
     <h1 class="title">Archives</h1>
     <div class="timeline" v-for="key of timeLines.keys" :key="key">
-      <p class="leading">
-        <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span>{{ key }}</span>
-      </p>
-      <div class="list">
-        <el-row type="flex" class="one-timeline" v-for="one of timeLines.entities[key]" :key="one.slug">
-          <el-col class="one-time" :span="4" :offset="2">{{ one.date | format(format) }}</el-col>
-          <el-col class="one-title" :span="17">
-            <a v-if="one.link && one.link.length" :href="one.link" target="_blank">
-              <span>{{ one.title || 'Untitled' }}</span>
-              <i class="fa fa-link external-link" aria-hidden="true"></i>
-            </a>
-            <router-link v-else :to="{ name: 'post-page', params: { slug: one.slug } }">
-              <span>{{ one.title || 'Untitled' }}</span>
-            </router-link>
+        <el-row :key="'leading-' + key + '-' + page" class="leading">
+          <el-col>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span>{{ key }}</span>
           </el-col>
         </el-row>
-      </div>
+        <el-row type="flex" class="one-timeline" v-for="one of timeLines.entities[key]" :key="'title-' + one.slug">
+            <el-col class="one-time" :span="4" :offset="2">{{ one.date | format(format) }}</el-col>
+            <el-col class="one-title" :span="17">
+              <a v-if="one.link && one.link.length" :href="one.link" target="_blank">
+                <span>{{ one.title || 'Untitled' }}</span>
+                <i class="fa fa-link external-link" aria-hidden="true"></i>
+              </a>
+              <router-link v-else :to="{ name: 'post-page', params: { slug: one.slug } }">
+                <span>{{ one.title || 'Untitled' }}</span>
+              </router-link>
+            </el-col>
+        </el-row>
     </div>
     <el-pagination class="pagination" v-if="shouldPage" small layout="prev, pager, next"
               :total="pagination.total"
@@ -29,27 +29,7 @@
 </template>
 
 <style lang="less" scoped>
-.title {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
-
-.timeline {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.leading {
-  margin-top: 0;
-  > * {
-    margin: 0 0.2rem;
-  }
-}
-
-.list {
+.archives-page {
   a {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     transition: all 200ms;
@@ -58,9 +38,24 @@
     }
   }
 }
+.title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
 
-.one-timeline {
-  margin-bottom: 1rem;
+.timeline {
+  .leading,
+  .one-timeline {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.leading {
+  margin-top: 0;
+  > * {
+    margin: 0 0.2rem;
+  }
 }
 
 .one-time {
@@ -87,6 +82,19 @@
   border-radius: 0.2rem;
   margin-left: 0.2rem;
   margin-right: 0.2rem;
+}
+
+.v-appear-active {
+  transition: all 500ms;
+}
+
+.v-appear {
+  opacity: 0;
+  transform: translateX(-2em);
+}
+
+.v-move {
+  transition: all 500ms;
 }
 </style>
 

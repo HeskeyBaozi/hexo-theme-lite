@@ -8,6 +8,8 @@ import axios from 'axios';
 import moment from 'moment';
 import NProgress from 'nprogress';
 
+
+
 declare module 'vue/types/vue' {
   interface Vue {
     $nprogress: NProgressStatic;
