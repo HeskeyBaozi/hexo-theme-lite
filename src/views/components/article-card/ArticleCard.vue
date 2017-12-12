@@ -92,7 +92,7 @@
 }
 
 .external-link {
-  font-size: 1rem;
+  font-size: .8em;
 }
 
 .description {

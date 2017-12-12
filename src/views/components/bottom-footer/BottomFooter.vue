@@ -1,5 +1,5 @@
 <template>
-  <blur-div :background="background" id="lite-footer">
+  <blur-div :background="background" id="lite-footer" :blur="80">
     <div class="icon-list">
         <a :href="item.url" :key="item.name" target="_blank" v-for="item of socialItems">
           <span v-if="icons.enable">
@@ -25,8 +25,6 @@
   color: white;
   background-color: white;
   text-shadow: 1px 1px 8px #444;
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
   padding: 1rem;
 
   a {

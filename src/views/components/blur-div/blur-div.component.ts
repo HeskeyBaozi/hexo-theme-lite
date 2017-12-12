@@ -21,7 +21,7 @@ export default Vue.extend({
         position: 'relative',
         zIndex: '1',
         // backgroundColor: 'rgba(255, 255, 255, 0)',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         height: '100%',
         width: '100%'
       }

@@ -7,6 +7,6 @@ export abstract class AsyncDataComponent extends Vue {
 }
 
 export interface AsyncArgs {
-  store: Store<{ [ key: string ]: object }>;
+  store: Store<any>;
   route: Route;
 }
