@@ -17,8 +17,6 @@ router.onReady(async () => {
       return next();
     }
 
-    console.log(activated);
-
     try {
       app.$nprogress.start();
       const hooks = activated.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _);

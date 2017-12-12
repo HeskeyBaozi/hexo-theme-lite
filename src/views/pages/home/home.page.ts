@@ -45,7 +45,6 @@ export default class HomePage extends Vue {
 
   async asyncData({ store }: AsyncArgs) {
     const prePage: number = (store.state.home as HomeState).page;
-    console.log('prePage = ', prePage);
     // avoid double fetch initial data
     if (prePage !== 1) {
       await store.dispatch(`home/${Fetch_Home_Posts_List}`, { page: 1 });

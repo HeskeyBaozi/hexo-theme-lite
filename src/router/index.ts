@@ -41,7 +41,7 @@ export const router = new Router({
           component: () => import('@/views/pages/article/ArticlePage.vue')
         },
         {
-          path: 'pages/:slug',
+          path: '*',
           name: 'implicit-post-page',
           component: () => import('@/views/pages/article/ArticlePage.vue')
         }
