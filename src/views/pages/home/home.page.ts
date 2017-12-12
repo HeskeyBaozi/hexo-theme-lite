@@ -7,11 +7,20 @@ import { HomeState } from '@/store/modules/home.module';
 import { Post } from '@/models/posts-list.class';
 import { MetaState } from '@/store/modules/global';
 
+class Modal {
+  isShown = false;
+  url = '';
+  post: Post = new Post();
+}
+
 @Component({
   name: 'home-page',
   components: { ArticleCard }
 })
 export default class HomePage extends Vue {
+
+  modal: Modal = new Modal();
+
   get posts(): Post[] {
     return (this.$store.state.home as HomeState).postsList.data;
   }
@@ -38,5 +47,11 @@ export default class HomePage extends Vue {
 
   async onPage({ page }: { page: number }) {
     await this.$store.dispatch(`home/${Fetch_Home_Posts_List}`, { page });
+  }
+
+  showPhotoDetail({ url, post }: { url: string, post: Post }) {
+    this.modal.post = post;
+    this.modal.url = url;
+    this.modal.isShown = true;
   }
 }

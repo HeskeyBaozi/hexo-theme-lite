@@ -47,7 +47,6 @@
 }
 
 .title {
-  text-decoration: none;
   font-size: 1.3em;
 }
 </style>

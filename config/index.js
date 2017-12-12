@@ -15,6 +15,11 @@ module.exports = {
         "target": "http://localhost:3000/api",
         "changeOrigin": true,
         "pathRewrite": { "^/api": "" }
+      },
+      "/assets": {
+        "target": "http://localhost:3000/assets",
+        "changeOrigin": true,
+        "pathRewrite": { "^/assets": "" }
       }
     },
 
