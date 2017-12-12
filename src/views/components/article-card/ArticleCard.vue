@@ -8,7 +8,7 @@
           <i class="fa fa-link external-link" aria-hidden="true"></i>
         </a>
         <router-link v-else :to="{ name: 'post-page', params: { slug: post.slug } }">
-          {{ post.title || 'Untitled' }}
+          <span>{{ post.title || 'Untitled' }}</span>
         </router-link>
       </h1>
 
@@ -16,7 +16,10 @@
       <p class="meta">
         <span class="create-time">{{ post.date | format(format)}}</span>
         <!-- todo: to one category -->
-        <router-link v-if="lastCategory.length">{{ lastCategory }}</router-link>
+        <i v-if="lastCategory.length" class="fa fa-bookmark" aria-hidden="true"></i>
+        <router-link v-if="lastCategory.length" :to="{ name: 'categories-page', query: { name: lastCategory } }">
+          <span>{{ lastCategory }}</span>
+        </router-link>
       </p>
 
       <!-- photos -->
@@ -42,10 +45,10 @@
 
       <!-- tags -->
       <div class="tags" v-if="post.tags && post.tags.length">
-        <i class="fa fa-slack" aria-hidden="true"></i>
+        <i class="fa fa-hashtag" aria-hidden="true"></i>
         <!-- todo: to one tag -->
-        <router-link v-for="tag of post.tags" :key="tag.path">
-          {{ tag.name }}
+        <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'tags-page', query: { name: tag.name } }">
+          <span>{{ tag.name }}</span>
         </router-link>
       </div>
 
@@ -53,7 +56,6 @@
       <el-button size="mini" type="primary" @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
         More
       </el-button>
-
   </div>
 </template>
 
@@ -63,10 +65,38 @@
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid lighten(#5c5c5c, 50%);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  > * {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  font-size: 0.9rem;
 }
 
 .external-link {
-  font-size: 0.7em;
+  font-size: 1rem;
+}
+
+.description {
+  line-height: 1.5;
 }
 
 .cover,
@@ -86,6 +116,35 @@
     > img {
       max-width: 100%;
     }
+  }
+}
+
+.tags {
+  > * {
+    margin-right: 0.5rem;
+  }
+}
+
+.meta,
+.tags,
+.title {
+  a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    transition: all 200ms;
+    &:hover {
+      border-bottom-color: #5c5c5c;
+    }
+  }
+}
+
+.meta,
+.tags {
+  color: #5c5c5c;
+}
+
+.title {
+  a {
+    border-bottom-width: 2px;
   }
 }
 </style>

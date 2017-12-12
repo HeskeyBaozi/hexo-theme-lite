@@ -16,6 +16,10 @@ html {
     "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 a {
   color: #5c5c5c;
   text-decoration: none;

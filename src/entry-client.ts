@@ -1,4 +1,4 @@
-import NProgress from 'nprogress';
+
 import { app, store, router } from './main';
 
 // todo: Vue mixin Route Update
@@ -17,10 +17,13 @@ router.onReady(async () => {
       return next();
     }
 
+    console.log(activated);
+
     try {
-      NProgress.start();
-      await Promise.all(activated.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _));
-      NProgress.done();
+      app.$nprogress.start();
+      const hooks = activated.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _);
+      await Promise.all(hooks.map(hook => hook({ store, route: to })));
+      app.$nprogress.done();
       next();
     } catch (error) {
       next(error);

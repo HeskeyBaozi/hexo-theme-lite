@@ -44,6 +44,7 @@
   right: 0;
   height: 40px;
   background-color: white;
+  z-index: 1000;
 }
 
 .blur {
