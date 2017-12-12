@@ -6,11 +6,7 @@
     </header>
 
     <section class="app-body container">
-      <transition>
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </transition>
+      <router-view></router-view>
     </section>
 
     <footer class="app-footer">

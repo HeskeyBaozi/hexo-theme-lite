@@ -15,7 +15,7 @@
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item v-for="item of navItems" :key="item.name" :command="item.path">
                   <span class="dropdown-item-icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
-                  <span>{{item.name}}</span>
+                  <span>{{ item.name }}</span>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -25,7 +25,7 @@
             <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="routeTo">
               <el-menu-item v-for="item of navItems" :key="item.name" :index="item.path">
                 <span class="item-icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
-                <span>{{item.name}}</span>
+                <span>{{ item.name }}</span>
               </el-menu-item>
             </el-menu>
           </el-col>
