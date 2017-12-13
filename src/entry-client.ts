@@ -1,4 +1,4 @@
-
+import Vue from 'vue';
 import { app, store, router } from './main';
 declare const window: Window;
 
@@ -6,6 +6,7 @@ declare const window: Window;
 
 router.onReady(async () => {
   router.beforeResolve(async (to, from, next) => {
+
     const matched = router.getMatchedComponents(to);
     const prevMatched = router.getMatchedComponents(from);
 

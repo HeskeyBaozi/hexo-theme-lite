@@ -19,7 +19,7 @@ export async function fetchPostsListByTag(tagName: string) {
   return axios.get<SpecificPostsList>(`/api/tags/${tagName}.json`);
 }
 
-// GET /api/categories/:CategoriesName.json
+// GET /api/categories/:slug.json
 export async function fetchPostsListByCategory(categoryName: string) {
   return axios.get<SpecificPostsList>(`/api/categories/${categoryName}.json`);
 }

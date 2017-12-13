@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Post } from '@/models/posts-list.class';
+import { CreateElement } from 'vue/types/vue';
 
 
 @Component({
@@ -13,6 +14,10 @@ import { Post } from '@/models/posts-list.class';
     post: {
       required: true,
       validator: obj => obj instanceof Post
+    },
+    showPhotos: {
+      required: true,
+      type: Boolean
     }
   }
 })

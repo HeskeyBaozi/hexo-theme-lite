@@ -5,23 +5,60 @@ import { Fetch_Categories, Fetch_Related_Posts_Of_Category, Categories_Tree } fr
 import { RootState } from '@/store';
 import { CategoryTree } from '@/store/modules/categories.module';
 import ResizeSensor from '@/views/components/resize-sensor/ResizeSensor.vue';
+import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
+import { Post } from '@/models/posts-list.class';
 
 
 @Component({
   name: 'categories-page',
-  components: { ResizeSensor },
+  components: { ResizeSensor, ArticleCard },
   watch: {
     searchValue(val) {
       (this.$refs.tree as any).filter(val);
+    },
+    $route(route) {
+      if (!route.query.slug) {
+        this.$data.currentTab = 'categories';
+        this.$data.relatedDisabled = true;
+
+      }
+    }
+  },
+  async beforeRouteUpdate(to, from, next) {
+    const { asyncData }: any = this.$options;
+    if (asyncData) {
+      this.$nprogress.start();
+      await asyncData({ store: this.$store, route: to });
+      this.$nprogress.done();
+      next();
+      this.$data.relatedDisabled = false;
+      this.$data.currentTab = 'related-posts';
+    } else {
+      next();
     }
   }
 })
 export default class CategoriesPage extends Vue {
-  searchValue: string = '';
-  tabPosition: string = 'left';
+  searchValue = '';
+  searchPostValue = '';
+  tabPosition = 'left';
+  currentTab = 'categories';
+  relatedDisabled = true;
 
   get categoriesTree(): CategoryTree[] {
     return this.$store.getters[ `categories/${Categories_Tree}` ];
+  }
+
+  get oneCategoryPosts(): Post[] {
+    return (this.$store.state as RootState).categories.oneCategoryPosts.postlist;
+  }
+
+  get displayPosts(): Post[] {
+    return this.oneCategoryPosts.filter(post => post.title.indexOf(this.$data.searchPostValue) !== -1);
+  }
+
+  get format(): string {
+    return (this.$store.state as RootState).meta.hexoConfig.dateTimeFormat.date_format;
   }
 
   get treeProps() {
@@ -31,12 +68,17 @@ export default class CategoriesPage extends Vue {
     };
   }
 
-  async asyncData({ store }: AsyncArgs) {
+  async asyncData({ store, route }: AsyncArgs) {
+    console.log('async Cate');
     await store.dispatch(`categories/${Fetch_Categories}`);
+    if (route.query.slug) {
+      await store.dispatch(`categories/${Fetch_Related_Posts_Of_Category}`, { slug: route.query.slug });
+    }
   }
 
-  async nodeClick(data: CategoryTree) {
-    console.log(data);
+  nodeClick(data: CategoryTree) {
+    this.searchPostValue = '';
+    this.$router.push({ name: 'categories-page', query: { slug: data.slug } });
   }
 
   filter(search: string, data: CategoryTree) {
@@ -52,12 +94,7 @@ export default class CategoriesPage extends Vue {
     const after = name.substr(index + searchValue.length);
     const content = index !== -1 ? [
       before,
-      h('span', {
-        style: {
-          fontWeight: 'bold',
-          textDecoration: 'underline'
-        }
-      }, [ searchValue ]),
+      h('span', { style: { fontWeight: 'bolder', fontSize: '1.1em' } }, [ searchValue ]),
       after
     ] : [ name ];
     return h('span', {}, content);

@@ -21,8 +21,8 @@ const actions: ActionTree<CategoriesState, RootState> = {
     const { data } = await fetchAllCategories();
     commit(Set_Categories, { data });
   },
-  async [ Fetch_Related_Posts_Of_Category ]({ commit }, { name }: { name: string }) {
-    const { data } = await fetchPostsListByCategory(name);
+  async [ Fetch_Related_Posts_Of_Category ]({ commit }, { slug }: { slug: string }) {
+    const { data } = await fetchPostsListByCategory(slug);
     commit(Set_Related_Posts_Of_Category, { data });
   }
 };

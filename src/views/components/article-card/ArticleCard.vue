@@ -19,7 +19,7 @@
       </p>
 
       <!-- photos -->
-      <div class="photos" v-if="post.photos && post.photos.length">
+      <div class="photos" v-if="post.photos && post.photos.length && showPhotos">
         <el-carousel arrow="always">
           <el-carousel-item v-for="url of post.photos" :key="url">
             <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: url, post: post })">
@@ -30,7 +30,7 @@
       </div>
 
       <!-- cover -->
-      <div class="cover" v-else-if="post.cover">
+      <div class="cover" v-else-if="post.cover && showPhotos">
         <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
             <img :src="post.cover" :alt="post.cover" />
         </div>

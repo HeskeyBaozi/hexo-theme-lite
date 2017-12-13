@@ -5,6 +5,7 @@
                   :key="post.slug"
                   :format="format"
                   :post="post"
+                  :showPhotos="true"
                   @photo-zoom-in="showPhotoDetail"></article-card>
     </div>
     <el-pagination class="pagination" v-if="shouldPage" small layout="prev, pager, next"
