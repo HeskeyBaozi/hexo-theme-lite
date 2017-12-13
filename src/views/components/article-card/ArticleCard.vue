@@ -16,10 +16,6 @@
       <p class="meta">
         <span class="create-time">{{ post.date | format(format)}}</span>
         <!-- todo: to one category -->
-        <i v-if="lastCategory.length" class="fa fa-bookmark" aria-hidden="true"></i>
-        <router-link v-if="lastCategory.length" :to="{ name: 'categories-page', query: { name: lastCategory } }">
-          <span>{{ lastCategory }}</span>
-        </router-link>
       </p>
 
       <!-- photos -->
@@ -43,13 +39,22 @@
       <!-- description -->
       <p class="description">{{ postDescription }}</p>
 
-      <!-- tags -->
-      <div class="tags" v-if="post.tags && post.tags.length">
-        <i class="fa fa-hashtag" aria-hidden="true"></i>
-        <!-- todo: to one tag -->
-        <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'tags-page', query: { name: tag.name } }">
-          <span>{{ tag.name }}</span>
-        </router-link>
+      <div class="categories-and-tags">
+        <div v-if="lastCategory.length" class="categories">
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+          <router-link :to="{ name: 'categories-page', query: { slug: lastCategory } }">
+            <span>{{ lastCategory }}</span>
+          </router-link>
+        </div>
+
+        <!-- tags -->
+        <div class="tags" v-if="post.tags && post.tags.length">
+          <i class="fa fa-hashtag" aria-hidden="true"></i>
+          <!-- todo: to one tag -->
+          <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'tags-page', query: { name: tag.name } }">
+            <span>{{ tag.name }}</span>
+          </router-link>
+        </div>
       </div>
 
       <!-- read more -->
@@ -92,7 +97,7 @@
 }
 
 .external-link {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .description {
@@ -119,15 +124,15 @@
   }
 }
 
-.tags {
+.tags,
+.categories {
   > * {
     margin-right: 0.5rem;
   }
 }
 
 .meta,
-.tags,
-.title {
+.categories-and-tags {
   a {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     transition: all 200ms;
@@ -138,13 +143,24 @@
 }
 
 .meta,
-.tags {
+.categories-and-tags {
   color: #5c5c5c;
 }
 
 .title {
   a {
     border-bottom-width: 2px;
+  }
+}
+
+.categories-and-tags {
+  font-size: 0.9rem;
+  display: flex;
+  > * {
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 </style>

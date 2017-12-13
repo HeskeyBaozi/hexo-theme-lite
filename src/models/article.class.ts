@@ -1,5 +1,4 @@
-import { Item } from './posts-list.class';
-
+import { Category, Tag } from '@/models/posts-list.class';
 
 export class Article {
   title = '';
@@ -14,19 +13,22 @@ export class Article {
   covers: string[] | null = null;
   content = '';
 
-  categories: Item[] = [];
-  tags: Item[] = [];
+  categories: Category[] = [];
+  tags: Tag[] = [];
 
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          if (key === 'categories' || key === 'tags') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Item(one)) });
+          if (key === 'categories') {
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Category(one)) });
+          } else if (key === 'tags') {
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Tag(one)) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
+
         }
       }
     }
@@ -45,7 +47,7 @@ export class Page {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }

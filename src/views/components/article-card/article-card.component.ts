@@ -25,7 +25,7 @@ export default class ArticleCard extends Vue {
     if (!len) {
       return '';
     } else {
-      return this.post.categories[ len - 1 ].name;
+      return this.post.categories[ len - 1 ].slug;
     }
   }
 

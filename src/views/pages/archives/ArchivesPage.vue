@@ -1,16 +1,13 @@
 <template>
   <div class="archives-page">
-    <h1 class="title">Archives</h1>
     <div class="timeline" v-for="key of timeLines.keys" :key="key">
-        <el-row :key="'leading-' + key + '-' + page" class="leading">
-          <el-col>
+        <div class="leading">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             <span>{{ key }}</span>
-          </el-col>
-        </el-row>
+        </div>
         <el-row type="flex" class="one-timeline" v-for="one of timeLines.entities[key]" :key="'title-' + one.slug">
             <el-col class="one-time" :span="4" :offset="2">{{ one.date | format(format) }}</el-col>
-            <el-col class="one-title" :span="17">
+            <el-col class="one-title" :span="18">
               <a v-if="one.link && one.link.length" :href="one.link" target="_blank">
                 <span>{{ one.title || 'Untitled' }}</span>
                 <i class="fa fa-link external-link" aria-hidden="true"></i>
@@ -30,6 +27,7 @@
 
 <style lang="less" scoped>
 .archives-page {
+  padding-top: 2rem;
   a {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     transition: all 200ms;
@@ -37,41 +35,39 @@
       border-bottom-color: #5c5c5c;
     }
   }
-}
-.title {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
 
-.timeline {
-  .leading,
-  .one-timeline {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  .timeline {
+    .leading,
+    .one-timeline {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .leading {
+      text-align: center;
+      margin-top: 0;
+      > * {
+        margin: 0 0.2rem;
+      }
+    }
+
+    .one-timeline {
+      .one-time {
+        text-align: center;
+      }
+
+      .one-title {
+        word-break: keep-all;
+        .external-link {
+          font-size: 0.8em;
+        }
+      }
+    }
   }
-}
 
-.leading {
-  margin-top: 0;
-  > * {
-    margin: 0 0.2rem;
+  .pagination {
+    text-align: center;
   }
-}
-
-.one-time {
-  text-align: center;
-}
-
-.one-title {
-  word-break: keep-all;
-}
-
-.external-link {
-  font-size: 0.8em;
-}
-
-.pagination {
-  text-align: center;
 }
 </style>
 

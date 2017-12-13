@@ -28,7 +28,7 @@ export class SpecificPostsList {
       for (const key of Object.getOwnPropertyNames(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'postlist') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Item(one)) });
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
@@ -56,15 +56,17 @@ export class Post {
   link = '';
   raw: string | null = null;
   photos: string[] = [];
-  categories: Item[] = [];
-  tags: Item[] = [];
+  categories: Category[] = [];
+  tags: Tag[] = [];
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          if (key === 'categories' || key === 'tags') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Item(one)) });
+          if (key === 'categories') {
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Category(one)) });
+          } else if (key === 'tags') {
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Tag(one)) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
@@ -75,43 +77,39 @@ export class Post {
   }
 }
 
-export class Item {
+
+export class Category {
   name = '';
+  slug = '';
   path = '';
+  count = 0;
+  parent = '';
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
+      }
+
+      if (!(raw instanceof Category)) {
+        const splitted = this.slug.split('/');
+        this.parent = this.slug.split('/').filter((v, i, a) => i !== a.length - 1).join('/');
       }
     }
   }
 }
 
-export class Category extends Item {
+export class Tag {
+  name = '';
+  slug = '';
+  path = '';
   count = 0;
 
   constructor(raw?: any) {
-    super(raw);
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
-        if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [ key ]: raw[ key ] });
-        }
-      }
-    }
-  }
-}
-
-export class Tag extends Item {
-  count = 0;
-
-  constructor(raw?: any) {
-    super(raw);
-    if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }

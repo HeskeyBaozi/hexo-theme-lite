@@ -12,7 +12,7 @@
     </div>
     <p v-if="powered.length" class="powered-by">{{ powered }}</p>
     <router-link class="title" :to="{ path: '/home' }">{{ site.title }}</router-link>
-    <p>{{ site.subtitle }}</p>
+    <p class="subtitle">{{ site.subtitle }}</p>
   </blur-div>
 </template>
 
@@ -25,7 +25,15 @@
   color: white;
   background-color: white;
   text-shadow: 1px 1px 8px #444;
-  padding: 1rem;
+  padding: 1rem 0 .5rem 0;
+
+  > * {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 
   a {
     color: white;
@@ -36,7 +44,7 @@
 .icon-list {
   display: flex;
   > a {
-    margin: 0 0.2rem;
+    margin: 0 0.5rem;
   }
 }
 

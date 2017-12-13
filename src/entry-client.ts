@@ -1,5 +1,6 @@
 
 import { app, store, router } from './main';
+declare const window: Window;
 
 // todo: Vue mixin Route Update
 
@@ -21,6 +22,9 @@ router.onReady(async () => {
       app.$nprogress.start();
       const hooks = activated.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _);
       await Promise.all(hooks.map(hook => hook({ store, route: to })));
+      if (window) {
+        window.scrollTo(0, 0);
+      }
       app.$nprogress.done();
       next();
     } catch (error) {
