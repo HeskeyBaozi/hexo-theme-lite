@@ -4,9 +4,12 @@ import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Categories, Fetch_Related_Posts_Of_Category, Categories_Tree } from '@/store/types';
 import { RootState } from '@/store';
 import { CategoryTree } from '@/store/modules/categories.module';
+import ResizeSensor from '@/views/components/resize-sensor/ResizeSensor.vue';
+
 
 @Component({
   name: 'categories-page',
+  components: { ResizeSensor },
   watch: {
     searchValue(val) {
       (this.$refs.tree as any).filter(val);
@@ -15,6 +18,7 @@ import { CategoryTree } from '@/store/modules/categories.module';
 })
 export default class CategoriesPage extends Vue {
   searchValue: string = '';
+  tabPosition: string = 'left';
 
   get categoriesTree(): CategoryTree[] {
     return this.$store.getters[ `categories/${Categories_Tree}` ];
@@ -57,5 +61,9 @@ export default class CategoriesPage extends Vue {
       after
     ] : [ name ];
     return h('span', {}, content);
+  }
+
+  resize({ width, height }: { width: number, height: number }) {
+    this.$data.tabPosition = width < 768 ? 'top' : 'left';
   }
 }

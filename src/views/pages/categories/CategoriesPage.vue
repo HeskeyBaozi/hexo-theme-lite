@@ -1,6 +1,6 @@
 <template>
   <div class="categories-page">
-    <el-tabs tab-position="left" :value="$route.query.name ? 'related-posts' : 'categories'">
+    <el-tabs :tab-position="tabPosition" :value="$route.query.name ? 'related-posts' : 'categories'" ref="tab">
       <el-tab-pane name="categories" label="Categories">
         <div class="mb tab">
           <el-input v-model="searchValue" class="search" placeholder="Search Categories...">
@@ -15,12 +15,12 @@
 
       </el-tab-pane>
     </el-tabs>
+    <resize-sensor :initial="true" @resize="resize"></resize-sensor>
   </div>
 </template>
 
 <style lang="less" scoped>
 .categories-page {
-  padding-top: 2rem;
   margin-bottom: 2rem;
 
   .suffix {
@@ -40,10 +40,10 @@
   }
 
   .tab {
-    padding-left: 0.5rem;
   }
 }
 </style>
+
 
 <script lang="ts" src="./categories.page.ts"></script>
 
