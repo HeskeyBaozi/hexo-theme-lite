@@ -36,6 +36,11 @@ export const router = new Router({
           component: () => import('@/views/pages/tags/TagsPage.vue')
         },
         {
+          path: 'related/:type/:slug',
+          name: 'related-posts-page',
+          component: () => import('@/views/pages/related-posts/RelatedPosts.vue')
+        },
+        {
           path: 'posts/:slug',
           name: 'post-page',
           component: () => import('@/views/pages/article/ArticlePage.vue')

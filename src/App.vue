@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style src="normalize.css"></style>
+
 <style src="@/styles/theme/index.css"></style>
 <style src="@/styles/nprogress.css"></style>
 <style src="font-awesome/css/font-awesome.min.css"></style>
@@ -13,7 +13,14 @@
 <style lang="less">
 html {
   font-family: "Proxima Nova Rg", "Helvetica Neue", Helvetica, "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 body {
@@ -30,4 +37,4 @@ a {
   }
 }
 </style>
-
+<style src="normalize.css"></style>

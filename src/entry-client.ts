@@ -2,8 +2,6 @@ import Vue from 'vue';
 import { app, store, router } from './main';
 declare const window: Window;
 
-// todo: Vue mixin Route Update
-
 router.onReady(async () => {
   router.beforeResolve(async (to, from, next) => {
 

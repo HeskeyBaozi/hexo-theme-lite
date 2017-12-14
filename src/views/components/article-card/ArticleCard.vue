@@ -42,7 +42,7 @@
       <div class="categories-and-tags">
         <div v-if="lastCategory.length" class="categories">
           <i class="fa fa-bookmark" aria-hidden="true"></i>
-          <router-link :to="{ name: 'categories-page', query: { slug: lastCategory } }">
+          <router-link :to="{ name: 'related-posts-page', params: { type: 'category', slug: lastCategory } }">
             <span>{{ lastCategory }}</span>
           </router-link>
         </div>
@@ -50,8 +50,7 @@
         <!-- tags -->
         <div class="tags" v-if="post.tags && post.tags.length">
           <i class="fa fa-hashtag" aria-hidden="true"></i>
-          <!-- todo: to one tag -->
-          <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'tags-page', query: { name: tag.name } }">
+          <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'related-posts-page', params: { type: 'tag', slug: tag.name }}">
             <span>{{ tag.name }}</span>
           </router-link>
         </div>

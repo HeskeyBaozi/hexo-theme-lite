@@ -5,13 +5,10 @@ import { Fetch_Home_Posts_List, Should_Pagination } from '@/store/types';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
 import { Post } from '@/models/posts-list.class';
 import { RootState } from '@/store';
+import { Modal } from '@/models/modal.class';
 declare const window: Window;
 
-class Modal {
-  isShown = false;
-  url = '';
-  post: Post = new Post();
-}
+
 
 @Component({
   name: 'home-page',
@@ -60,8 +57,8 @@ export default class HomePage extends Vue {
   }
 
   showPhotoDetail({ url, post }: { url: string, post: Post }) {
-    this.modal.post = post;
-    this.modal.url = url;
-    this.modal.isShown = true;
+    this.$data.modal.post = post;
+    this.$data.modal.url = url;
+    this.$data.modal.isShown = true;
   }
 }
