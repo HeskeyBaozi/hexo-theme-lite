@@ -4,12 +4,14 @@ import { MetaModule, MetaState } from '@/store/modules/global';
 import { HomeModule, HomeState } from '@/store/modules/home.module';
 import { ArchivesState, ArchivesModule } from '@/store/modules/archives.module';
 import { CategoriesState, CategoriesModule } from '@/store/modules/categories.module';
+import { TagsState, TagsModule } from '@/store/modules/tag.module';
 
 export class RootState {
   meta = new MetaState();
   home = new HomeState();
   archives = new ArchivesState();
   categories = new CategoriesState();
+  tags = new TagsState();
 }
 
 
@@ -19,6 +21,7 @@ export const store: Store<RootState> = new Vuex.Store<RootState>({
     meta: new MetaModule(),
     home: new HomeModule(),
     archives: new ArchivesModule(),
-    categories: new CategoriesModule()
+    categories: new CategoriesModule(),
+    tags: new TagsModule()
   }
 });

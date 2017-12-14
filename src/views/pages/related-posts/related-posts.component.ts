@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
-import { Fetch_Related_Posts_Of_Category } from '@/store/types';
+import { Fetch_Related_Posts_Of_Category, Fetch_Related_Posts_Of_Tag } from '@/store/types';
 import { RootState } from '@/store';
 import { Modal } from '@/models/modal.class';
 import { Post } from '@/models/posts-list.class';
@@ -40,7 +40,7 @@ export default class RelatedPosts extends Vue {
     if (type === 'category') {
       return rootState.categories.oneCategoryPosts.postlist;
     } else if (type === 'tag') {
-      return [];
+      return rootState.tags.oneTagPosts.postlist;
     }
     return [];
   }
@@ -55,7 +55,7 @@ export default class RelatedPosts extends Vue {
     if (type === 'category') {
       await store.dispatch(`categories/${Fetch_Related_Posts_Of_Category}`, { slug });
     } else if (type === 'tag') {
-      // fetch related posts of tag
+      await store.dispatch(`tags/${Fetch_Related_Posts_Of_Tag}`, { slug });
     }
   }
 

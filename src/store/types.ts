@@ -18,3 +18,9 @@ export const Set_Categories = 'Set_Categories';
 export const Fetch_Related_Posts_Of_Category = 'Fetch_Related_Posts_Of_Category';
 export const Set_Related_Posts_Of_Category = 'Set_Related_Posts_Of_Category';
 export const Categories_Tree = 'Categories_Tree';
+
+// tags
+export const Fetch_Tags = 'Fetch_Tags';
+export const Set_Tags = 'Set_Tags';
+export const Fetch_Related_Posts_Of_Tag = 'Fetch_Related_Posts_Of_Tag';
+export const Set_Related_Posts_Of_Tag = 'Set_Related_Posts_Of_Tag';

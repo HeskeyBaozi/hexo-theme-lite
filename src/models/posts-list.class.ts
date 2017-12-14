@@ -6,7 +6,7 @@ export class PostsList {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'data') {
             Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });
@@ -25,7 +25,7 @@ export class SpecificPostsList {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'postlist') {
             Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });

@@ -10,12 +10,15 @@
               </div>
             </el-button>
           </div>
-          <div class="suffix" slot="suffix">
+          <div class="fix" slot="suffix">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
         </el-input>
     </div>
-    <p class="search-result" v-if="search.length"><i class="fa fa-check" aria-hidden="true"></i> <span>{{ displayPosts.length}} post{{ displayPosts.length >= 2 ? 's' : '' }} searched in total.</span></p>
+    <p class="search-result">
+      <i :class="`fa ${search.length ? 'fa-check' : 'fa-smile-o' }`" aria-hidden="true"></i>
+      <span>{{ displayPosts.length}} post{{ displayPosts.length >= 2 ? 's' : '' }} {{ search.length ? 'searched' : '' }} in total.</span>
+    </p>
     <el-dialog :visible.sync="modal.isShown" width="min-content">
       <img class="modal-picture" :src="modal.url" :alt="modal.url" @click="modal.isShown = false" />
     </el-dialog>
@@ -50,12 +53,17 @@
 
   .search-result {
     text-align: center;
+    > * {
+      margin: 0 0.2rem;
+    }
   }
 
-  .suffix {
+  .fix {
     height: 100%;
+    width: 1.5rem;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   > * {

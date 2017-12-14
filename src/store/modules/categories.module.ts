@@ -4,8 +4,6 @@ import { RootState } from '@/store';
 import { Fetch_Categories, Set_Categories, Fetch_Related_Posts_Of_Category, Set_Related_Posts_Of_Category, Categories_Tree } from '@/store/types';
 import { fetchAllCategories, fetchPostsListByCategory } from '@/api';
 
-
-
 export class CategoriesState {
   categories: Category[] = [];
   oneCategoryPosts: SpecificPostsList = new SpecificPostsList();
@@ -21,7 +19,7 @@ const actions: ActionTree<CategoriesState, RootState> = {
     const { data } = await fetchAllCategories();
     commit(Set_Categories, { data });
   },
-  async [ Fetch_Related_Posts_Of_Category ]({ commit }, { slug }: { slug: string }) {
+  async [ Fetch_Related_Posts_Of_Category ]({ commit }, { slug }) {
     const { data } = await fetchPostsListByCategory(slug);
     commit(Set_Related_Posts_Of_Category, { data });
   }
