@@ -14,12 +14,12 @@ module.exports = {
       "/api": {
         "target": "http://localhost:3000/api",
         "changeOrigin": true,
-        "pathRewrite": { "^/api": "" }
+        "pathRewrite": {"^/api": ""}
       },
       "/assets": {
         "target": "http://localhost:3000/assets",
         "changeOrigin": true,
-        "pathRewrite": { "^/assets": "" }
+        "pathRewrite": {"^/assets": ""}
       }
     },
 
@@ -61,11 +61,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/layout/index.html'),
+    index: path.resolve(__dirname, '../dist/lite/layout/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist/source'),
+    assetsRoot: path.resolve(__dirname, '../dist/lite/source'),
     assetsSubDirectory: 'static',
+    assetsTheme: path.resolve(__dirname, '../dist/lite'),
     assetsPublicPath: '/',
 
     /**

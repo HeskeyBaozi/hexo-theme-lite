@@ -108,17 +108,15 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
 
     // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.build.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ])
     new CopyWebpackPlugin([
       {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(config.build.assetsRoot, './static'),
+        ignore: ['.*']
+      },
+      {
         from: path.resolve(__dirname, '../hexo-theme-gen'),
-        to: config.build.assetsSubDirectory,
+        to: config.build.assetsTheme,
         ignore: ['.*']
       }
     ]),
