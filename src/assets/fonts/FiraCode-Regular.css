@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Fira Code";
+    src: url("FiraCode-Regular.eot"); /* IE9 */
+    src: url("FiraCode-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("FiraCode-Regular.woff") format("woff"), /* chrome, firefox */
+    url("FiraCode-Regular.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("FiraCode-Regular.svg#Fira Code") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

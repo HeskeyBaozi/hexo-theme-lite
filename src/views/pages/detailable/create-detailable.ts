@@ -1,5 +1,3 @@
-import Vue from 'vue';
-import Component from 'vue-class-component';
 import DetailablePage from '@/views/components/detailable-page/DetailablePage.vue';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Detailable_Target } from '@/store/types';
@@ -19,7 +17,6 @@ export function createDetailablePage(isImplicit: boolean) {
       })
     },
     async asyncData({ store, route }: AsyncArgs) {
-      console.log('post');
       const sourceOrSlug = isImplicit ? route.path.replace(/^\/pages\/?/, '') : route.params.slug;
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit, sourceOrSlug });
     },
