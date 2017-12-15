@@ -1,5 +1,5 @@
-import Vue from 'vue';
 import { app, store, router } from './main';
+import { Fetch_Meta } from '@/store/types';
 
 declare const window: Window;
 
@@ -31,12 +31,13 @@ router.onReady(async () => {
     }
   });
 
+  // base global meta
+  await store.dispatch(`meta/${Fetch_Meta}`);
+
   // Fetch initial state
   const initMatched = router.getMatchedComponents(router.currentRoute);
   const asyncDataHooks = initMatched.map((c: any) => c.asyncData || c.options && c.options.asyncData).filter(_ => _);
-  for (const hook of asyncDataHooks) {
-    await hook({ store, route: router.currentRoute }); // fetch data in order. Root -> Components
-  }
+  await Promise.all(asyncDataHooks.map(hook => hook({ store, route: router.currentRoute })));
 
   // Start!
   app.$mount('#app');

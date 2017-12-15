@@ -4,10 +4,9 @@ import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
 import { Theme, Site } from '@/models/hexo-config.class';
 import { MetaState } from '@/store/modules/global';
-import TopNav from '../components/top-nav/TopNav.vue';
-import TopHeader from '../components/top-header/TopHeader.vue';
-import BottomFooter from '../components/bottom-footer/BottomFooter.vue';
-import { HomeModule } from '@/store/modules/home.module';
+import TopNav from '@/views/components/top-nav/TopNav.vue';
+import TopHeader from '@/views/components/top-header/TopHeader.vue';
+import BottomFooter from '@/views/components/bottom-footer/BottomFooter.vue';
 import { RootState } from '@/store';
 import { Fetch_Detailable_Target } from '@/store/types';
 

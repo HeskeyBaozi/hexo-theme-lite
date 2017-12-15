@@ -1,12 +1,12 @@
 import Vue from 'vue';
-import App from './App.vue';
+import AppLayout from '@/layout/AppLayout.vue';
 import ElementUI from 'element-ui';
 import { router } from './router';
 import { store } from './store';
 import Component from 'vue-class-component';
-import axios from 'axios';
 import moment from 'moment';
 import NProgress from 'nprogress';
+import '@/styles/import-style';
 
 
 
@@ -34,7 +34,7 @@ Vue.filter('format', (value: string, format: string) => {
 const app = new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(AppLayout)
 });
 
 export { app, router, store };

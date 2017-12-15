@@ -1,5 +1,5 @@
 <template>
-  <div class="app-layout">
+  <div id="app">
     <top-nav :background="theme.background" :menu="theme.menu" :icons="theme.menu_icons"></top-nav>
     <header class="app-header container">
       <top-header :avatar="theme.avatar" :background="theme.background" :site="site"></top-header>
@@ -20,7 +20,7 @@
 
 <style lang="less" src="@/styles/helpers.less"></style>
 <style lang="less" scoped>
-.app-layout {
+#app {
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
