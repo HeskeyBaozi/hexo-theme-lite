@@ -1,14 +1,12 @@
-import Vue from 'vue';
-
 declare const window: Window;
 
-export default Vue.extend({
+export default {
   name: 'end-of-file',
   methods: {
-    scrollTop() {
+    scroll() {
       if (window) {
         window.scrollTo(0, 0);
       }
     }
   }
-})
+};
