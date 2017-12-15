@@ -1,8 +1,20 @@
-import { Category, Tag, Post } from '@/models/posts-list.class';
+import { Post } from '@/models/posts-list.class';
 
-export class Article extends Post {
+export interface Detailable {
+  title: string;
+  date: string;
+  updated: string;
+  comments: boolean;
+  path: string;
+  covers: string[] | null;
+  excerpt: string | null;
+  content: string;
+}
+
+export class Article extends Post implements Detailable {
   covers: string[] | null = null;
   content = '';
+
   constructor(raw?: any) {
     super(raw);
     if (raw) {
@@ -15,7 +27,7 @@ export class Article extends Post {
   }
 }
 
-export class Page {
+export class Page implements Detailable {
   title = '';
   date = '';
   updated = '';

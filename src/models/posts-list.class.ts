@@ -40,7 +40,6 @@ export class SpecificPostsList {
 }
 
 
-
 export class Post {
   title = '';
   slug = '';
@@ -51,7 +50,7 @@ export class Post {
   excerpt: string | null = null;
   keywords: any = null;
   cover = '';
-  content = '';
+  content: string | null = null;
   text = '';
   link = '';
   raw: string | null = null;
