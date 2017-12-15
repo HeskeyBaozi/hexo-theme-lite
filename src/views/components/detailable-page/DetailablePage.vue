@@ -90,6 +90,11 @@
           border-bottom-color: #5c5c5c;
         }
       }
+      .tags, .categories {
+        > * {
+          margin-right: 0.5rem;
+        }
+      }
     }
 
   }
