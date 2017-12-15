@@ -27,6 +27,7 @@
     "@types/nprogress": "^0.0.29",
     "autoprefixer": "^7.1.2",
     "chalk": "^2.0.1",
+    "compression-webpack-plugin": "^1.1.2",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "element-theme-chalk": "^2.0.7",
@@ -92,7 +93,7 @@
       "Row",
       "Col",
       "Carousel",
-      "CarouselItem"
+      "Carousel-Item"
     ]
   }
 }

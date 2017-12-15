@@ -17,6 +17,7 @@ import {
 import '@/styles/theme/base.css';
 import '@/styles/theme/Button.css';
 import '@/styles/theme/Carousel.css';
+import '@/styles/theme/Carousel-Item.css';
 import '@/styles/theme/Col.css';
 import '@/styles/theme/Dialog.css';
 import '@/styles/theme/Dropdown.css';
