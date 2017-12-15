@@ -1,5 +1,3 @@
-import '@/styles/theme/index.css';
-import '@/styles/nprogress.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '@/assets/fonts/proximanova.css';
 import '@/assets/fonts/FiraCode-Regular.css';

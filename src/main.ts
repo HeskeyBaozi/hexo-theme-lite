@@ -1,35 +1,19 @@
 import Vue from 'vue';
 import AppLayout from '@/layout/AppLayout.vue';
-import ElementUI from 'element-ui';
 import { router } from './router';
 import { store } from './store';
-import Component from 'vue-class-component';
-import moment from 'moment';
-import NProgress from 'nprogress';
 import '@/styles/import-style';
+import { installElementUI } from '@/vue-install/lite-element-ui';
+import { installNProgress } from '@/vue-install/lite-nprogress';
+import { installFormatDirective } from '@/vue-install/lite-moment-format';
+import { registerAsyncDataHook } from '@/vue-install/lite-register-asyncData-hook';
 
 
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $nprogress: NProgressStatic;
-  }
-}
-
-Component.registerHooks([
-  'asyncData'
-]);
-
-Vue.use(ElementUI, { size: 'small' });
-Vue.prototype.$nprogress = NProgress;
-
-
+Vue.use(registerAsyncDataHook);
+Vue.use(installElementUI, { size: 'small' });
+Vue.use(installNProgress);
+Vue.use(installFormatDirective);
 Vue.config.productionTip = false;
-
-Vue.filter('format', (value: string, format: string) => {
-  if (!value.length) return '';
-  return moment(value).format(format);
-});
 
 const app = new Vue({
   router,

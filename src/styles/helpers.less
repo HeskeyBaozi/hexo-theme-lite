@@ -1,14 +1,16 @@
+@import '~@/styles/vars.less';
+
 .container {
-  width: 800px;
+  width: @container-width;
   margin-left: auto;
   margin-right: auto;
-  @media (max-width: 768px) {
+  @media (max-width: @small-max-width) {
     width: 100%;
   }
 }
 
 .top-left-padding {
-  @media (max-width: 768px) {
-    padding-left: 1em;
+  @media (max-width: @small-max-width) {
+    padding-left: 1rem;
   }
 }

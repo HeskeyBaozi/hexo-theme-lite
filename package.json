@@ -67,5 +67,32 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "element-theme": {
+    "browsers": [
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 8"
+    ],
+    "out": "./src/styles/theme",
+    "config": "./element-variables.scss",
+    "theme": "element-theme-chalk",
+    "minimize": false,
+    "components": [
+      "Pagination",
+      "Dialog",
+      "Dropdown",
+      "DropdownMenu",
+      "DropdownItem",
+      "Menu",
+      "MenuItem",
+      "Input",
+      "Button",
+      "Tree",
+      "Row",
+      "Col",
+      "Carousel",
+      "CarouselItem"
+    ]
+  }
 }

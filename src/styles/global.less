@@ -1,11 +1,12 @@
+@import '~@/styles/vars.less';
+
 html {
-  font-family: "Proxima Nova Rg", "Helvetica Neue", Helvetica, "PingFang SC",
-  "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !important;
+  font-family: @basic-font-family !important;
 }
 
 pre,
 code {
-  font-family: "Fira-Code", "Consolas", monospace !important;
+  font-family: @code-font-family !important;
   font-variant-ligatures: common-ligatures;
 }
 
@@ -21,11 +22,11 @@ body {
 }
 
 a {
-  color: #5c5c5c;
+  color: @primary-color;
   text-decoration: none;
   transition: all 200ms;
 
   &:hover {
-    color: darken(#5c5c5c, 20%);
+    color: darken(@primary-color, 20%);
   }
 }
