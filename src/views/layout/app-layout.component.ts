@@ -36,6 +36,7 @@ export default class AppLayout extends Vue {
   // fetch initial global data
   async asyncData({ store }: AsyncArgs) {
     await store.dispatch(`meta/${Fetch_Meta}`);
+    console.log('meta fetched');
 
     // define 404 page
     const { enable, source_path } = (store.state as RootState).meta.hexoConfig.theme.page_404;

@@ -19,6 +19,7 @@ export function createDetailablePage(isImplicit: boolean) {
       })
     },
     async asyncData({ store, route }: AsyncArgs) {
+      console.log('post');
       const sourceOrSlug = isImplicit ? route.path.replace(/^\/pages\/?/, '') : route.params.slug;
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit, sourceOrSlug });
     },
