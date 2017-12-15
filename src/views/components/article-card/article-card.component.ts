@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Post } from '@/models/posts-list.class';
-import { CreateElement } from 'vue/types/vue';
 
 
 @Component({
@@ -24,6 +23,7 @@ import { CreateElement } from 'vue/types/vue';
 export default class ArticleCard extends Vue {
   format: string;
   post: Post;
+  showPhotos: boolean;
 
   get lastCategory(): string {
     const len = this.post.categories.length;

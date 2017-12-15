@@ -30,11 +30,11 @@ import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
   }
 })
 export default class BottomFooter extends Vue {
-  powered_by: string;
+  powered: string;
   social: { [ key: string ]: string };
   icons: { [ key: string ]: string | boolean };
   site: Site;
-  background: ThemeBackground
+  background: ThemeBackground;
 
   get socialItems() {
     return Object.keys(this.social)

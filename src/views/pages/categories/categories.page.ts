@@ -2,9 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Categories, Categories_Tree } from '@/store/types';
-import { RootState } from '@/store';
 import { CategoryTree } from '@/store/modules/categories.module';
-import { Post } from '@/models/posts-list.class';
 import { CreateElement } from 'vue/types/vue';
 import { VNode } from 'vue/types/vnode';
 

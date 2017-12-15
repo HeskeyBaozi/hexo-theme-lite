@@ -1,34 +1,14 @@
-import { Category, Tag } from '@/models/posts-list.class';
+import { Category, Tag, Post } from '@/models/posts-list.class';
 
-export class Article {
-  title = '';
-  slug = '';
-  date = '';
-  updated = '';
-  comments = false;
-  path = '';
-  photos: string[] = [];
-  link = '';
-  excerpt: string | null = null;
+export class Article extends Post {
   covers: string[] | null = null;
   content = '';
-
-  categories: Category[] = [];
-  tags: Tag[] = [];
-
-
   constructor(raw?: any) {
+    super(raw);
     if (raw) {
-      for (const key of Object.keys(this)) {
+      for (const key of [ 'covers', 'content' ]) {
         if (raw.hasOwnProperty(key)) {
-          if (key === 'categories') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Category(one)) });
-          } else if (key === 'tags') {
-            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Tag(one)) });
-          } else {
-            Object.assign(this, { [ key ]: raw[ key ] });
-          }
-
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }

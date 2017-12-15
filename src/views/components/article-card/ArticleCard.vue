@@ -15,7 +15,6 @@
       <!-- meta -->
       <p class="meta">
         <span class="create-time">{{ post.date | format(format)}}</span>
-        <!-- todo: to one category -->
       </p>
 
       <!-- photos -->
@@ -84,81 +83,80 @@
       margin-bottom: 0;
     }
   }
-}
 
-.title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    .external-link {
+      font-size: 0.8em;
+    }
+  }
 
-.meta {
-  font-size: 0.9rem;
-}
+  .meta {
+    font-size: 0.9rem;
+  }
 
-.external-link {
-  font-size: 0.8em;
-}
+  .description {
+    line-height: 1.5;
+  }
 
-.description {
-  line-height: 1.5;
-}
+  .cover,
+  .photos {
+    padding: 5px;
+    border: 1px solid #e3e3e3;
+    background-color: white;
+    width: calc(~"100% + 6rem");
 
-.cover,
-.photos {
-  padding: 5px;
-  border: 1px solid #e3e3e3;
-  background-color: white;
-  width: calc(~"100% + 6rem");
+    .photo-wrapper {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: zoom-in;
+      > img {
+        max-width: 100%;
+      }
+    }
+  }
 
-  .photo-wrapper {
-    height: 300px;
+  .tags,
+  .categories {
+    > * {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .meta,
+  .categories-and-tags {
+    a {
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
+      transition: all 200ms;
+      &:hover {
+        border-bottom-color: #5c5c5c;
+      }
+    }
+  }
+
+  .meta,
+  .categories-and-tags {
+    color: #5c5c5c;
+  }
+
+  .title {
+    a {
+      border-bottom-width: 2px;
+    }
+  }
+
+  .categories-and-tags {
+    font-size: 0.9rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    cursor: zoom-in;
-    > img {
-      max-width: 100%;
-    }
-  }
-}
-
-.tags,
-.categories {
-  > * {
-    margin-right: 0.5rem;
-  }
-}
-
-.meta,
-.categories-and-tags {
-  a {
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-    transition: all 200ms;
-    &:hover {
-      border-bottom-color: #5c5c5c;
-    }
-  }
-}
-
-.meta,
-.categories-and-tags {
-  color: #5c5c5c;
-}
-
-.title {
-  a {
-    border-bottom-width: 2px;
-  }
-}
-
-.categories-and-tags {
-  font-size: 0.9rem;
-  display: flex;
-  > * {
-    margin-right: 1rem;
-    &:last-child {
-      margin-right: 0;
+    > * {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

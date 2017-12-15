@@ -40,7 +40,7 @@ const mutations: MutationTree<ArchivesState> = {
 };
 
 const getters: GetterTree<ArchivesState, RootState> = {
-  [ Time_Line_List ](state, getters, rootState, rootGetters): TimeLine {
+  [ Time_Line_List ](state): TimeLine {
     const result: TimeLineEntities = {};
     for (const post of state.postsList.data) {
       const date = moment(post.date);

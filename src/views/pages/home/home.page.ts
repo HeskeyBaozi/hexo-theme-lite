@@ -8,8 +8,6 @@ import { RootState } from '@/store';
 import { Modal } from '@/models/modal.class';
 declare const window: Window;
 
-
-
 @Component({
   name: 'home-page',
   components: { ArticleCard }

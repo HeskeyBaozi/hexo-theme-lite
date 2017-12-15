@@ -24,5 +24,6 @@ import { ThemeBackground } from '@/models/hexo-config.class';
 })
 export default class TopHeader extends Vue {
   avatar: ThemeAvatar;
+  background: ThemeBackground;
   site: Site;
 }
