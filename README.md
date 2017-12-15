@@ -1,6 +1,10 @@
-# lite-fe
+# Hexo Theme Lite
 
-> Hexo Theme Lite FE
+## Preview
+
+![long](./docs/long.jpg)
+![short](./docs/short.jpg)
+
 
 ## Build Setup
 
