@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
+import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Article, Detailable, Page } from '@/models/article.class';
 
 declare const window: Window;
@@ -8,7 +9,7 @@ declare const window: Window;
 
 @Component({
   name: 'detailable-page',
-  components: { ArticleCard },
+  components: { ArticleCard, EndOfFile },
   props: {
     format: {
       required: true,
@@ -39,11 +40,5 @@ export default class DetailablePage extends Vue {
       }
     }
     return '';
-  }
-
-  scrollTop() {
-    if (window) {
-      window.scrollTo(0, 0);
-    }
   }
 }

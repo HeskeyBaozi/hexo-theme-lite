@@ -37,23 +37,16 @@
     <article id="detailable-content" v-html="target.content"></article>
 
     <!--back to top-->
-    <el-button class="eof" type="text" size="mini" @click="scrollTop">
-      <i class="fa fa-level-up" aria-hidden="true"></i>
-      <span>EOF</span>
-    </el-button>
+    <end-of-file></end-of-file>
   </div>
 </template>
 
 <style lang="less" scoped>
   .detailable-page {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
     text-align: center;
 
     > * {
       margin: 0 0 1rem 0;
-      width: 100%;
       &:last-child {
         margin: 0;
       }
@@ -71,11 +64,25 @@
       font-size: 0.9rem;
     }
 
-    .content {
-      text-align: left;
+    #detailable-content {
+      padding: 0 1rem;
+
+      @media (max-width: 768px) {
+        padding: 0;
+      }
     }
 
     .categories-and-tags {
+      color: #5c5c5c;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      > * {
+        margin-right: 1rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
       a {
         border-bottom: 1px solid rgba(0, 0, 0, 0);
         transition: all 200ms;
@@ -85,9 +92,6 @@
       }
     }
 
-    .eof {
-      width: min-content;
-    }
   }
 </style>
 <style lang="less" src="./figure-code-style.less"></style>

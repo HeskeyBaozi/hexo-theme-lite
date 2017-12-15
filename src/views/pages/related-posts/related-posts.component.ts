@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
+import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Fetch_Related_Posts_Of_Category, Fetch_Related_Posts_Of_Tag } from '@/store/types';
 import { RootState } from '@/store';
 import { Modal } from '@/models/modal.class';
@@ -9,7 +10,7 @@ import { Post } from '@/models/posts-list.class';
 
 @Component({
   name: 'related-posts',
-  components: { ArticleCard },
+  components: { ArticleCard, EndOfFile },
   async beforeRouteUpdate(to, from, next) {
     const { asyncData } = this.$options as any;
     if (asyncData) {
@@ -58,7 +59,6 @@ export default class RelatedPosts extends Vue {
       await store.dispatch(`tags/${Fetch_Related_Posts_Of_Tag}`, { slug });
     }
   }
-
 
 
   showPhotoDetail({ url, post }: { url: string, post: Post }) {
