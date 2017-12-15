@@ -14,8 +14,10 @@
               </el-button>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item v-for="item of navItems" :key="item.name" :command="item.path">
-                  <span class="dropdown-item-icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
-                  <span>{{ item.name }}</span>
+                  <div class="dropdown-item">
+                    <span class="icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
+                    <span class="item-name">{{ item.name }}</span>
+                  </div>
                 </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -46,6 +48,21 @@
   background-color: white;
   z-index: 1000;
   overflow: hidden;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    width: 1rem;
+    text-align: center;
+    margin-right: 0.3rem;
+  }
+
+  .item-name {
+    flex-grow: 1;
+  }
 }
 
 .blur {

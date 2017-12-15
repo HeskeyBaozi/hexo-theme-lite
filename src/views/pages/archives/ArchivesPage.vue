@@ -5,9 +5,9 @@
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             <span>{{ key }}</span>
         </div>
-        <el-row type="flex" class="one-timeline" v-for="one of timeLines.entities[key]" :key="'title-' + one.slug">
-            <el-col class="one-time" :span="4" :offset="2">{{ one.date | format(format) }}</el-col>
-            <el-col class="one-title" :span="18">
+        <el-row type="flex" :gutter="10" class="one-timeline" v-for="one of timeLines.entities[key]" :key="'title-' + one.slug">
+            <el-col class="one-time" :span="6" :offset="2">{{ one.date | format(format) }}</el-col>
+            <el-col class="one-title" :span="16">
               <a v-if="one.link && one.link.length" :href="one.link" target="_blank">
                 <span>{{ one.title || 'Untitled' }}</span>
                 <i class="fa fa-link external-link" aria-hidden="true"></i>

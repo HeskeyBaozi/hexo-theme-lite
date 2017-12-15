@@ -19,7 +19,7 @@ router.onReady(async () => {
 
     try {
       app.$nprogress.start();
-      const hooks = activated.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _);
+      const hooks = activated.map((c: any) => c.asyncData || c.options && c.options.asyncData).filter(_ => _);
       await Promise.all(hooks.map(hook => hook({ store, route: to })));
       if (window) {
         window.scrollTo(0, 0);
@@ -33,7 +33,7 @@ router.onReady(async () => {
 
   // Fetch initial state
   const initMatched = router.getMatchedComponents(router.currentRoute);
-  const asyncDataHooks = initMatched.map((c: any) => c.asyncData || c.options.asyncData).filter(_ => _);
+  const asyncDataHooks = initMatched.map((c: any) => c.asyncData || c.options && c.options.asyncData).filter(_ => _);
   await Promise.all(asyncDataHooks.map(hook => hook({ store, route: router.currentRoute })));
 
   // Start!

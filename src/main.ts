@@ -23,12 +23,6 @@ Component.registerHooks([
 Vue.use(ElementUI, { size: 'small' });
 Vue.prototype.$nprogress = NProgress;
 
-// handle request Error with UI $Message
-axios.interceptors.response.use(res => res, err => {
-  Vue.nextTick(() => {
-    console.log('请求失败');
-  });
-});
 
 Vue.config.productionTip = false;
 

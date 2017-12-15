@@ -24,3 +24,7 @@ export const Fetch_Tags = 'Fetch_Tags';
 export const Set_Tags = 'Set_Tags';
 export const Fetch_Related_Posts_Of_Tag = 'Fetch_Related_Posts_Of_Tag';
 export const Set_Related_Posts_Of_Tag = 'Set_Related_Posts_Of_Tag';
+
+// detailable
+export const Fetch_Detailable_Target = 'Fetch_Detailable_Target';
+export const Set_Detailable_Target = 'Set_Detailable_Target';

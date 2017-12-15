@@ -8,6 +8,8 @@ import TopNav from '../components/top-nav/TopNav.vue';
 import TopHeader from '../components/top-header/TopHeader.vue';
 import BottomFooter from '../components/bottom-footer/BottomFooter.vue';
 import { HomeModule } from '@/store/modules/home.module';
+import { RootState } from '@/store';
+import { Fetch_Detailable_Target } from '@/store/types';
 
 @Component({
   name: 'app-layout',
@@ -34,5 +36,12 @@ export default class AppLayout extends Vue {
   // fetch initial global data
   async asyncData({ store }: AsyncArgs) {
     await store.dispatch(`meta/${Fetch_Meta}`);
+
+    // define 404 page
+    const { enable, source_path } = (store.state as RootState).meta.hexoConfig.theme.page_404;
+    const source = source_path.replace(/\.md$/, '');
+    if (enable) {
+      await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit: true, sourceOrSlug: source });
+    }
   }
 }

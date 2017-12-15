@@ -18,7 +18,7 @@
       </p>
 
       <!-- photos -->
-      <div class="photos" v-if="post.photos && post.photos.length && showPhotos">
+      <div class="box photos" v-if="post.photos && post.photos.length && showPhotos">
         <el-carousel arrow="always">
           <el-carousel-item v-for="url of post.photos" :key="url">
             <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: url, post: post })">
@@ -29,7 +29,7 @@
       </div>
 
       <!-- cover -->
-      <div class="cover" v-else-if="post.cover && showPhotos">
+      <div class="box cover" v-else-if="post.cover && showPhotos">
         <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
             <img :src="post.cover" :alt="post.cover" />
         </div>
@@ -87,6 +87,10 @@
   .title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    transition: all 250ms;
+    &:hover {
+      transform: scale(1.1);
+    }
     .external-link {
       font-size: 0.8em;
     }
@@ -157,6 +161,14 @@
       &:last-child {
         margin-right: 0;
       }
+    }
+  }
+
+  .box {
+    box-shadow: 0 0 0.1rem lighten(#5c5c5c, 40%);
+    transition: box-shadow 250ms;
+    &:hover {
+      box-shadow: 0 0 0.3rem #5c5c5c;
     }
   }
 }

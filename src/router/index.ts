@@ -43,12 +43,21 @@ export const router = new Router({
         {
           path: 'posts/:slug',
           name: 'post-page',
-          component: () => import('@/views/pages/article/ArticlePage.vue')
+          component: () => import('@/views/pages/detailable/create-detailable').then(m => m.createDetailablePage(false))
+        },
+        {
+          path: 'pages/*',
+          name: 'implicit-post-page',
+          component: () => import('@/views/pages/detailable/create-detailable').then(m => m.createDetailablePage(true))
+        },
+        {
+          path: '404',
+          name: '404',
+          component: () => import('@/views/pages/404/page-404.page.ts')
         },
         {
           path: '*',
-          name: 'implicit-post-page',
-          component: () => import('@/views/pages/article/ArticlePage.vue')
+          redirect: { name: '404' }
         }
       ]
     }

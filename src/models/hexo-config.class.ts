@@ -35,7 +35,7 @@ export class Site {
   timezone = ''; //网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -51,7 +51,7 @@ export class URL {
   permalink_defaults = ''; // 永久链接中各部分的默认值
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -71,7 +71,7 @@ export class Directory {
   skip_render = ''; // 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -98,7 +98,7 @@ export class Writing {
   } | null = null; // 代码块的设置
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -113,7 +113,7 @@ export class CategoryAndTags {
   tag_map = ''; // 标签别名
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -127,7 +127,7 @@ export class DateTimeFormat {
   time_format = ''; // 时间格式	H:mm:ss
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -141,7 +141,7 @@ export class Pagination {
   pagination_dir = ''; // 分页目录
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -155,7 +155,7 @@ export class Extensions {
   deploy = {}; // 部署部分的设置
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -177,6 +177,7 @@ export class Theme {
   social_icons = {
     enable: false
   };
+  page_404 = new ThemeCustom404();
 
   avatar: ThemeAvatar = new ThemeAvatar();
   background: ThemeBackground = new ThemeBackground();
@@ -184,7 +185,7 @@ export class Theme {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           if (key === 'avatar') {
             Object.assign(this, { [ key ]: new ThemeAvatar(raw[ key ]) });
@@ -192,9 +193,26 @@ export class Theme {
             Object.assign(this, { [ key ]: new ThemeBackground(raw[ key ]) });
           } else if (key === 'menu') {
             Object.assign(this, { [ key ]: new ThemeMenu(raw[ key ]) });
+          } else if (key === 'page_404') {
+            Object.assign(this, { [ key ]: new ThemeCustom404(raw[ key ]) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
+        }
+      }
+    }
+  }
+}
+
+export class ThemeCustom404 {
+  enable = false;
+  source_path = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.keys(this)) {
+        if (raw.hasOwnProperty(key)) {
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -238,7 +256,7 @@ export class ThemeAvatar {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }
@@ -254,7 +272,7 @@ export class ThemeBackground {
 
   constructor(raw?: any) {
     if (raw) {
-      for (const key of Object.getOwnPropertyNames(this)) {
+      for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
           Object.assign(this, { [ key ]: raw[ key ] });
         }

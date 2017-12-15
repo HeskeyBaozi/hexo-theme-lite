@@ -6,7 +6,9 @@
     </header>
 
     <section class="app-body container">
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </section>
 
     <footer class="app-footer">
@@ -47,6 +49,21 @@
   border-bottom-right-radius: 0.3rem;
 }
 </style>
+
+<style lang="less">
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s ease;
+}
+
+.fade-leave-active,
+.fade-enter {
+  opacity: 0;
+}
+
+</style>
+
 
 <script lang="ts" src="./app-layout.component.ts"></script>
 

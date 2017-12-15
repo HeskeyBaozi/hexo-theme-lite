@@ -43,10 +43,10 @@ export async function fetchAllCategories() {
 }
 
 
-// GET /api/about/index.json
+// GET /api/pages/about/index.json
 // source : e.g. about/index
-export async function fetchImplicitPageByName(source: string) {
-  return axios.get<Page>(`/api/${source}.json`);
+export async function fetchImplicitPageBySource(source: string) {
+  return axios.get<Page>(`/api/pages/${source}.json`);
 }
 
 
