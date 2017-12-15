@@ -1,5 +1,9 @@
 <template>
   <div id="home-page">
+    <el-button v-show="page !== 1" plain size="mini" @click="onPage(1)">
+      <i class="fa fa-undo" aria-hidden="true"></i>
+      <span>Back</span>
+    </el-button>
     <div class="article-card-list">
       <article-card v-for="post of posts"
                   :key="post.slug"

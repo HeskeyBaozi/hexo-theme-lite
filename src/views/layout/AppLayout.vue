@@ -44,7 +44,7 @@
 .app-body {
   box-sizing: border-box;
   background-color: white;
-  padding: 1rem;
+  padding: 2rem 1rem;
   border-bottom-left-radius: 0.3rem;
   border-bottom-right-radius: 0.3rem;
 }

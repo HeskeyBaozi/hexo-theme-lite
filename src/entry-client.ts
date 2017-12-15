@@ -4,7 +4,7 @@ declare const window: Window;
 
 router.onReady(async () => {
   router.beforeResolve(async (to, from, next) => {
-
+    console.log(to, from);
     const matched = router.getMatchedComponents(to);
     const prevMatched = router.getMatchedComponents(from);
 

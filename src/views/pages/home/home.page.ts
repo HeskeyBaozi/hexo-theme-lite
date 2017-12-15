@@ -46,6 +46,9 @@ export default class HomePage extends Vue {
   }
 
   async onPage(page: number) {
+    if (this.page === page) {
+      return;
+    }
     this.$nprogress.start();
     await this.$store.dispatch(`home/${Fetch_Home_Posts_List}`, { page });
     if (window) {

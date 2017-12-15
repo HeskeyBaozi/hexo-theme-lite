@@ -68,11 +68,14 @@
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
-  padding: 2rem 0;
   border-bottom: 1px solid lighten(#5c5c5c, 50%);
+
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 
   &:last-child {
     border-bottom: none;
+    margin-bottom: 0;
   }
 
   > * {

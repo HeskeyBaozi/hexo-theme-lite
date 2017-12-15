@@ -21,7 +21,7 @@ import { ThemeBackground } from '@/models/hexo-config.class';
   }
 })
 export default class TopNav extends Vue {
-  config: { url: string, css_size?: string, css_position?: string };
+  config: ThemeBackground;
   menu: { [ key: string ]: string };
   icons: { [ key: string ]: string | boolean };
 

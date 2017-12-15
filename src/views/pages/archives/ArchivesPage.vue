@@ -1,9 +1,13 @@
 <template>
   <div class="archives-page">
+    <el-button v-show="page !== 1" plain size="mini" @click="onPage(1)">
+      <i class="fa fa-undo" aria-hidden="true"></i>
+      <span>Back</span>
+    </el-button>
     <div class="timeline" v-for="key of timeLines.keys" :key="key">
         <div class="leading">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span>{{ key }}</span>
+            <span>{{ key | format('MMM. YYYY') }}</span>
         </div>
         <el-row type="flex" :gutter="10" class="one-timeline" v-for="one of timeLines.entities[key]" :key="'title-' + one.slug">
             <el-col class="one-time" :span="6" :offset="2">{{ one.date | format(format) }}</el-col>
@@ -44,6 +48,8 @@
 
     .leading {
       text-align: center;
+      font-size: 1.3rem;
+      text-shadow: 0 0 1px lighten(#5c5c5c, 40%);
       margin-top: 0;
       > * {
         margin: 0 0.2rem;
@@ -57,6 +63,7 @@
 
       .one-title {
         word-break: keep-all;
+
         .external-link {
           font-size: 0.8em;
         }

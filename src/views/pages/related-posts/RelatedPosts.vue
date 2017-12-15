@@ -5,7 +5,7 @@
           <div class="btn-warp" slot="prepend">
             <el-button size="mini" @click="back">
               <div class="btn-warp">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                <i class="fa fa-undo" aria-hidden="true"></i>
                 <span class="back">Back</span>
               </div>
             </el-button>
