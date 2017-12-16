@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 // Template version: 1.2.5
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   dev: {
@@ -56,12 +56,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/lite/layout/index.html'),
+    index: path.resolve(__dirname, '../layout/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist/lite/source'),
+    assetsRoot: path.resolve(__dirname, '../source'),
     assetsSubDirectory: 'static',
-    assetsTheme: path.resolve(__dirname, '../dist/lite'),
+    assetsTheme: path.resolve(__dirname, '../'),
     assetsPublicPath: '/',
 
     /**
@@ -85,4 +85,4 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   }
-}
+};

@@ -113,11 +113,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static'),
         to: path.resolve(config.build.assetsRoot, './static'),
         ignore: ['.*']
-      },
-      {
-        from: path.resolve(__dirname, '../hexo-theme-gen'),
-        to: config.build.assetsTheme,
-        ignore: ['.*']
       }
     ]),
 
