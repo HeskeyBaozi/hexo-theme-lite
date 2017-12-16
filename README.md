@@ -14,7 +14,7 @@ light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
 ## Get Started & Install
 
-1. Download (the latest release](https://github.com/HeskeyBaozi/hexo-theme-lite/releases).
+1. Download [the latest release](https://github.com/HeskeyBaozi/hexo-theme-lite/releases).
 
 the release is generally named `Lite.zip`.
 
