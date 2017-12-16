@@ -6,7 +6,7 @@ export const installFormatDirective = {
   install(Vue: VueConstructor<Vue>) {
     Vue.filter('format', (value: string, format: string) => {
       if (!value.length) return '';
-      return moment(value).format(format);
+      return moment(new Date(value)).format(format);
     });
   }
 };

@@ -165,14 +165,13 @@ export class Extensions {
 }
 
 
-
 export class Theme {
   menu: ThemeMenu = new ThemeMenu();
   menu_icons: {
     [ key: string ]: string | boolean
   } = {
-      enable: false
-    };
+    enable: false
+  };
   social = {};
   social_icons = {
     enable: false
@@ -219,11 +218,16 @@ export class ThemeCustom404 {
   }
 }
 
-export class ThemeMenu {
+interface LiteMenu {
+  Home: string;
+  Archives: string;
+  Categories?: string;
+  Tags?: string;
+}
+
+export class ThemeMenu implements LiteMenu {
   Home = '/home';
   Archives = '/archives';
-  Categories = '/categories';
-  Tags = '/tags';
 
   constructor(raw?: { [ key: string ]: string | boolean }) {
     const extract: { [ key: string ]: string } = {
