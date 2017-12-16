@@ -4,8 +4,6 @@
 
 light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/HeskeyBaozi/hexo-theme-lite/releases)
-![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## Live Demo
 
