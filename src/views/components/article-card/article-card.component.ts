@@ -27,6 +27,11 @@ export default class ArticleCard extends Vue {
   post: Post;
   showPhotos: boolean;
 
+  get shouldRenderCover(): boolean {
+    const reg = new RegExp(this.post.cover);
+    return !reg.test(this.post.excerpt || '');
+  }
+
   get lastCategory(): string {
     const len = this.post.categories.length;
     if (!len) {

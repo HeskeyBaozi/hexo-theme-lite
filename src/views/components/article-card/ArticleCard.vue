@@ -29,7 +29,7 @@
     </div>
 
     <!-- cover -->
-    <div v-if="!post.content" class="box cover" v-else-if="post.cover && showPhotos">
+    <div class="box cover" v-else-if="!post.content && post.cover && showPhotos && shouldRenderCover">
       <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
         <img :src="post.cover" :alt="post.cover"/>
       </div>
@@ -160,6 +160,8 @@
     .categories-and-tags {
       font-size: 0.9rem;
       display: flex;
+      justify-content: center;
+      flex-flow: row wrap;
       > * {
         margin-right: 1rem;
         &:last-child {
@@ -171,6 +173,7 @@
     .box {
       box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
       transition: box-shadow 250ms;
+      margin-bottom: 1rem;
       &:hover {
         box-shadow: 0 0 0.3rem @primary-color;
       }
