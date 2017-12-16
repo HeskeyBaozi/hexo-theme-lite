@@ -1,15 +1,18 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
+import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
 import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Article, Detailable, Page } from '@/models/article.class';
+import { Modal } from '@/models/modal.class';
+import { Post } from '@/models/posts-list.class';
 
 declare const window: Window;
 
 
 @Component({
   name: 'detailable-page',
-  components: { ArticleCard, EndOfFile },
+  components: { ArticleCard, EndOfFile, DetailableContent },
   props: {
     format: {
       required: true,
@@ -30,6 +33,8 @@ export default class DetailablePage extends Vue {
   target: Detailable;
   isImplicit: boolean;
 
+  modal = new Modal();
+
   get lastCategory(): string {
     if (this.target instanceof Article) {
       const len = this.target.categories && this.target.categories.length;
@@ -40,5 +45,13 @@ export default class DetailablePage extends Vue {
       }
     }
     return '';
+  }
+
+  showPhotoDetail({ url, post }: { url: string, post: Post }) {
+    this.$data.modal.post = post;
+    this.$data.modal.url = url;
+    this.$nextTick(() => {
+      this.$data.modal.isShown = true;
+    });
   }
 }

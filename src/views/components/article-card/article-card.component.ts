@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
 import { Post } from '@/models/posts-list.class';
 
 
@@ -18,12 +19,18 @@ import { Post } from '@/models/posts-list.class';
       required: true,
       type: Boolean
     }
-  }
+  },
+  components: { DetailableContent }
 })
 export default class ArticleCard extends Vue {
   format: string;
   post: Post;
   showPhotos: boolean;
+
+  get shouldRenderCover(): boolean {
+    const reg = new RegExp(this.post.cover);
+    return !reg.test(this.post.excerpt || '');
+  }
 
   get lastCategory(): string {
     const len = this.post.categories.length;
@@ -32,9 +39,5 @@ export default class ArticleCard extends Vue {
     } else {
       return this.post.categories[ len - 1 ].slug;
     }
-  }
-
-  get postDescription(): string {
-    return `${this.post.excerpt || this.post.text}...`;
   }
 }
