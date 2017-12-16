@@ -2,7 +2,7 @@
   <article id="detailable-content" v-html="html"></article>
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
   @import url('~@/styles/vars.less');
 
   #detailable-content {

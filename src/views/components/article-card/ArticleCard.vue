@@ -1,180 +1,181 @@
 <template>
   <div class="article-card">
 
-      <!-- title -->
-      <h1 class="title">
-        <a v-if="post.link && post.link.length" :href="post.link" target="_blank">
-          <span>{{ post.title || 'Untitled' }}</span>
-          <i class="fa fa-link external-link" aria-hidden="true"></i>
-        </a>
-        <router-link v-else :to="{ name: 'post-page', params: { slug: post.slug } }">
-          <span>{{ post.title || 'Untitled' }}</span>
+    <!-- title -->
+    <h1 class="title">
+      <a v-if="post.link && post.link.length" :href="post.link" target="_blank">
+        <span>{{ post.title || 'Untitled' }}</span>
+        <i class="fa fa-link external-link" aria-hidden="true"></i>
+      </a>
+      <router-link v-else :to="{ name: 'post-page', params: { slug: post.slug } }">
+        <span>{{ post.title || 'Untitled' }}</span>
+      </router-link>
+    </h1>
+
+    <!-- meta -->
+    <p class="meta">
+      <span class="create-time">{{ post.date | format(format)}}</span>
+    </p>
+
+    <!-- photos -->
+    <div class="box photos" v-if="post.photos && post.photos.length && showPhotos">
+      <el-carousel arrow="always">
+        <el-carousel-item v-for="url of post.photos" :key="url">
+          <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: url, post: post })">
+            <img :src="url" :alt="url"/>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+
+    <!-- cover -->
+    <div v-if="!post.content" class="box cover" v-else-if="post.cover && showPhotos">
+      <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
+        <img :src="post.cover" :alt="post.cover"/>
+      </div>
+    </div>
+
+    <!-- description -->
+    <detailable-content v-if="post.excerpt" :html="post.excerpt"></detailable-content>
+    <detailable-content v-else-if="post.content" :html="post.content"></detailable-content>
+
+    <div class="categories-and-tags">
+      <div v-if="lastCategory.length" class="categories">
+        <i class="fa fa-bookmark" aria-hidden="true"></i>
+        <router-link :to="{ name: 'related-posts-page', params: { type: 'category', slug: lastCategory } }">
+          <span>{{ lastCategory }}</span>
         </router-link>
-      </h1>
-
-      <!-- meta -->
-      <p class="meta">
-        <span class="create-time">{{ post.date | format(format)}}</span>
-      </p>
-
-      <!-- photos -->
-      <div class="box photos" v-if="post.photos && post.photos.length && showPhotos">
-        <el-carousel arrow="always">
-          <el-carousel-item v-for="url of post.photos" :key="url">
-            <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: url, post: post })">
-              <img :src="url" :alt="url" />
-            </div>
-          </el-carousel-item>
-        </el-carousel>
       </div>
 
-      <!-- cover -->
-      <div class="box cover" v-else-if="post.cover && showPhotos">
-        <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
-            <img :src="post.cover" :alt="post.cover" />
-        </div>
+      <!-- tags -->
+      <div class="tags" v-if="post.tags && post.tags.length">
+        <i class="fa fa-hashtag" aria-hidden="true"></i>
+        <router-link v-for="tag of post.tags" :key="tag.path"
+                     :to="{ name: 'related-posts-page', params: { type: 'tag', slug: tag.name }}">
+          <span>{{ tag.name }}</span>
+        </router-link>
       </div>
+    </div>
 
-      <!-- description -->
-      <p class="description">{{ postDescription }}</p>
-
-      <div class="categories-and-tags">
-        <div v-if="lastCategory.length" class="categories">
-          <i class="fa fa-bookmark" aria-hidden="true"></i>
-          <router-link :to="{ name: 'related-posts-page', params: { type: 'category', slug: lastCategory } }">
-            <span>{{ lastCategory }}</span>
-          </router-link>
-        </div>
-
-        <!-- tags -->
-        <div class="tags" v-if="post.tags && post.tags.length">
-          <i class="fa fa-hashtag" aria-hidden="true"></i>
-          <router-link v-for="tag of post.tags" :key="tag.path" :to="{ name: 'related-posts-page', params: { type: 'tag', slug: tag.name }}">
-            <span>{{ tag.name }}</span>
-          </router-link>
-        </div>
-      </div>
-
-      <!-- read more -->
-      <el-button size="mini" type="primary" @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
-        More
-      </el-button>
+    <!-- read more -->
+    <el-button size="mini" type="primary" @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
+      More
+    </el-button>
   </div>
 </template>
 
 <style lang="less" scoped>
-.article-card {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  text-align: center;
-  border-bottom: 1px solid lighten(#5c5c5c, 50%);
+  @import '~@/styles/vars.less';
 
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-
-  > * {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  .article-card {
+    text-align: center;
+    border-bottom: 1px solid lighten(@primary-color, 50%);
+    word-break: keep-all;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
 
     &:last-child {
+      border-bottom: none;
       margin-bottom: 0;
     }
-  }
 
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    transition: all 250ms;
-    &:hover {
-      transform: scale(1.1);
-    }
-    .external-link {
-      font-size: 0.8em;
-    }
-  }
-
-  .meta {
-    font-size: 0.9rem;
-  }
-
-  .description {
-    line-height: 1.5;
-  }
-
-  .cover,
-  .photos {
-    padding: 5px;
-    border: 1px solid #e3e3e3;
-    background-color: white;
-    width: calc(~"100% + 6rem");
-
-    .photo-wrapper {
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      cursor: zoom-in;
-      > img {
-        max-width: 100%;
-      }
-    }
-  }
-
-  .tags,
-  .categories {
     > * {
-      margin-right: 0.5rem;
-    }
-  }
+      margin-top: 0;
+      margin-bottom: 1rem;
 
-  .meta,
-  .categories-and-tags {
-    a {
-      border-bottom: 1px solid rgba(0, 0, 0, 0);
-      transition: all 200ms;
-      &:hover {
-        border-bottom-color: #5c5c5c;
-      }
-    }
-  }
-
-  .meta,
-  .categories-and-tags {
-    color: #5c5c5c;
-  }
-
-  .title {
-    a {
-      border-bottom-width: 2px;
-    }
-  }
-
-  .categories-and-tags {
-    font-size: 0.9rem;
-    display: flex;
-    > * {
-      margin-right: 1rem;
       &:last-child {
-        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      transition: all 250ms;
+      &:hover {
+        transform: scale(1.1);
+      }
+      .external-link {
+        font-size: 0.8em;
+      }
+    }
+
+    .meta {
+      font-size: 0.9rem;
+    }
+
+    .description {
+      line-height: 1.5;
+    }
+
+    .cover,
+    .photos {
+      padding: 5px;
+      border: 1px solid lighten(@primary-color, 80%);
+      background-color: white;
+      margin: 0 -3rem;
+
+      .photo-wrapper {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: zoom-in;
+        > img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .tags,
+    .categories {
+      > * {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .meta,
+    .categories-and-tags {
+      a {
+        border-bottom: 1px solid rgba(0, 0, 0, 0);
+        transition: all 200ms;
+        &:hover {
+          border-bottom-color: @primary-color;
+        }
+      }
+    }
+
+    .meta,
+    .categories-and-tags {
+      color: #5c5c5c;
+    }
+
+    .title {
+      a {
+        border-bottom-width: 2px;
+      }
+    }
+
+    .categories-and-tags {
+      font-size: 0.9rem;
+      display: flex;
+      > * {
+        margin-right: 1rem;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .box {
+      box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
+      transition: box-shadow 250ms;
+      &:hover {
+        box-shadow: 0 0 0.3rem @primary-color;
       }
     }
   }
-
-  .box {
-    box-shadow: 0 0 0.1rem lighten(#5c5c5c, 40%);
-    transition: box-shadow 250ms;
-    &:hover {
-      box-shadow: 0 0 0.3rem #5c5c5c;
-    }
-  }
-}
 </style>
 
 <script lang="ts" src="./article-card.component.ts"></script>

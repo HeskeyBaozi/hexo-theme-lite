@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
 import { Post } from '@/models/posts-list.class';
 
 
@@ -18,7 +19,8 @@ import { Post } from '@/models/posts-list.class';
       required: true,
       type: Boolean
     }
-  }
+  },
+  components: { DetailableContent }
 })
 export default class ArticleCard extends Vue {
   format: string;
@@ -32,9 +34,5 @@ export default class ArticleCard extends Vue {
     } else {
       return this.post.categories[ len - 1 ].slug;
     }
-  }
-
-  get postDescription(): string {
-    return `${this.post.excerpt || this.post.text}...`;
   }
 }
