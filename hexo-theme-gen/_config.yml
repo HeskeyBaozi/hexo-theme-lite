@@ -30,8 +30,7 @@ menu:
   # [X]  About: /about/index       (need '/pages' as prefix)
   # [O]  About: /pages/about/index (preferred)
   # [O]  About: /pages/about
-
-  # About: /pages/about/index
+  About: /pages/about/index
 
 menu_icons:
   enable: true
@@ -48,10 +47,10 @@ menu_icons:
 
 social:
   github: https://github.com/heskeybaozi
-  # weibo: http://weibo.com/52hezhiyu
+  weibo: http://weibo.com/52hezhiyu
 
   # Email link, reference to https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links
-  # email: mailto:hezhiyu233@foxmail.com
+  email: mailto:hezhiyu233@foxmail.com
 
 
 social_icons:
