@@ -6,6 +6,7 @@ import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
 import { Post } from '@/models/posts-list.class';
 import { RootState } from '@/store';
 import { Modal } from '@/models/modal.class';
+
 declare const window: Window;
 
 @Component({
@@ -60,6 +61,8 @@ export default class HomePage extends Vue {
   showPhotoDetail({ url, post }: { url: string, post: Post }) {
     this.$data.modal.post = post;
     this.$data.modal.url = url;
-    this.$data.modal.isShown = true;
+    this.$nextTick(() => {
+      this.$data.modal.isShown = true;
+    });
   }
 }

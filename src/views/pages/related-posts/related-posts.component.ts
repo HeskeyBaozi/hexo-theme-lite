@@ -64,7 +64,9 @@ export default class RelatedPosts extends Vue {
   showPhotoDetail({ url, post }: { url: string, post: Post }) {
     this.$data.modal.post = post;
     this.$data.modal.url = url;
-    this.$data.modal.isShown = true;
+    this.$nextTick(() => {
+      this.$data.modal.isShown = true;
+    });
   }
 
   back() {

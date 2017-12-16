@@ -33,15 +33,32 @@
       </div>
     </div>
 
+    <!-- photos -->
+    <div class="box photos" v-if="target.photos && target.photos.length">
+      <el-carousel arrow="always">
+        <el-carousel-item v-for="url of target.photos" :key="url">
+          <div class="photo-wrapper" @click="showPhotoDetail({ url: url, post: target })">
+            <img :src="url" :alt="url"/>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+
     <!-- content -->
     <detailable-content :html="target.content"></detailable-content>
 
     <!--back to top-->
     <end-of-file></end-of-file>
+
+    <el-dialog :visible.sync="modal.isShown" width="min-content">
+      <img class="modal-picture" :src="modal.url" :alt="modal.url" @click="modal.isShown = false"/>
+    </el-dialog>
   </div>
 </template>
 
 <style lang="less" scoped>
+  @import '~@/styles/vars.less';
+
   .detailable-page {
     text-align: center;
 
@@ -87,6 +104,41 @@
           margin-right: 0.5rem;
         }
       }
+    }
+
+    .photos {
+      padding: 5px;
+      border: 1px solid lighten(@primary-color, 80%);
+      background-color: white;
+      margin: 0 -3rem 1rem -3rem;
+
+      .photo-wrapper {
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: zoom-in;
+        > img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .box {
+      box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
+      transition: box-shadow 250ms;
+      margin-bottom: 1rem;
+      &:hover {
+        box-shadow: 0 0 0.3rem @primary-color;
+      }
+    }
+
+    .modal-picture {
+      max-width: 950px;
+      min-width: 150px;
+      min-height: 100px;
+      cursor: zoom-out;
     }
 
   }
