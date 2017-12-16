@@ -20,8 +20,8 @@ menu:
   # Basic Menu
   Home: true
   Archives: true
-  Categories: true
-  Tags: true
+  Categories: false
+  Tags: false
 
   # Custom Menu
   # '/index' can be omitted
