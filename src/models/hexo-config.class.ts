@@ -241,7 +241,6 @@ export class ThemeMenu implements LiteMenu {
     if (raw) {
       for (const basicKey of basicKeys) {
         if (typeof raw[ basicKey ] === 'boolean' && raw[ basicKey ]) {
-          console.log(basicKey, raw[ basicKey ]);
           Object.assign(this, { [ basicKey ]: extract[ basicKey ] });
         }
       }
