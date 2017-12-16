@@ -15,24 +15,26 @@ light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
 ## Get Started & Install
 
-1. Download [the latest release](https://github.com/HeskeyBaozi/hexo-theme-lite/releases).
-
-the release is generally named `Lite.zip`.
-
-2. Enter to the `Hexo` root directory. The root directory must include `themes`, `node_modules`, `source` and so on.
+1. Enter to the `Hexo` root directory. The root directory must include `themes`, `node_modules`, `source` and so on.
 
 ```bash
-$ cd my-hexo
-
-$ ls
-_config.yml  node_modules  package.json  public  scaffolds  source  themes
+cd my-hexo
+ls
+# output:
+# _config.yml  node_modules  package.json  public  scaffolds  source  themes
 ```
 
-3. Decompress the downloaded `Lite.zip` to the `themes` folder
+2. Download the latest release by using `git clone`
+
+```bash
+git clone https://github.com/HeskeyBaozi/hexo-theme-lite themes/lite
+```
+
+after `git clone`, the result is like this:
 
 ![like this](./docs/depre.png)
 
-4. Edit the `__config.yml` in your root directory.
+3. Edit the `__config.yml` in your root directory.
 
 modify the field `theme` into `lite`.
 
@@ -41,11 +43,27 @@ modify the field `theme` into `lite`.
 theme: lite
 ```
 
+4. Generate static files
+```bash
+hexo g
+```
+
+5. Run `Hexo` server
+```bash
+hexo s
+
+# output:
+# INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+```
+
+6. Enter your localhost link to preview the blog.
+
+
 ## Features
 
 edit the `/themes/lite/__config.yml` to make it custom.
 
-preview the [`/themes/lite/__config.yml`](https://github.com/HeskeyBaozi/hexo-theme-lite/blob/master/hexo-theme-gen/_config.yml) file.
+preview the [`/themes/lite/__config.yml`](https://github.com/HeskeyBaozi/hexo-theme-lite/blob/master/_config.yml) file.
 
 
 ## Development Build Setup
