@@ -86,6 +86,7 @@
       font-size: 0.9rem;
       display: flex;
       justify-content: center;
+      flex-flow: row wrap;
       > * {
         margin-right: 1rem;
         &:last-child {
