@@ -2,8 +2,7 @@
 
 ## Preview
 
-![long](./docs/long.jpg)
-![short](./docs/short.jpg)
+![preview](./docs/preview.png)
 
 
 ## Build Setup
