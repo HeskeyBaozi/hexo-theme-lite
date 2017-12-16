@@ -27,6 +27,7 @@ router.onReady(async () => {
       app.$nprogress.done();
       next();
     } catch (error) {
+      app.$nprogress.done(true);
       next(error);
     }
   });
