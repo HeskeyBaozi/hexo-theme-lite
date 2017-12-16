@@ -6,7 +6,7 @@ light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
 ## Live Demo
 
-[HeskeyBaozi.github.io Demo](https://heskeybaozi.github.io/)
+[Demo | 在线演示](https://heskeybaozi.github.io/)
 
 ## Preview
 
