@@ -4,6 +4,10 @@
 
 light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
+[![rel-image]][releases-url]
+[![hexo-image]][hexo-url]
+[![lic-image]](LICENSE)
+
 ## Live Demo
 
 [Demo | 在线演示](https://heskeybaozi.github.io/)
