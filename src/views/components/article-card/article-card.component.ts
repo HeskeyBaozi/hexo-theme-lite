@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
+import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Post } from '@/models/posts-list.class';
 
 
@@ -20,7 +21,7 @@ import { Post } from '@/models/posts-list.class';
       type: Boolean
     }
   },
-  components: { DetailableContent }
+  components: { DetailableContent, EndOfFile }
 })
 export default class ArticleCard extends Vue {
   format: string;

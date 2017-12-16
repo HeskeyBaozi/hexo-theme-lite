@@ -58,9 +58,12 @@
     </div>
 
     <!-- read more -->
-    <el-button size="mini" type="primary" @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
+    <el-button v-if="post.excerpt" size="mini" type="primary"
+               @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
       More
     </el-button>
+    <end-of-file v-else></end-of-file>
+
   </div>
 </template>
 
