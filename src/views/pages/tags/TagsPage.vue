@@ -39,6 +39,7 @@
   .tags-list {
     padding: 0 3rem;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
 
     > * {
