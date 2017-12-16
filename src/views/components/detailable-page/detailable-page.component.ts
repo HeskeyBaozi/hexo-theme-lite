@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
+import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
 import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Article, Detailable, Page } from '@/models/article.class';
 
@@ -9,7 +10,7 @@ declare const window: Window;
 
 @Component({
   name: 'detailable-page',
-  components: { ArticleCard, EndOfFile },
+  components: { ArticleCard, EndOfFile, DetailableContent },
   props: {
     format: {
       required: true,

@@ -34,7 +34,7 @@
     </div>
 
     <!-- content -->
-    <article id="detailable-content" v-html="target.content"></article>
+    <detailable-content :html="target.content"></detailable-content>
 
     <!--back to top-->
     <end-of-file></end-of-file>
@@ -64,14 +64,6 @@
       font-size: 0.9rem;
     }
 
-    #detailable-content {
-      padding: 0 1rem;
-
-      @media (max-width: 768px) {
-        padding: 0;
-      }
-    }
-
     .categories-and-tags {
       color: #5c5c5c;
       font-size: 0.9rem;
@@ -99,6 +91,4 @@
 
   }
 </style>
-<style lang="less" src="./figure-code-style.less"></style>
-<style lang="less" src="./base-article-style.less"></style>
 <script lang="ts" src="./detailable-page.component.ts"></script>
