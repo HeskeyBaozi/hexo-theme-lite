@@ -11,7 +11,7 @@ light single page blog application theme, using Vue, Vuex, ElementUI and so on.
 
 ## Preview
 
-![preview](./docs/preview.png)
+![preview](./docs/preview2.jpg)
 
 ## Get Started & Install
 
