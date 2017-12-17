@@ -9,10 +9,6 @@ export const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: { name: 'home-page' }
-    },
-    {
-      path: '/home',
       name: 'home-page',
       component: () => import('@/views/pages/home/HomePage.vue')
     },
