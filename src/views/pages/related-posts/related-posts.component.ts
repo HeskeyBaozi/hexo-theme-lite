@@ -51,6 +51,14 @@ export default class RelatedPosts extends Vue {
     return search.length ? this.posts.filter(post => post.title.toLowerCase().indexOf(search.toLowerCase()) !== -1) : this.posts;
   }
 
+  get shouldShowEOF(): boolean {
+    if (this.displayPosts.length) {
+      return !!this.displayPosts[ this.displayPosts.length - 1 ].excerpt;
+    } else {
+      return false;
+    }
+  }
+
   async asyncData({ store, route }: AsyncArgs) {
     const { type, slug } = route.params;
     if (type === 'category') {

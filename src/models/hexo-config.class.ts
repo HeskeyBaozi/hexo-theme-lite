@@ -226,12 +226,12 @@ interface LiteMenu {
 }
 
 export class ThemeMenu implements LiteMenu {
-  Home = '/home';
+  Home = '/';
   Archives = '/archives';
 
   constructor(raw?: { [ key: string ]: string | boolean }) {
     const extract: { [ key: string ]: string } = {
-      Home: '/home',
+      Home: '/',
       Archives: '/archives',
       Categories: '/categories',
       Tags: '/tags'
