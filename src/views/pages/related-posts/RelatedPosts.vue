@@ -27,7 +27,7 @@
                     @photo-zoom-in="showPhotoDetail"></article-card>
     </div>
     <!--back to top-->
-    <end-of-file></end-of-file>
+    <end-of-file v-show="shouldShowEOF"></end-of-file>
   </div>
 </template>
 
