@@ -1,6 +1,6 @@
 <template>
   <blur-div :background="background" id="lite-header" :blur="30">
-      <img class="avatar" :src="avatar.url" alt="avatar"/>
+      <img v-if="avatar.enable" class="avatar" :src="avatar.url" alt="avatar"/>
       <p class="author">{{ site.author }}</p>
       <p class="description">{{ site.description }}</p>
   </blur-div>
