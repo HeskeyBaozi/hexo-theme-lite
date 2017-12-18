@@ -47,6 +47,13 @@
     <!-- content -->
     <detailable-content :html="target.content"></detailable-content>
 
+    <!--comment-->
+    <div class="comments" v-if="target.comments">
+      <div class="gitment">
+        <gitment-comment></gitment-comment>
+      </div>
+    </div>
+
     <!--back to top-->
     <end-of-file></end-of-file>
 
@@ -142,6 +149,13 @@
       cursor: zoom-out;
     }
 
+    .comments {
+      text-align: left;
+
+      .gitment {
+        font-family: @basic-font-family;
+      }
+    }
   }
 </style>
 <script lang="ts" src="./detailable-page.component.ts"></script>
