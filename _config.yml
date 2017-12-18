@@ -30,7 +30,7 @@ menu:
   # [X]  About: /about/index       (need '/pages' as prefix)
   # [O]  About: /pages/about/index (preferred)
   # [O]  About: /pages/about
-  # About: /pages/about/index
+  About: /pages/about/index
 
 menu_icons:
   enable: true
@@ -67,7 +67,7 @@ social_icons:
 # -------------------------------------------------------
 page_404:
   # enable to use custom 404 page
-  enable: false
+  enable: true
   # filename of .md file path in your source dir
   # example:
   # after run command `hexo new page 404`
@@ -76,6 +76,24 @@ page_404:
   # [O]  source_path: 404/index
   # [O]  source_path: 404                   ('/index' can be omitted)
   source_path: 404/index.md
+
+# -------------------------------------------------------
+# Comments System
+# -------------------------------------------------------
+
+# https://github.com/imsun/gitment#customize
+gitment:
+  enable: false
+  github_id: # your github id
+  repository_name: # your repository name
+
+  # client_id & secret will generated after register an OAuth App
+  # reference: https://github.com/settings/applications/new
+  client_id:
+  client_secret:
+  per_page: 8 # comments per page
+  max_comment_height: 250 # default 250px
+
 
 # -------------------------------------------------------
 # Powered by

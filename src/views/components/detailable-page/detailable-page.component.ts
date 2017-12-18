@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
 import DetailableContent from '@/views/components/detailable-content/DetailableContent.vue';
+import GitmentComment from '@/views/components/gitment-comment/GitmentComment.vue';
 import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Article, Detailable, Page } from '@/models/article.class';
 import { Modal } from '@/models/modal.class';
@@ -12,7 +13,7 @@ declare const window: Window;
 
 @Component({
   name: 'detailable-page',
-  components: { ArticleCard, EndOfFile, DetailableContent },
+  components: { ArticleCard, EndOfFile, DetailableContent, GitmentComment },
   props: {
     format: {
       required: true,
@@ -41,7 +42,7 @@ export default class DetailablePage extends Vue {
       if (!len) {
         return '';
       } else {
-        return this.target.categories[ len - 1 ].slug;
+        return this.target.categories[len - 1].slug;
       }
     }
     return '';
