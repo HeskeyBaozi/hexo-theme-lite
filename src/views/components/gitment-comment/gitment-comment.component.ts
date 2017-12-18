@@ -3,9 +3,21 @@ import { mapState } from "vuex";
 import { RootState } from "@/store";
 import Gitment from 'gitment';
 
+declare const location: Location;
+
 
 export default Vue.extend({
   name: 'gitment-comment',
+  props: {
+    isImplicit: {
+      required: true,
+      type: Boolean
+    },
+    slugOrSource: {
+      required: true,
+      type: String
+    }
+  },
   computed: {
     ...mapState({
       gitmentOptions: (state: RootState) => state.meta.hexoConfig.theme.gitment
@@ -18,13 +30,14 @@ export default Vue.extend({
 
     // https://github.com/imsun/gitment#3-render-gitment
     const gitment = new Gitment({
-      id: this.$route.path,
+      id: this.slugOrSource,
       owner: this.gitmentOptions.github_id,
       repo: this.gitmentOptions.repository_name,
       oauth: {
         client_id: this.gitmentOptions.client_id,
         client_secret: this.gitmentOptions.client_secret,
       },
+      title: this.$route.path,
       perPage: this.gitmentOptions.per_page,
       maxCommentHeight: this.gitmentOptions.max_comment_height
     });

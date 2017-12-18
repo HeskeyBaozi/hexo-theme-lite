@@ -50,7 +50,7 @@
     <!--comment-->
     <div class="comments" v-if="target.comments">
       <div class="gitment">
-        <gitment-comment></gitment-comment>
+        <gitment-comment :isImplicit="isImplicit" :slugOrSource="isImplicit ? $route.path : `posts/${target.slug}`"></gitment-comment>
       </div>
     </div>
 
