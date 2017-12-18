@@ -4,6 +4,7 @@ export class GitmentOptions {
   client_secret = '';
   per_page = 10;
   max_comment_height = 250;
+  github_id = '';
 
   constructor(raw?: any) {
     if (raw) {
