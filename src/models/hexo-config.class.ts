@@ -1,5 +1,7 @@
 // https://hexo.io/zh-cn/docs/configuration.html
 
+import { GitmentOptions } from "@/models/comments-system.class";
+
 export class HexoConfig {
   site: Site = new Site();
   url: URL = new URL();
@@ -180,6 +182,7 @@ export class Theme {
 
   avatar: ThemeAvatar = new ThemeAvatar();
   background: ThemeBackground = new ThemeBackground();
+  gitment = new GitmentOptions();
   powered_by = '';
 
   constructor(raw?: any) {
@@ -194,6 +197,8 @@ export class Theme {
             Object.assign(this, { [ key ]: new ThemeMenu(raw[ key ]) });
           } else if (key === 'page_404') {
             Object.assign(this, { [ key ]: new ThemeCustom404(raw[ key ]) });
+          } else if (key === 'gitment') {
+            Object.assign(this, { [ key ]: new GitmentOptions(raw[ key ]) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
           }
