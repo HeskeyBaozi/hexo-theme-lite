@@ -7,6 +7,10 @@ avatar:
   url: /static/images/kamuyi.jpg
 
 background:
+  background_color: white
+
+  # Custom Background Picture
+  enable_picture: true
   url: /static/images/miku.jpg
   css_size: cover
   css_position: 50%
@@ -30,7 +34,7 @@ menu:
   # [X]  About: /about/index       (need '/pages' as prefix)
   # [O]  About: /pages/about/index (preferred)
   # [O]  About: /pages/about
-  About: /pages/about/index
+  # About: /pages/about/index
 
 menu_icons:
   enable: true
@@ -40,6 +44,23 @@ menu_icons:
   Categories: fa-bookmark
   Tags: fa-hashtag
   About: fa-smile-o
+
+# -------------------------------------------------------
+# Custom Blur
+# -------------------------------------------------------
+blur:
+  background_color: white
+
+  hide_overflow: false
+
+  gaussian_radius:
+    top_navigator: 30 # 30+ preferred
+    header: 30 # 5 ~ 50 preferred
+    footer: 40 # 5 ~ 100 preferred
+
+  font:
+    color: white
+
 
 # -------------------------------------------------------
 # Social
