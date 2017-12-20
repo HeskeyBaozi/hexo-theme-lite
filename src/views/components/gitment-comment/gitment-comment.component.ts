@@ -20,7 +20,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapState({
-      gitmentOptions: (state: RootState) => state.meta.hexoConfig.theme.gitment
+      gitmentOptions: (state: RootState) => state.meta.themeConfig.gitment
     })
   },
   mounted() {

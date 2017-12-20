@@ -1,7 +1,5 @@
 // https://hexo.io/zh-cn/docs/configuration.html
 
-import { GitmentOptions } from "@/models/comments-system.class";
-
 export class HexoConfig {
   site: Site = new Site();
   url: URL = new URL();
@@ -11,7 +9,6 @@ export class HexoConfig {
   dateTimeFormat: DateTimeFormat = new DateTimeFormat();
   page: Pagination = new Pagination();
   extensions: Extensions = new Extensions();
-  theme: Theme = new Theme();
 
   constructor(raw?: any) {
     if (raw) {
@@ -23,7 +20,6 @@ export class HexoConfig {
       this.dateTimeFormat = new DateTimeFormat(raw);
       this.page = new Pagination(raw);
       this.extensions = new Extensions(raw);
-      this.theme = new Theme(raw[ 'theme_config' ]);
     }
   }
 }
@@ -166,126 +162,3 @@ export class Extensions {
   }
 }
 
-
-export class Theme {
-  menu: ThemeMenu = new ThemeMenu();
-  menu_icons: {
-    [ key: string ]: string | boolean
-  } = {
-    enable: false
-  };
-  social = {};
-  social_icons = {
-    enable: false
-  };
-  page_404 = new ThemeCustom404();
-
-  avatar: ThemeAvatar = new ThemeAvatar();
-  background: ThemeBackground = new ThemeBackground();
-  gitment = new GitmentOptions();
-  powered_by = '';
-
-  constructor(raw?: any) {
-    if (raw) {
-      for (const key of Object.keys(this)) {
-        if (raw.hasOwnProperty(key)) {
-          if (key === 'avatar') {
-            Object.assign(this, { [ key ]: new ThemeAvatar(raw[ key ]) });
-          } else if (key === 'background') {
-            Object.assign(this, { [ key ]: new ThemeBackground(raw[ key ]) });
-          } else if (key === 'menu') {
-            Object.assign(this, { [ key ]: new ThemeMenu(raw[ key ]) });
-          } else if (key === 'page_404') {
-            Object.assign(this, { [ key ]: new ThemeCustom404(raw[ key ]) });
-          } else if (key === 'gitment') {
-            Object.assign(this, { [ key ]: new GitmentOptions(raw[ key ]) });
-          } else {
-            Object.assign(this, { [ key ]: raw[ key ] });
-          }
-        }
-      }
-    }
-  }
-}
-
-export class ThemeCustom404 {
-  enable = false;
-  source_path = '';
-
-  constructor(raw?: any) {
-    if (raw) {
-      for (const key of Object.keys(this)) {
-        if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [ key ]: raw[ key ] });
-        }
-      }
-    }
-  }
-}
-
-interface LiteMenu {
-  Home: string;
-  Archives: string;
-  Categories?: string;
-  Tags?: string;
-}
-
-export class ThemeMenu implements LiteMenu {
-  Home = '/';
-  Archives = '/archives';
-
-  constructor(raw?: { [ key: string ]: string | boolean }) {
-    const extract: { [ key: string ]: string } = {
-      Home: '/',
-      Archives: '/archives',
-      Categories: '/categories',
-      Tags: '/tags'
-    };
-
-    const basicKeys = Object.keys(extract);
-    if (raw) {
-      for (const basicKey of basicKeys) {
-        if (typeof raw[ basicKey ] === 'boolean' && raw[ basicKey ]) {
-          Object.assign(this, { [ basicKey ]: extract[ basicKey ] });
-        }
-      }
-
-      for (const otherKey of Object.keys(raw)) {
-        if (basicKeys.every(basicKey => otherKey !== basicKey)) {
-          Object.assign(this, { [ otherKey ]: raw[ otherKey ] });
-        }
-      }
-    }
-  }
-}
-
-export class ThemeAvatar {
-  enable = false;
-  url = '';
-
-  constructor(raw?: any) {
-    if (raw) {
-      for (const key of Object.keys(this)) {
-        if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [ key ]: raw[ key ] });
-        }
-      }
-    }
-  }
-}
-
-export class ThemeBackground {
-  url = '';
-  css_size = '';
-  css_position = '';
-
-  constructor(raw?: any) {
-    if (raw) {
-      for (const key of Object.keys(this)) {
-        if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [ key ]: raw[ key ] });
-        }
-      }
-    }
-  }
-}

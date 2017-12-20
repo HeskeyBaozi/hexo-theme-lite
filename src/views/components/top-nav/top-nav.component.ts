@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
-import { ThemeBackground } from '@/models/hexo-config.class';
+import { ThemeBackground } from '@/models/theme-config.class';
 
 
 @Component({
@@ -29,8 +29,8 @@ export default class TopNav extends Vue {
     return Object.keys(this.menu)
       .map(key => ({
         name: key,
-        path: this.menu[ key ],
-        icon: this.icons[ key ]
+        path: this.menu[key],
+        icon: this.icons[key]
       }));
   }
 

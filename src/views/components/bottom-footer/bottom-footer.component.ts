@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { Site, ThemeBackground } from '@/models/hexo-config.class';
+import { Site } from '@/models/hexo-config.class';
 import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
+import { ThemeBackground } from '@/models/theme-config.class';
 
 @Component({
   name: 'bottom-footer',
@@ -40,8 +41,8 @@ export default class BottomFooter extends Vue {
     return Object.keys(this.social)
       .map(key => ({
         name: key,
-        url: this.social[ key ],
-        icon: this.icons[ key ]
+        url: this.social[key],
+        icon: this.icons[key]
       }));
   }
 }

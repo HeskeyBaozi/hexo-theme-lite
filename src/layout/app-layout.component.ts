@@ -2,13 +2,14 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
-import { Theme, Site } from '@/models/hexo-config.class';
+import { Site } from '@/models/hexo-config.class';
 import { MetaState } from '@/store/modules/global';
 import TopNav from '@/views/components/top-nav/TopNav.vue';
 import TopHeader from '@/views/components/top-header/TopHeader.vue';
 import BottomFooter from '@/views/components/bottom-footer/BottomFooter.vue';
 import { RootState } from '@/store';
 import { Fetch_Detailable_Target } from '@/store/types';
+import { Theme } from '@/models/theme-config.class';
 
 @Component({
   name: 'app-layout',
@@ -16,7 +17,7 @@ import { Fetch_Detailable_Target } from '@/store/types';
 })
 export default class AppLayout extends Vue {
   get theme(): Theme {
-    return (this.$store.state.meta as MetaState).hexoConfig.theme;
+    return (this.$store.state.meta as MetaState).themeConfig;
   }
 
   get site(): Site {
@@ -38,7 +39,7 @@ export default class AppLayout extends Vue {
     console.log('meta fetched');
 
     // define 404 page
-    const { enable, source_path } = (store.state as RootState).meta.hexoConfig.theme.page_404;
+    const { enable, source_path } = (store.state as RootState).meta.themeConfig.page_404;
     const source = source_path.replace(/\.md$/, '');
     if (enable) {
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit: true, sourceOrSlug: source });
