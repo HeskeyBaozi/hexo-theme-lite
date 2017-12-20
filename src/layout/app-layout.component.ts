@@ -3,13 +3,13 @@ import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
 import { Site } from '@/models/hexo-config.class';
-import { MetaState } from '@/store/modules/global';
+import VueAnalytics from 'vue-analytics';
 import TopNav from '@/views/components/top-nav/TopNav.vue';
 import TopHeader from '@/views/components/top-header/TopHeader.vue';
 import BottomFooter from '@/views/components/bottom-footer/BottomFooter.vue';
 import { RootState } from '@/store';
 import { Fetch_Detailable_Target } from '@/store/types';
-import { Theme, ThemeBlur } from '@/models/theme-config.class';
+import { Theme } from '@/models/theme-config.class';
 
 @Component({
   name: 'app-layout',
@@ -46,9 +46,10 @@ export default class AppLayout extends Vue {
     console.log('meta fetched');
 
     // define 404 page
-    const { enable, source_path } = (store.state as RootState).meta.themeConfig.page_404;
-    const source = source_path.replace(/\.md$/, '');
-    if (enable) {
+    const page_404 = (store.state as RootState).meta.themeConfig.page_404;
+
+    if (page_404.enable) {
+      const source = page_404.source_path.replace(/\.md$/, '');
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit: true, sourceOrSlug: source });
     }
   }

@@ -1,5 +1,6 @@
 import { GitmentOptions } from "@/models/comments-system.class";
 
+
 export class Theme {
   menu: ThemeMenu = new ThemeMenu();
   menu_icons: {
@@ -16,6 +17,7 @@ export class Theme {
   avatar: ThemeAvatar = new ThemeAvatar();
   background: ThemeBackground = new ThemeBackground();
   gitment = new GitmentOptions();
+  google_analytics = new GoogleAnalytics();
   powered_by = '';
 
   constructor(raw?: any) {
@@ -31,6 +33,7 @@ export class Theme {
       this.gitment = new GitmentOptions(raw_theme.gitment);
       this.powered_by = raw_theme.powered_by;
       this.blur = new ThemeBlur(raw_theme.blur);
+      this.google_analytics = new GoogleAnalytics(raw_theme.google_analytics);
     }
   }
 }
@@ -150,4 +153,16 @@ export class ThemeBlur {
     }
   }
 
+}
+
+export class GoogleAnalytics {
+  enable = false;
+  track_id = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      this.enable = raw.enable;
+      this.track_id = raw.track_id;
+    }
+  }
 }
