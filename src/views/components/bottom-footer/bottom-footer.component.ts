@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Site } from '@/models/hexo-config.class';
 import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
-import { ThemeBackground } from '@/models/theme-config.class';
 
 @Component({
   name: 'bottom-footer',
@@ -24,9 +23,9 @@ import { ThemeBackground } from '@/models/theme-config.class';
       required: true,
       validator: obj => obj instanceof Site
     },
-    background: {
+    blur: {
       required: true,
-      validator: obj => obj instanceof ThemeBackground
+      types: Number
     }
   }
 })
@@ -35,7 +34,7 @@ export default class BottomFooter extends Vue {
   social: { [ key: string ]: string };
   icons: { [ key: string ]: string | boolean };
   site: Site;
-  background: ThemeBackground;
+  blur: number;
 
   get socialItems() {
     return Object.keys(this.social)

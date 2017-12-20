@@ -9,7 +9,7 @@ import TopHeader from '@/views/components/top-header/TopHeader.vue';
 import BottomFooter from '@/views/components/bottom-footer/BottomFooter.vue';
 import { RootState } from '@/store';
 import { Fetch_Detailable_Target } from '@/store/types';
-import { Theme } from '@/models/theme-config.class';
+import { Theme, ThemeBlur } from '@/models/theme-config.class';
 
 @Component({
   name: 'app-layout',
@@ -17,11 +17,15 @@ import { Theme } from '@/models/theme-config.class';
 })
 export default class AppLayout extends Vue {
   get theme(): Theme {
-    return (this.$store.state.meta as MetaState).themeConfig;
+    return (this.$store.state as RootState).meta.themeConfig;
   }
 
   get site(): Site {
-    return (this.$store.state.meta as MetaState).hexoConfig.site;
+    return (this.$store.state as RootState).meta.hexoConfig.site;
+  }
+
+  get gaussian_radius() {
+    return this.theme.blur.gaussian_radius;
   }
 
   beforeMount() {

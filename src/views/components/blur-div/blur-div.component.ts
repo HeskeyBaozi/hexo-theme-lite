@@ -1,28 +1,34 @@
 import Vue from 'vue';
-import { ThemeBackground } from '@/models/theme-config.class';
+import { ThemeBackground, ThemeBlur } from '@/models/theme-config.class';
+import { mapState } from 'vuex';
+import { RootState } from '@/store';
 
 export default Vue.extend({
   name: 'blur-div',
   props: {
-    background: {
-      required: true,
-      validator: (obj: object) => obj instanceof ThemeBackground
-    },
     blur: {
       type: Number,
       'default': 5
     }
   },
+  computed: {
+    ...mapState({
+      background: (state: RootState) => state.meta.themeConfig.background,
+      blurTarget: (state: RootState) => state.meta.themeConfig.blur
+    })
+  },
   render(h) {
-    const { url, css_size, css_position, enable_picture, background_color } = this.$props.background as ThemeBackground;
+    const { url, css_size, css_position, enable_picture, background_color } = this.background as ThemeBackground;
     const { blur } = this.$props;
+    const { font, background_color: blur_color, hide_overflow } = this.blurTarget as ThemeBlur;
 
     return h('div', {
       style: {
         position: 'relative',
         zIndex: '1',
-        // backgroundColor: '',
-        overflow: 'hidden',
+        backgroundColor: blur_color,
+        color: font.color,
+        overflow: hide_overflow ? 'hidden' : '',
         height: '100%',
         width: '100%'
       }

@@ -1,107 +1,116 @@
 <template>
   <div id="top-nav">
-    <blur-div :background="background" :blur="30" class="blur top-left-padding">
-      <div class="container">
-        <el-row type="flex" :gutter="10">
-          <!--<= 768px-->
-          <el-col :xs="24" :sm="0">
-            <el-dropdown trigger="click" @command="routeTo">
-              <el-button type="text">
-                <div class="menu-btn">
-                  <span><i class="fa fa-bars" aria-hidden="true"></i></span>
-                  <span>Menu</span>
+    <blur-div :blur="blur" class="blur top-left-padding">
+      <el-row class="main-menu" type="flex">
+        <!--<= 768px-->
+        <el-col :xs="24" :sm="0">
+          <el-dropdown trigger="click" @command="routeTo">
+            <el-button type="text">
+              <div class="menu-btn">
+                <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+                <span>Menu</span>
+              </div>
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item v-for="item of navItems" :key="item.name" :command="item.path">
+                <div class="dropdown-item">
+                  <span class="icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
+                  <span class="item-name">{{ item.name }}</span>
                 </div>
-              </el-button>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item v-for="item of navItems" :key="item.name" :command="item.path">
-                  <div class="dropdown-item">
-                    <span class="icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
-                    <span class="item-name">{{ item.name }}</span>
-                  </div>
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-          </el-col>
-          <!-- > 768px-->
-          <el-col :xs="0" :sm="24">
-            <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="routeTo">
-              <el-menu-item v-for="item of navItems" :key="item.name" :index="item.path">
-                <span class="item-icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
-                <span>{{ item.name }}</span>
-              </el-menu-item>
-            </el-menu>
-          </el-col>
-        </el-row>
-      </div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-col>
+        <!-- > 768px-->
+        <el-col :xs="0" :sm="24">
+          <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="routeTo">
+            <el-menu-item v-for="item of navItems" :key="item.name" :index="item.path">
+              <span class="item-icon"><i :class="`fa ${item.icon}`" aria-hidden="true"></i></span>
+              <span>{{ item.name }}</span>
+            </el-menu-item>
+          </el-menu>
+        </el-col>
+      </el-row>
     </blur-div>
   </div>
 </template>
 
 
 <style lang="less" scoped>
-#top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background-color: white;
-  z-index: 1000;
-  overflow: hidden;
-}
+  #top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 1000;
+    overflow: hidden;
+    color: white;
+    text-shadow: 1px 1px 8px #444;
+    .main-menu {
+      width: 100%;
+    }
 
-.dropdown-item {
-  display: flex;
-  align-items: center;
+  }
 
-  .icon {
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 1rem;
+      text-align: center;
+      margin-right: 0.3rem;
+    }
+
+    .item-name {
+      flex-grow: 1;
+    }
+  }
+
+  .blur {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-btn > span {
+    margin-right: 0.2rem;
+
+  }
+
+  .item-icon {
+    display: inline-block;
     width: 1rem;
     text-align: center;
-    margin-right: 0.3rem;
   }
 
-  .item-name {
-    flex-grow: 1;
-  }
-}
+  .el-menu--horizontal {
+    display: flex;
+    justify-content: center;
+    .el-menu-item {
+      line-height: 40px;
+      height: 40px;
+      text-shadow: 0 0 2px white;
 
-.blur {
-  display: flex;
-  align-items: center;
-}
+      i {
+        color: inherit;
+      }
 
-.menu-btn > span {
-  margin-right: 0.2rem;
-  text-shadow: 0 0 3px white;
-}
+      &:hover,
+      &:focus {
+        background-color: rgba(255, 255, 255, 0);
+      }
 
-.item-icon {
-  display: inline-block;
-  width: 1rem;
-  text-align: center;
-}
-
-.el-menu--horizontal {
-  display: flex;
-  justify-content: center;
-  .el-menu-item {
-    line-height: 40px;
-    height: 40px;
-
-    &:hover,
-    &:focus {
-      background-color: rgba(255, 255, 255, 0);
-    }
-
-    * {
-      vertical-align: unset;
+      * {
+        vertical-align: unset;
+      }
     }
   }
-}
 
-.el-menu {
-  background-color: rgba(255, 255, 255, 0);
-}
+  .el-menu {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
 </style>
 <style lang="less" src="../../../styles/helpers.less"></style>
 <script src="./top-nav.component.ts" lang="ts"></script>

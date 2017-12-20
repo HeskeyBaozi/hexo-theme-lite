@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Site } from '@/models/hexo-config.class';
 import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
-import { ThemeAvatar, ThemeBackground } from '@/models/theme-config.class';
+import { ThemeAvatar } from '@/models/theme-config.class';
 
 @Component({
   name: 'top-header',
@@ -12,18 +12,18 @@ import { ThemeAvatar, ThemeBackground } from '@/models/theme-config.class';
       required: true,
       validator: obj => obj instanceof ThemeAvatar
     },
-    background: {
-      required: true,
-      validator: (obj: object) => obj instanceof ThemeBackground
-    },
     site: {
       required: true,
       validator: obj => obj instanceof Site
+    },
+    blur: {
+      required: true,
+      types: Number
     }
   }
 })
 export default class TopHeader extends Vue {
   avatar: ThemeAvatar;
-  background: ThemeBackground;
   site: Site;
+  blur: number;
 }

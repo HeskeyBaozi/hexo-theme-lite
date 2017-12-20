@@ -1,5 +1,5 @@
 <template>
-  <blur-div :background="background" id="lite-footer" :blur="80">
+  <blur-div id="lite-footer" :blur="blur">
     <div class="icon-list">
       <a :href="item.url" :key="item.name" target="_blank" v-for="item of socialItems">
           <span v-if="icons.enable">
@@ -22,8 +22,6 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-color: white;
     text-shadow: 1px 1px 8px #444;
     padding: 1rem 0 .5rem 0;
 
@@ -36,8 +34,11 @@
     }
 
     a {
-      color: white;
-      text-shadow: 1px 1px 8px #444;
+      color: inherit;
+      transition: transform 100ms;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 

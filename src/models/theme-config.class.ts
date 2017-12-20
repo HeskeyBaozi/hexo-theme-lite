@@ -11,6 +11,7 @@ export class Theme {
   social_icons = {
     enable: false
   };
+  blur = new ThemeBlur();
   page_404 = new ThemeCustom404();
   avatar: ThemeAvatar = new ThemeAvatar();
   background: ThemeBackground = new ThemeBackground();
@@ -29,6 +30,7 @@ export class Theme {
       this.background = new ThemeBackground(raw_theme.background);
       this.gitment = new GitmentOptions(raw_theme.gitment);
       this.powered_by = raw_theme.powered_by;
+      this.blur = new ThemeBlur(raw_theme.blur);
     }
   }
 }
@@ -115,4 +117,37 @@ export class ThemeBackground {
       }
     }
   }
+}
+
+export class ThemeBlur {
+  background_color = 'white';
+
+  hide_overflow = true;
+
+  gaussian_radius = {
+    top_navigator: 30,
+    header: 30,
+    footer: 80
+  };
+
+  font = {
+    color: 'white',
+    shadow: '1px 1px 8px #444',
+  };
+
+  constructor(raw?: any) {
+    if (raw) {
+      this.background_color = raw.background_color;
+      this.hide_overflow = raw.hide_overflow;
+      this.gaussian_radius = {
+        ...this.gaussian_radius,
+        ...raw.gaussian_radius
+      };
+      this.font = {
+        ...this.font,
+        ...raw.font
+      };
+    }
+  }
+
 }
