@@ -19,6 +19,8 @@ light single page blog application theme, using `Vue`, `Vuex`, `ElementUI` and s
 
 1. Enter to the `Hexo` root directory. The root directory must include `themes`, `node_modules`, `source` and so on.
 
+首先进入`Hexo`根目录，请确保这个目录下有`themes`, `node_modules`, `source`等文件。
+
 ```bash
 cd my-hexo
 ls
@@ -28,17 +30,23 @@ ls
 
 2. Download the latest release by using `git clone`
 
+使用`git clone`命令下载最新的发布版本
+
 ```bash
 git clone https://github.com/HeskeyBaozi/hexo-theme-lite themes/lite
 ```
 
 after `git clone`, the result is like this:
 
+使用命令后，结果看起来会是这样
+
 ![like this](./docs/depre.png)
 
 3. Edit the `__config.yml` in your root directory.
 
 modify the field `theme` into `lite`.
+
+打开根目录的`__config.yml`文件，将`theme`字段设为`lite`
 
 ```yml
 # Extensions
