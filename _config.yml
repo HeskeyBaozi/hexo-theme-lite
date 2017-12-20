@@ -59,7 +59,7 @@ blur:
     footer: 40 # 5 ~ 100px preferred
 
   font:
-    color: white
+    color: white # only affect the font color in the blur area.
 
 
 # -------------------------------------------------------
