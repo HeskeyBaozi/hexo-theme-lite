@@ -1,5 +1,9 @@
 import { app, store, router } from './main';
 import { Fetch_Meta } from '@/store/types';
+import Vue from 'vue';
+import { RootState } from '@/store';
+import VueAnalytics from 'vue-analytics';
+
 
 declare const window: Window;
 
@@ -10,7 +14,7 @@ router.onReady(async () => {
 
     let diffed = false;
     const activated = matched.filter((component, index) => {
-      return diffed || (diffed = (prevMatched[ index ] !== component));
+      return diffed || (diffed = (prevMatched[index] !== component));
     });
 
     if (!activated.length) {
@@ -35,6 +39,17 @@ router.onReady(async () => {
   // base global meta
   await store.dispatch(`meta/${Fetch_Meta}`);
 
+  // google analytics
+  const google_analytics = (store.state as RootState).meta.themeConfig.google_analytics;
+  if (google_analytics.enable) {
+    const track_id = google_analytics.track_id;
+    Vue.use(VueAnalytics, {
+      id: track_id,
+      router
+    });
+  }
+
+
   // Fetch initial state
   const initMatched = router.getMatchedComponents(router.currentRoute);
   const asyncDataHooks = initMatched.map((c: any) => c.asyncData || c.options && c.options.asyncData).filter(_ => _);
@@ -44,5 +59,4 @@ router.onReady(async () => {
   app.$mount('#app');
 
 });
-
 

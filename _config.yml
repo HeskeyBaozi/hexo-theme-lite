@@ -7,6 +7,10 @@ avatar:
   url: /static/images/kamuyi.jpg
 
 background:
+  background_color: white
+
+  # Custom Background Picture
+  enable_picture: true
   url: /static/images/miku.jpg
   css_size: cover
   css_position: 50%
@@ -30,7 +34,7 @@ menu:
   # [X]  About: /about/index       (need '/pages' as prefix)
   # [O]  About: /pages/about/index (preferred)
   # [O]  About: /pages/about
-  About: /pages/about/index
+  # About: /pages/about/index
 
 menu_icons:
   enable: true
@@ -40,6 +44,23 @@ menu_icons:
   Categories: fa-bookmark
   Tags: fa-hashtag
   About: fa-smile-o
+
+# -------------------------------------------------------
+# Custom Blur
+# -------------------------------------------------------
+blur:
+  background_color: white
+
+  hide_overflow: false
+
+  gaussian_radius:
+    top_navigator: 30 # 30+ preferred
+    header: 30 # 5 ~ 50 preferred
+    footer: 40 # 5 ~ 100 preferred
+
+  font:
+    color: white
+
 
 # -------------------------------------------------------
 # Social
@@ -67,7 +88,7 @@ social_icons:
 # -------------------------------------------------------
 page_404:
   # enable to use custom 404 page
-  enable: true
+  enable: false
   # filename of .md file path in your source dir
   # example:
   # after run command `hexo new page 404`
@@ -93,6 +114,14 @@ gitment:
   client_secret:
   per_page: 8 # comments per page
   max_comment_height: 250 # default 250px
+
+# -------------------------------------------------------
+# Google Analytics
+# -------------------------------------------------------
+
+google_analytics:
+  enable: false
+  track_id: UA-XXXXXX-X # replace to your track_id. It starts with 'UA-'.
 
 
 # -------------------------------------------------------

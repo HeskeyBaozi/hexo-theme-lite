@@ -1,6 +1,6 @@
 {
   "name": "lite-fe",
-  "version": "1.0.4",
+  "version": "1.2.0",
   "description": "Hexo Theme Lite FE",
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "scripts": {
@@ -17,6 +17,7 @@
     "normalize.css": "^7.0.0",
     "nprogress": "^0.2.0",
     "vue": "^2.5.2",
+    "vue-analytics": "^5.7.1",
     "vue-class-component": "^6.1.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
