@@ -197,7 +197,25 @@ google_analytics:
   # 这里替换为你的跟踪ID，记得打开`enable: true`
   track_id: UA-XXXXXX-X
 ```
+## Other issues | 其他问题
 
+- make sure you have installed `hexo-pagination`. 请确保你已经安装了`hexo-pagination`
+```bash
+npm install --save hexo-pagination # or yarn add hexo-pagination
+```
+
+- post's code rendered in one line ? | 文章里的代码都显示在一行？
+
+make sure you have turned the `highlight` plugin on your root `__config.yml`
+请确保你根目录下的`__config.yml`文件是打开`highlight`插件的
+```yml
+# example
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+```
 
 ## Development Build Setup | 如何帮助我一起开发主题
 
