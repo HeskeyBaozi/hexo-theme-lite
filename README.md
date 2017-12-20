@@ -233,6 +233,24 @@ highlight:
   tab_replace:
 ```
 
+## How to upgrade this theme | 如何升级主题
+
+就是重新删除主题文件夹再安装，记得保存`__config.yml`文件。
+
+1. save your theme `__config.yml` file.
+
+2. delete `/themes/lite` dir
+
+3. enter your `hexo` root dir
+
+4. run command
+
+```bash
+git clone https://github.com/HeskeyBaozi/hexo-theme-lite themes/lite
+```
+
+5. replace theme configure file by using your saved `__config.yml`
+
 ## Development Build Setup | 如何帮助我一起开发主题
 
 [Development Server | 开发者用来debug的服务器](https://github.com/HeskeyBaozi/lite-se)
