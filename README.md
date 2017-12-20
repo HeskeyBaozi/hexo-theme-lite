@@ -85,7 +85,7 @@ avatar:
 
 ```yml
 background:
-  background_color: white
+  background_color: '#ffffff'
 
   # Custom Background Picture
   enable_picture: true
@@ -121,11 +121,11 @@ you can set the gaussian radius here.
 
 ```yml
 blur:
-  background_color: white
+  background_color: '#ffffff'
 
   # 'true' corresponding to css style 'overflow: hidden'
   # 设置为'true'则对应模糊容器'overflow'选项
-  hide_overflow: false
+  hide_overflow: true
 
   gaussian_radius: # 高斯模糊程度，数值越大越模糊
     top_navigator: 30 # 30+ preferred
@@ -133,7 +133,7 @@ blur:
     footer: 40 # 5 ~ 100 preferred
 
   font:
-    color: white
+    color: '#ffffff'
 ```
 
 Notice that the `font.color` will only affect the font color in the blur area.

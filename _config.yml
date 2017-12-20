@@ -7,7 +7,7 @@ avatar:
   url: /static/images/kamuyi.jpg
 
 background:
-  background_color: white
+  background_color: '#ffffff'
 
   # Custom Background Picture
   enable_picture: true
@@ -49,7 +49,7 @@ menu_icons:
 # Custom Blur
 # -------------------------------------------------------
 blur:
-  background_color: white
+  background_color: '#ffffff'
 
   hide_overflow: true
 
@@ -59,7 +59,7 @@ blur:
     footer: 40 # 5 ~ 100px preferred
 
   font:
-    color: white # only affect the font color in the blur area.
+    color: '#ffffff' # only affect the font color in the blur area.
 
 
 # -------------------------------------------------------
