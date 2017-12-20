@@ -54,9 +54,9 @@ blur:
   hide_overflow: true
 
   gaussian_radius:
-    top_navigator: 30 # 30+ preferred
-    header: 30 # 5 ~ 50 preferred
-    footer: 40 # 5 ~ 100 preferred
+    top_navigator: 30 # 30px+ preferred
+    header: 30 # 5 ~ 50px preferred
+    footer: 40 # 5 ~ 100px preferred
 
   font:
     color: white
