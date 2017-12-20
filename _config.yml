@@ -88,7 +88,7 @@ social_icons:
 # -------------------------------------------------------
 page_404:
   # enable to use custom 404 page
-  enable: true
+  enable: false
   # filename of .md file path in your source dir
   # example:
   # after run command `hexo new page 404`
@@ -114,6 +114,14 @@ gitment:
   client_secret:
   per_page: 8 # comments per page
   max_comment_height: 250 # default 250px
+
+# -------------------------------------------------------
+# Google Analytics
+# -------------------------------------------------------
+
+google_analytics:
+  enable: false
+  track_id: UA-XXXXXX-X # replace to your track_id. It starts with 'UA-'.
 
 
 # -------------------------------------------------------
