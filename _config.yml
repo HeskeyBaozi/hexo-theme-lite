@@ -51,7 +51,7 @@ menu_icons:
 blur:
   background_color: white
 
-  hide_overflow: false
+  hide_overflow: true
 
   gaussian_radius:
     top_navigator: 30 # 30+ preferred
