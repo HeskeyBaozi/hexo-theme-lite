@@ -136,6 +136,10 @@ blur:
     color: white
 ```
 
+Notice that the `font.color` will only affect the font color in the blur area.
+
+注意，这里的`font.color`只会影响模糊区域的字体颜色.
+
 - social links | 社交链接
 
 ```yml
