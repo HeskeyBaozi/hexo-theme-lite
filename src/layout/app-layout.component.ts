@@ -29,8 +29,11 @@ export default class AppLayout extends Vue {
     document.title = this.site.title || 'Hexo - Lite Theme';
 
     // setting Backgound Picture
-    const { url, css_size, css_position } = this.theme.background;
-    document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
+    const { url, css_size, css_position, background_color, enable_picture } = this.theme.background;
+    if (enable_picture) {
+      document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
+    }
+    document.body.style.backgroundColor = background_color;
   }
 
   // fetch initial global data

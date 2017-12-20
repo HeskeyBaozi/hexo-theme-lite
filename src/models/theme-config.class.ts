@@ -100,6 +100,8 @@ export class ThemeAvatar {
 }
 
 export class ThemeBackground {
+  background_color = '';
+  enable_picture = false;
   url = '';
   css_size = '';
   css_position = '';

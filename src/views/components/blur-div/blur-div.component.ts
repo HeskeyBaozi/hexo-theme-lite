@@ -14,13 +14,14 @@ export default Vue.extend({
     }
   },
   render(h) {
-    const { url, css_size, css_position } = this.$props.background;
+    const { url, css_size, css_position, enable_picture, background_color } = this.$props.background as ThemeBackground;
     const { blur } = this.$props;
+
     return h('div', {
       style: {
         position: 'relative',
         zIndex: '1',
-        // backgroundColor: 'rgba(255, 255, 255, 0)',
+        // backgroundColor: '',
         overflow: 'hidden',
         height: '100%',
         width: '100%'
@@ -37,7 +38,8 @@ export default Vue.extend({
           zIndex: '-1',
           content: `''`,
           filter: `blur(${blur}px)`,
-          background: `url(${url}) ${css_position} / ${css_size} no-repeat fixed`,
+          background: enable_picture ? `url(${url}) ${css_position} / ${css_size} no-repeat fixed` : '',
+          backgroundColor: background_color,
           height: '100%',
           width: '100%'
         }
