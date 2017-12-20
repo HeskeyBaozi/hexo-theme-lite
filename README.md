@@ -2,7 +2,9 @@
 
 > Keep Calm, Lite and Writing.
 
-light single page blog application theme, using Vue, Vuex, ElementUI and so on.
+light single page blog application theme, using `Vue`, `Vuex`, `ElementUI` and so on.
+
+一款轻量单页博客主题，基于`Vue`, `Vuex` 和 `ElementUI` 构建
 
 
 ## Live Demo
@@ -103,8 +105,10 @@ menu:
 ```
 - theme filter blur | 主题模糊滤镜设置
 
-you can set the gaussian radius here
-你可以在这里设置高斯模糊半径，效果如下
+you can set the gaussian radius here.
+
+你可以在这里设置高斯模糊半径，效果如下.
+
 ![gr](./docs/gr.png)
 
 ```yml
@@ -131,7 +135,7 @@ social:
   github: https://github.com/heskeybaozi
   weibo: http://weibo.com/52hezhiyu
 
-  # Email link, reference to https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links
+  # Email link
   email: mailto:hezhiyu233@foxmail.com
 
 social_icons:
@@ -162,7 +166,9 @@ page_404:
 We use `Gitment` for the comments system.
 
 > What's [`Gitment`](https://github.com/imsun/gitment) ?
+
 > Gitment is a comment system based on GitHub Issues, which can be used in the frontend without any server-side implementation.
+
 > Gitment 是一个使用Github Issues页面来存储评论的无‘服务端’评论系统
 
 [Click here](https://github.com/settings/applications/new) to register an OAuth application, and you will get a `client id` and a `client secret`.
@@ -207,7 +213,9 @@ npm install --save hexo-pagination # or yarn add hexo-pagination
 - post's code rendered in one line ? | 文章里的代码都显示在一行？
 
 make sure you have turned the `highlight` plugin on your root `__config.yml`
+
 请确保你根目录下的`__config.yml`文件是打开`highlight`插件的
+
 ```yml
 # example
 highlight:
