@@ -19,8 +19,8 @@
         font-family: @basic-font-family !important;
         font-size: 1rem;
         font-weight: normal;
-
         transition: all 200ms;
+        border-radius: .2rem;
 
         &:hover {
           background-color: lighten(@primary-color, 15%);

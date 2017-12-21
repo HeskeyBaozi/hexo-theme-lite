@@ -11,7 +11,7 @@
 
     <!-- meta -->
     <p v-show="!isImplicit" class="meta">
-      <span class="create-time">{{ target.date | format(format) }}</span>
+      <span class="create-time">{{ target.date | format(date_format) }}, {{ target.date | format(time_format) }}</span>
     </p>
 
     <!--categories & tags-->
@@ -50,7 +50,8 @@
     <!--comment-->
     <div class="comments" v-if="target.comments">
       <div class="gitment">
-        <gitment-comment :isImplicit="isImplicit" :slugOrSource="isImplicit ? $route.path : `posts/${target.slug}`"></gitment-comment>
+        <gitment-comment :isImplicit="isImplicit"
+                         :slugOrSource="isImplicit ? $route.path : `posts/${target.slug}`"></gitment-comment>
       </div>
     </div>
 
@@ -153,6 +154,7 @@
       text-align: left;
 
       .gitment {
+        padding: 0 .5rem;
         font-family: @basic-font-family;
       }
     }

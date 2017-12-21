@@ -3,7 +3,6 @@ import Component from 'vue-class-component';
 import { AsyncArgs } from '@/interfaces/asyncData.interface';
 import { Fetch_Meta } from '@/store/types';
 import { Site } from '@/models/hexo-config.class';
-import VueAnalytics from 'vue-analytics';
 import TopNav from '@/views/components/top-nav/TopNav.vue';
 import TopHeader from '@/views/components/top-header/TopHeader.vue';
 import BottomFooter from '@/views/components/bottom-footer/BottomFooter.vue';
@@ -31,13 +30,17 @@ export default class AppLayout extends Vue {
   beforeMount() {
     // setting Title
     document.title = this.site.title || 'Hexo - Lite Theme';
+  }
+
+  mounted() {
+    const $app = document.getElementById('app') as HTMLElement;
 
     // setting Backgound Picture
     const { url, css_size, css_position, background_color, enable_picture } = this.theme.background;
     if (enable_picture) {
-      document.body.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
+      $app.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
     }
-    document.body.style.backgroundColor = background_color;
+    $app.style.backgroundColor = background_color;
   }
 
   // fetch initial global data

@@ -94,10 +94,6 @@
     .title {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      transition: all 250ms;
-      &:hover {
-        transform: scale(1.1);
-      }
       .external-link {
         font-size: 0.8em;
       }
@@ -116,7 +112,6 @@
       padding: 5px;
       border: 1px solid lighten(@primary-color, 80%);
       background-color: white;
-      margin: 0 -3rem;
 
       .photo-wrapper {
         height: 300px;
@@ -151,12 +146,16 @@
 
     .meta,
     .categories-and-tags {
-      color: #5c5c5c;
+      color: @primary-color;
     }
 
     .title {
       a {
-        border-bottom-width: 2px;
+        border-bottom: .1rem solid rgba(0, 0, 0, 0);
+        transition: all 200ms;
+        &:hover {
+          border-bottom-color: @primary-color;
+        }
       }
     }
 
@@ -176,7 +175,11 @@
     .box {
       box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
       transition: box-shadow 250ms;
-      margin-bottom: 1rem;
+      margin: 0 -3rem 1rem -3rem;
+      @media (max-width: @small-max-width) {
+        margin: 0 -1rem 1rem -1rem;
+      }
+
       &:hover {
         box-shadow: 0 0 0.3rem @primary-color;
       }

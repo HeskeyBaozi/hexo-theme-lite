@@ -1,9 +1,12 @@
 import { ActionTree, Module, MutationTree, GetterTree } from 'vuex';
 import { HexoConfig } from '@/models/hexo-config.class';
 import { fetchHexoConfig } from '@/api';
-import { Fetch_Meta, Reload_Meta, Should_Pagination } from '@/store/types';
+import { Fetch_Meta, Load_Google_Analytics, Reload_Meta, Should_Pagination } from '@/store/types';
 import { RootState } from '@/store';
-import { Theme } from "@/models/theme-config.class";
+import { Theme } from '@/models/theme-config.class';
+import { VueRouter } from 'vue-router/types/router';
+import Vue from 'vue';
+import VueAnalytics from 'vue-analytics';
 
 export class MetaState {
   hexoConfig = new HexoConfig();
@@ -20,6 +23,16 @@ const actions: ActionTree<MetaState, RootState> = {
   async [Fetch_Meta]({ commit }) {
     const { data } = await fetchHexoConfig();
     commit(Reload_Meta, data);
+  },
+  async [Load_Google_Analytics]({ state }, { router }: { router: VueRouter }) {
+    const google_analytics = state.themeConfig.google_analytics;
+    if (google_analytics.enable) {
+      const track_id = google_analytics.track_id;
+      Vue.use(VueAnalytics, {
+        id: track_id,
+        router
+      });
+    }
   }
 };
 const mutations: MutationTree<MetaState> = {

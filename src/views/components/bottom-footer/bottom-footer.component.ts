@@ -25,7 +25,7 @@ import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
     },
     blur: {
       required: true,
-      types: Number
+      type: Number
     }
   }
 })
