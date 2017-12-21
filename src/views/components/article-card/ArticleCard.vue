@@ -94,10 +94,6 @@
     .title {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      transition: all 250ms;
-      &:hover {
-        transform: scale(1.1);
-      }
       .external-link {
         font-size: 0.8em;
       }
@@ -155,7 +151,11 @@
 
     .title {
       a {
-        border-bottom-width: 2px;
+        border-bottom: .1rem solid rgba(0, 0, 0, 0);
+        transition: all 200ms;
+        &:hover {
+          border-bottom-color: @primary-color;
+        }
       }
     }
 
