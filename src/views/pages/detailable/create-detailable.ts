@@ -12,7 +12,8 @@ export function createDetailablePage(isImplicit: boolean) {
     name: `${isImplicit ? 'implicit-' : ''}post-page`,
     computed: {
       ...mapState({
-        format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.date_format,
+        date_format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.date_format,
+        time_format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.time_format,
         target: (state: RootState) => state.detailable.target
       })
     },
@@ -39,7 +40,8 @@ export function createDetailablePage(isImplicit: boolean) {
       return h(DetailablePage, {
         props: {
           isImplicit,
-          format: this.format,
+          date_format: this.date_format,
+          time_format: this.time_format,
           target: this.target
         }
       });

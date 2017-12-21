@@ -1,9 +1,5 @@
 import { app, store, router } from './main';
-import { Fetch_Meta } from '@/store/types';
-import Vue from 'vue';
-import { RootState } from '@/store';
-import VueAnalytics from 'vue-analytics';
-
+import { Fetch_Meta, Load_Google_Analytics } from '@/store/types';
 
 declare const window: Window;
 
@@ -40,14 +36,7 @@ router.onReady(async () => {
   await store.dispatch(`meta/${Fetch_Meta}`);
 
   // google analytics
-  const google_analytics = (store.state as RootState).meta.themeConfig.google_analytics;
-  if (google_analytics.enable) {
-    const track_id = google_analytics.track_id;
-    Vue.use(VueAnalytics, {
-      id: track_id,
-      router
-    });
-  }
+  await store.dispatch(`meta/${Load_Google_Analytics}`, { router });
 
 
   // Fetch initial state

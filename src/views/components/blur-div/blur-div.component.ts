@@ -7,8 +7,8 @@ export default Vue.extend({
   name: 'blur-div',
   props: {
     blur: {
-      type: Number,
-      'default': 5
+      required: true,
+      type: Number
     }
   },
   computed: {

@@ -18,7 +18,7 @@ import { ThemeAvatar } from '@/models/theme-config.class';
     },
     blur: {
       required: true,
-      types: Number
+      type: Number
     }
   }
 })
