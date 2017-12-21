@@ -15,7 +15,11 @@ declare const window: Window;
   name: 'detailable-page',
   components: { ArticleCard, EndOfFile, DetailableContent, GitmentComment },
   props: {
-    format: {
+    date_format: {
+      required: true,
+      type: String
+    },
+    time_format: {
       required: true,
       type: String
     },

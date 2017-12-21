@@ -11,7 +11,7 @@
 
     <!-- meta -->
     <p v-show="!isImplicit" class="meta">
-      <span class="create-time">{{ target.date | format(format) }}</span>
+      <span class="create-time">{{ target.date | format(date_format) }}, {{ target.date | format(time_format) }}</span>
     </p>
 
     <!--categories & tags-->
