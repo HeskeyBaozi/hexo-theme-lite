@@ -18,7 +18,6 @@
 
 .em {
   margin: 0 .1rem;
-  white-space: nowrap;
   padding: 0 .3rem;
   color: @primary-color;
   background-color: lighten(@primary-color, 60%);
@@ -100,6 +99,7 @@
   code, tt {
     .em;
     text-shadow: 1px 1px 3px white;
+    word-wrap: break-word;
   }
 
   img {
