@@ -83,7 +83,7 @@
     "out": "./src/styles/theme",
     "config": "./element-variables.scss",
     "theme": "element-theme-chalk",
-    "minimize": false,
+    "minimize": true,
     "components": [
       "Pagination",
       "Dialog",
