@@ -1,6 +1,6 @@
 {
   "name": "lite-fe",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Hexo Theme Lite FE",
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "scripts": {
@@ -40,6 +40,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
@@ -84,7 +85,7 @@
     "out": "./src/styles/theme",
     "config": "./element-variables.scss",
     "theme": "element-theme-chalk",
-    "minimize": false,
+    "minimize": true,
     "components": [
       "Pagination",
       "Dialog",
