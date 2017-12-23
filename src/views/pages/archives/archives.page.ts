@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { RootState } from '@/store';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { Should_Pagination, Fetch_Archives_Posts_List, Time_Line_List } from '@/store/types';
 import { TimeLine } from 'src/store/modules/archives.module';
 import Component from 'vue-class-component';
@@ -30,7 +30,7 @@ export default class ArchivesPage extends Vue {
     return (this.$store.getters[`meta/${Should_Pagination}`]);
   }
 
-  async asyncData({ store }: AsyncArgs) {
+  async fetch({ store }: Context) {
     const prePage: number = (store.state as RootState).archives.page;
     // avoid double fetch initial data
     if (prePage !== 1) {

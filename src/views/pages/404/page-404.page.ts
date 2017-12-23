@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { RootState } from '@/store';
 import { mapState } from 'vuex';
 import { CreateElement } from 'vue/types/vue';
@@ -14,11 +14,12 @@ export default Vue.extend({
   computed: {
     ...mapState({
       enable: (state: RootState) => state.meta.themeConfig.page_404.enable,
-      format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.date_format,
+      date_format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.date_format,
+      time_format: (state: RootState) => state.meta.hexoConfig.dateTimeFormat.time_format,
       target: (state: RootState) => state.detailable.target
     })
   },
-  async asyncData({ store }: AsyncArgs) {
+  async fetch({ store }: Context) {
     const { enable, source_path }: ThemeCustom404 = (store.state as RootState).meta.themeConfig.page_404;
     if (enable) {
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, {

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { Fetch_Home_Posts_List, Should_Pagination } from '@/store/types';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
 import { Post } from '@/models/posts-list.class';
@@ -38,7 +38,7 @@ export default class HomePage extends Vue {
     return (this.$store.getters[ `meta/${Should_Pagination}` ]);
   }
 
-  async asyncData({ store }: AsyncArgs) {
+  async fetch({ store }: Context) {
     const prePage: number = (store.state as RootState).home.page;
     // avoid double fetch initial data
     if (prePage !== 1) {

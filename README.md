@@ -239,6 +239,20 @@ highlight:
 
 ## How to upgrade this theme | 如何升级主题
 
+- recommended method | 推荐做法
+
+run the commands in your root hexo dir.
+
+在根目录下跑这些命令
+
+```bash
+cd themes/lite
+
+git pull
+```
+
+- other method | 其他暴力做法
+
 就是重新删除主题文件夹再安装，记得保存`__config.yml`文件。
 
 1. save your theme `__config.yml` file.
