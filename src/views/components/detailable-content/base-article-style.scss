@@ -1,6 +1,6 @@
-@import '~@/styles/vars.less';
+@import '../../../styles/vars.scss';
 
-.normal-elements {
+@mixin normal-elements {
   margin-top: 0;
   margin-bottom: 1rem;
   &:last-child {
@@ -8,19 +8,20 @@
   }
 }
 
-.list(@style) {
+@mixin list($style) {
   padding-left: 2rem;
-  list-style: @style;
+  list-style: $style;
   > * {
-    .normal-elements;
+    @include normal-elements;
   }
 }
 
-.em {
+@mixin em {
   margin: 0 .1rem;
-  padding: 0 .3rem;
-  color: @primary-color;
-  background-color: lighten(@primary-color, 60%);
+  padding: .1rem .3rem;
+  color: $--primary-color;
+  background-color: mix($--white, $--primary-color, 95%);
+  font-family: $--code-font-family;
   border-radius: .1rem;
 }
 
@@ -46,7 +47,7 @@
   pre,
   ul,
   ol {
-    .normal-elements;
+    @include normal-elements;
   }
 
   h1 {
@@ -66,21 +67,20 @@
   }
 
   ul {
-    .list(circle);
+    @include list(circle);
   }
 
   ol {
-    .list(decimal);
+    @include list(decimal);
   }
 
   dl {
-    .list(none);
+    @include list(none);
   }
 
   blockquote {
-    border-left: .3rem solid @primary-color;
+    border-left: .3rem solid $--primary-color;
     padding-left: .8rem;
-    color: @primary-color;
     margin-left: 0;
     margin-right: 0;
   }
@@ -98,7 +98,7 @@
   }
 
   code, tt {
-    .em;
+    @include em;
     text-shadow: 1px 1px 3px white;
 
   }

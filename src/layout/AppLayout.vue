@@ -21,8 +21,8 @@
   </div>
 </template>
 
-<style lang="less" src="@/styles/helpers.less"></style>
-<style lang="less" scoped>
+<style lang="scss" src="../styles/helpers.scss"></style>
+<style lang="scss" scoped>
   #app {
     min-height: 100vh;
     display: flex;
@@ -53,7 +53,7 @@
   }
 </style>
 
-<style lang="less">
+<style lang="scss">
 
   .fade-enter-active,
   .fade-leave-active {

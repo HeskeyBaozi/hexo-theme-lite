@@ -1,12 +1,12 @@
-@import '~@/styles/vars.less';
+@import './vars.scss';
 
 html {
-  font-family: @basic-font-family !important;
+  font-family: $--basic-font-family !important;
 }
 
 pre,
 code {
-  font-family: @code-font-family !important;
+  font-family: $--code-font-family !important;
   font-variant-ligatures: common-ligatures;
 }
 
@@ -22,11 +22,11 @@ body {
 }
 
 a {
-  color: @primary-color;
+  color: $--primary-color;
   text-decoration: none;
   transition: all 200ms;
 
   &:hover {
-    color: darken(@primary-color, 20%);
+    color: mix($--white, $--primary-color, 20%);
   }
 }

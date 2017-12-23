@@ -14,19 +14,8 @@ import {
   Carousel,
   CarouselItem
 } from 'element-ui';
-import '@/styles/theme/base.css';
-import '@/styles/theme/Button.css';
-import '@/styles/theme/Carousel.css';
-import '@/styles/theme/Carousel-Item.css';
-import '@/styles/theme/Col.css';
-import '@/styles/theme/Dialog.css';
-import '@/styles/theme/Dropdown.css';
-import '@/styles/theme/element-variables.css';
-import '@/styles/theme/Input.css';
-import '@/styles/theme/Menu.css';
-import '@/styles/theme/Pagination.css';
-import '@/styles/theme/Row.css';
-import '@/styles/theme/Tree.css';
+
+import '@/styles/element-ui-vars.scss';
 import { VueConstructor } from 'vue';
 import { Vue } from 'vue/types/vue';
 

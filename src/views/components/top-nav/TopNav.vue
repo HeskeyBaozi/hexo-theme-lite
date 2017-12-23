@@ -36,7 +36,9 @@
 </template>
 
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
+
   #top-nav {
     position: fixed;
     top: 0;
@@ -87,10 +89,12 @@
   .el-menu--horizontal {
     display: flex;
     justify-content: center;
+
     .el-menu-item {
       line-height: 40px;
       height: 40px;
       text-shadow: 0 0 2px white;
+      color: mix($--white, $--primary-color, 35%);
 
       i {
         color: inherit;
@@ -105,6 +109,10 @@
         vertical-align: unset;
       }
     }
+
+    .is-active {
+      color: $--primary-color;
+    }
   }
 
   .el-menu {
@@ -112,5 +120,5 @@
   }
 
 </style>
-<style lang="less" src="../../../styles/helpers.less"></style>
+<style lang="scss" src="../../../styles/helpers.scss"></style>
 <script src="./top-nav.component.ts" lang="ts"></script>

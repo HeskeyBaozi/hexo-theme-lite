@@ -6,14 +6,16 @@
   </blur-div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
+
   #lite-header {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     color: white;
-    text-shadow: 1px 1px 8px #444;
+    text-shadow: 0 0 .5rem mix($--black, $--primary-color, 50%);
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
     padding: 1rem;

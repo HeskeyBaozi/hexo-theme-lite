@@ -30,13 +30,15 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
+
   .archives-page {
     a {
       border-bottom: 1px solid rgba(0, 0, 0, 0);
       transition: all 200ms;
       &:hover {
-        border-bottom-color: #5c5c5c;
+        border-bottom-color: $--primary-color;
       }
     }
 
@@ -50,7 +52,7 @@
       .leading {
         text-align: center;
         font-size: 1.3rem;
-        text-shadow: 0 0 1px lighten(#5c5c5c, 40%);
+        text-shadow: 0 0 1px lighten($--primary-color, 40%);
         margin-top: 0;
         > * {
           margin: 0 0.2rem;
@@ -79,9 +81,11 @@
   }
 </style>
 
-<style lang="less">
+<style lang="scss">
+  @import '../../../styles/vars.scss';
+
   .el-pagination .el-pager .active {
-    background-color: #5c5c5c;
+    background-color: $--primary-color;
     color: white;
     border-radius: 0.2rem;
     margin-left: 0.2rem;

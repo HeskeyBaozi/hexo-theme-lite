@@ -1,0 +1,13 @@
+// Color
+$--white: #fff;
+$--black: #000;
+$--primary-color: #5c5c5c;
+$--post-divide-line-color: mix($--white, #5c5c5c, 50%);
+
+// Container
+$--container-width: 800px;
+$--small-screen-width: 768px;
+
+// Font
+$--basic-font-family: "Proxima Nova Rg", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+$--code-font-family: "Fira-Code", "Consolas", $--basic-font-family;

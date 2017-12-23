@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   #home-page {
     .back {
       margin-bottom: 1rem;
@@ -41,9 +41,11 @@
   }
 </style>
 
-<style lang="less">
+<style lang="scss">
+  @import '../../../styles/vars.scss';
+
   .el-pagination .el-pager .active {
-    background-color: #5c5c5c;
+    background-color: $--primary-color;
     color: white;
     border-radius: 0.2rem;
     margin-left: 0.2rem;

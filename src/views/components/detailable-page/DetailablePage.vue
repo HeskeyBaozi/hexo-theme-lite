@@ -64,8 +64,8 @@
   </div>
 </template>
 
-<style lang="less" scoped>
-  @import '~@/styles/vars.less';
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
 
   .detailable-page {
     text-align: center;
@@ -117,7 +117,7 @@
 
     .photos {
       padding: 5px;
-      border: 1px solid lighten(@primary-color, 80%);
+      border: 1px solid lighten($--primary-color, 80%);
       background-color: white;
       margin: 0 -3rem 1rem -3rem;
 
@@ -135,11 +135,11 @@
     }
 
     .box {
-      box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
+      box-shadow: 0 0 0.1rem lighten($--primary-color, 40%);
       transition: box-shadow 250ms;
       margin-bottom: 1rem;
       &:hover {
-        box-shadow: 0 0 0.3rem @primary-color;
+        box-shadow: 0 0 0.3rem $--primary-color;
       }
     }
 
@@ -155,7 +155,7 @@
 
       .gitment {
         padding: 0 .5rem;
-        font-family: @basic-font-family;
+        font-family: $--basic-font-family;
       }
     }
   }

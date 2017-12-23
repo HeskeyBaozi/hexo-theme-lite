@@ -1,5 +1,5 @@
 import NProgress from 'nprogress';
-import '@/styles/nprogress.less';
+import '@/styles/nprogress.scss';
 import { VueConstructor } from 'vue';
 import { Vue } from 'vue/types/vue';
 

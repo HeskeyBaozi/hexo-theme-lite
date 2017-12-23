@@ -1,0 +1,8 @@
+@import './vars.scss';
+
+$--color-primary: $--primary-color;
+
+// change the path of the icon font, Do NOT delete!
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import '~element-ui/packages/theme-chalk/src/index';

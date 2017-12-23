@@ -3,27 +3,27 @@
 </template>
 
 <style src="gitment/style/default.css"></style>
-<style lang="less">
-  @import '~@/styles/vars.less';
+<style lang="scss">
+  @import '../../../styles/vars.scss';
 
   #lite-gitment-root {
     .gitment-container {
-      font-family: @basic-font-family !important;
+      font-family: $--basic-font-family !important;
       a {
-        color: @primary-color;
+        color: $--primary-color;
         text-decoration: underline;
       }
       .gitment-comments-init-btn,
       .gitment-editor-submit {
-        background-color: @primary-color;
-        font-family: @basic-font-family !important;
+        background-color: $--primary-color;
+        font-family: $--basic-font-family !important;
         font-size: 1rem;
         font-weight: normal;
         transition: all 200ms;
         border-radius: .2rem;
 
         &:hover {
-          background-color: lighten(@primary-color, 15%);
+          background-color: lighten($--primary-color, 15%);
         }
       }
 

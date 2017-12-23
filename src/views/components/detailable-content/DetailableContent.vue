@@ -2,19 +2,19 @@
   <article id="detailable-content" v-html="html"></article>
 </template>
 
-<style lang="less">
-  @import url('~@/styles/vars.less');
+<style lang="scss">
+  @import '../../../styles/vars.scss';
 
   #detailable-content {
     padding: 0 1rem;
 
-    @media (max-width: @small-max-width) {
+    @media (max-width: $--small-screen-width) {
       padding: 0;
     }
   }
 </style>
 
-<style lang="less" src="./figure-code-style.less"></style>
-<style lang="less" src="./base-article-style.less"></style>
+<style lang="scss" src="./figure-code-style.scss"></style>
+<style lang="scss" src="./base-article-style.scss"></style>
 
 <script lang="ts" src="./detailable-content.component.ts"></script>
