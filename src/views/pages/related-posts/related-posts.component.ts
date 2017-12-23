@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import ArticleCard from '@/views/components/article-card/ArticleCard.vue';
 import EndOfFile from '@/views/components/eof/EndOfFile.vue';
 import { Fetch_Related_Posts_Of_Category, Fetch_Related_Posts_Of_Tag } from '@/store/types';
@@ -59,7 +59,7 @@ export default class RelatedPosts extends Vue {
     }
   }
 
-  async asyncData({ store, route }: AsyncArgs) {
+  async fetch({ store, route }: Context) {
     const { type, slug } = route.params;
     if (type === 'category') {
       await store.dispatch(`categories/${Fetch_Related_Posts_Of_Category}`, { slug });

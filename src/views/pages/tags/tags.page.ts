@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { Fetch_Tags } from '@/store/types';
 import { Tag } from '@/models/posts-list.class';
 import { RootState } from '@/store';
@@ -22,7 +22,7 @@ export default class TagsPage extends Vue {
       : this.tags;
   }
 
-  async asyncData({ store, route }: AsyncArgs) {
+  async fetch({ store, route }: Context) {
     await store.dispatch(`tags/${Fetch_Tags}`);
   }
 }
