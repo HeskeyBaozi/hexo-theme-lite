@@ -74,6 +74,7 @@
     text-align: center;
     border-bottom: 1px solid lighten(@primary-color, 50%);
     word-break: keep-all;
+    word-wrap: break-word;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
 

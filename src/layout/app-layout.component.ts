@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { Fetch_Meta } from '@/store/types';
 import { Site } from '@/models/hexo-config.class';
 import TopNav from '@/views/components/top-nav/TopNav.vue';
@@ -44,7 +44,7 @@ export default class AppLayout extends Vue {
   }
 
   // fetch initial global data
-  async asyncData({ store }: AsyncArgs) {
+  async asyncData({ store }: Context) {
     await store.dispatch(`meta/${Fetch_Meta}`);
     console.log('meta fetched');
 

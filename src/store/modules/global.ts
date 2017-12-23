@@ -6,7 +6,7 @@ import { RootState } from '@/store';
 import { Theme } from '@/models/theme-config.class';
 import { VueRouter } from 'vue-router/types/router';
 import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
+import { installGoogleAnalytics } from "@/vue-install/lite-analytics";
 
 export class MetaState {
   hexoConfig = new HexoConfig();
@@ -28,10 +28,7 @@ const actions: ActionTree<MetaState, RootState> = {
     const google_analytics = state.themeConfig.google_analytics;
     if (google_analytics.enable) {
       const track_id = google_analytics.track_id;
-      Vue.use(VueAnalytics, {
-        id: track_id,
-        router
-      });
+      Vue.use(installGoogleAnalytics, { router, track_id });
     }
   }
 };

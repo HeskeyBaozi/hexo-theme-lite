@@ -1,5 +1,5 @@
 import DetailablePage from '@/views/components/detailable-page/DetailablePage.vue';
-import { AsyncArgs } from '@/interfaces/asyncData.interface';
+import { Context } from '@/interfaces/fetch.interface';
 import { Fetch_Detailable_Target } from '@/store/types';
 import { CreateElement } from 'vue/types/vue';
 import { mapState } from 'vuex';
@@ -17,17 +17,17 @@ export function createDetailablePage(isImplicit: boolean) {
         target: (state: RootState) => state.detailable.target
       })
     },
-    async asyncData({ store, route }: AsyncArgs) {
+    async fetch({ store, route }: Context) {
       const sourceOrSlug = isImplicit ? route.path.replace(/^\/pages\/?/, '') : route.params.slug;
       await store.dispatch(`detailable/${Fetch_Detailable_Target}`, { isImplicit, sourceOrSlug });
     },
     beforeRouteUpdate: async function (this: any, to, from, next) {
-      const { asyncData } = this.$options;
-      if (asyncData) {
+      const { fetch } = this.$options;
+      if (fetch) {
         try {
           this.$nprogress.start();
           this.$data.search = '';
-          await asyncData({ store: this.$store, route: to });
+          await fetch({ store: this.$store, route: to });
           this.$nprogress.done();
         } catch (error) {
           next(error);
