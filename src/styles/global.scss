@@ -1,0 +1,32 @@
+@import './vars.scss';
+
+html {
+  font-family: $--basic-font-family !important;
+}
+
+pre,
+code {
+  font-family: $--code-font-family !important;
+  font-variant-ligatures: common-ligatures;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+a {
+  color: $--primary-color;
+  text-decoration: none;
+  transition: all 200ms;
+
+  &:hover {
+    color: mix($--white, $--primary-color, 20%);
+  }
+}

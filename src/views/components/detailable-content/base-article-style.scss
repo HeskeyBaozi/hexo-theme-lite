@@ -1,0 +1,124 @@
+@import '../../../styles/vars.scss';
+
+@mixin normal-elements {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin list($style) {
+  padding-left: 2rem;
+  list-style: $style;
+  > * {
+    @include normal-elements;
+  }
+}
+
+@mixin em {
+  margin: 0 .1rem;
+  padding: .1rem .3rem;
+  color: $--primary-color;
+  background-color: mix($--white, $--primary-color, 95%);
+  font-family: $--code-font-family;
+  border-radius: .1rem;
+}
+
+#detailable-content {
+  text-align: left;
+  word-break: normal;
+  word-wrap: break-word;
+  box-sizing: border-box;
+
+  p, li {
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  table,
+  pre,
+  ul,
+  ol {
+    @include normal-elements;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4, h5, h6 {
+    font-size: 1.1rem;
+  }
+
+  ul {
+    @include list(circle);
+  }
+
+  ol {
+    @include list(decimal);
+  }
+
+  dl {
+    @include list(none);
+  }
+
+  blockquote {
+    border-left: .3rem solid $--primary-color;
+    padding-left: .8rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .pullquote {
+    width: 50%;
+    margin: .5rem;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  code, tt {
+    @include em;
+    text-shadow: 1px 1px 3px white;
+
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: .5em auto;
+  }
+
+  .video-container {
+    text-align: center;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+  }
+}

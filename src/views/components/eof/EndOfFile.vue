@@ -5,7 +5,7 @@
   </el-button>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .eof {
     width: min-content;
   }

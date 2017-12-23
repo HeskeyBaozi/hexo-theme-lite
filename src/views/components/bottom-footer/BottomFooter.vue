@@ -16,13 +16,15 @@
   </blur-div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
+
   #lite-footer {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    text-shadow: 1px 1px 8px #444;
+    text-shadow: 0 0 .5rem mix($--black, $--primary-color, 50%);
     padding: 1rem 0 .5rem 0;
 
     > * {

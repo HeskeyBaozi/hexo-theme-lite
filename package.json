@@ -1,6 +1,6 @@
 {
   "name": "lite-fe",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Hexo Theme Lite FE",
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "scripts": {
@@ -42,15 +42,15 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
     "node-notifier": "^5.1.2",
+    "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "rimraf": "^2.6.0",
+    "sass-loader": "^6.0.6",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "ts-loader": "^3.2.0",
@@ -75,32 +75,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "element-theme": {
-    "browsers": [
-      "> 1%",
-      "last 2 versions",
-      "not ie <= 8"
-    ],
-    "out": "./src/styles/theme",
-    "config": "./element-variables.scss",
-    "theme": "element-theme-chalk",
-    "minimize": true,
-    "components": [
-      "Pagination",
-      "Dialog",
-      "Dropdown",
-      "DropdownMenu",
-      "DropdownItem",
-      "Menu",
-      "MenuItem",
-      "Input",
-      "Button",
-      "Tree",
-      "Row",
-      "Col",
-      "Carousel",
-      "Carousel-Item"
-    ]
-  }
+  ]
 }

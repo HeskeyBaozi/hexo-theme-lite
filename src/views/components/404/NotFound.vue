@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .lite-404 {
     text-align: center;
   }

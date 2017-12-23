@@ -58,7 +58,7 @@
     </div>
 
     <!-- read more -->
-    <el-button v-if="post.excerpt" size="mini" type="primary"
+    <el-button v-if="post.excerpt" class="more" size="mini" type="primary"
                @click="$router.push({ name: 'post-page', params: { slug: post.slug }})">
       More
     </el-button>
@@ -67,12 +67,12 @@
   </div>
 </template>
 
-<style lang="less" scoped>
-  @import '~@/styles/vars.less';
+<style lang="scss" scoped>
+  @import '../../../styles/vars.scss';
 
   .article-card {
     text-align: center;
-    border-bottom: 1px solid lighten(@primary-color, 50%);
+    border-bottom: 1px solid $--post-divide-line-color;
     word-break: keep-all;
     word-wrap: break-word;
     padding-bottom: 2rem;
@@ -111,7 +111,7 @@
     .cover,
     .photos {
       padding: 5px;
-      border: 1px solid lighten(@primary-color, 80%);
+      border: 1px solid mix($--white, $--primary-color, 80%);
       background-color: white;
 
       .photo-wrapper {
@@ -140,14 +140,9 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0);
         transition: all 200ms;
         &:hover {
-          border-bottom-color: @primary-color;
+          border-bottom-color: mix($--white, $--primary-color, 30%);
         }
       }
-    }
-
-    .meta,
-    .categories-and-tags {
-      color: @primary-color;
     }
 
     .title {
@@ -155,7 +150,7 @@
         border-bottom: .1rem solid rgba(0, 0, 0, 0);
         transition: all 200ms;
         &:hover {
-          border-bottom-color: @primary-color;
+          border-bottom-color: mix($--white, $--primary-color, 30%);
         }
       }
     }
@@ -174,17 +169,29 @@
     }
 
     .box {
-      box-shadow: 0 0 0.1rem lighten(@primary-color, 40%);
+      box-shadow: 0 0 0.1rem mix($--white, $--primary-color, 40%);
       transition: box-shadow 250ms;
       margin: 0 -3rem 1rem -3rem;
-      @media (max-width: @small-max-width) {
+      @media (max-width: $--small-screen-width) {
         margin: 0 -1rem 1rem -1rem;
       }
 
       &:hover {
-        box-shadow: 0 0 0.3rem @primary-color;
+        box-shadow: 0 0 0.3rem mix($--black, $--primary-color, 30%);
       }
     }
+
+    .more {
+      font-size: .8rem;
+    }
+  }
+</style>
+
+<style lang="scss">
+  @import '../../../styles/vars.scss';
+
+  .el-button {
+    font-family: $--basic-font-family;
   }
 </style>
 

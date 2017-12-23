@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .related-posts {
     text-align: center;
 
