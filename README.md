@@ -105,6 +105,8 @@ Note that we can use the gradient color, it works by modify the css `background-
 
 **Example:**
 
+![linear](./docs/linear2.png)
+
 ```yml
 background:
   gradient_color:
@@ -117,13 +119,9 @@ blur:
     opacity_value: 0.4
 ```
 
-![linear](./docs/linear2.png)
-
 - top menu item | 顶部导航菜单项目设置
 
 ```yml
-# Example
-
 menu:
   # Basic Menu
   Home: true
