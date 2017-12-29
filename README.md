@@ -109,7 +109,7 @@ Note that we can use the gradient color, it works by modify the css `background-
 background:
   gradient_color:
     enable: true
-    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
+    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))' # options
 
 blur:
   opacity:
