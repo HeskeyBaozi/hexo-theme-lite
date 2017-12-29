@@ -1,6 +1,6 @@
 <template>
   <div id="top-nav">
-    <blur-div :blur="blur" class="blur top-left-padding">
+    <blur-div :blur="blur" isTopNav class="blur top-left-padding">
       <el-row class="main-menu" type="flex">
         <!--<= 768px-->
         <el-col :xs="24" :sm="0">

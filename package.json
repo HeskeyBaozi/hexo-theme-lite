@@ -1,6 +1,6 @@
 {
   "name": "lite-fe",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Hexo Theme Lite FE",
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "color": "^2.0.1",
     "element-ui": "^2.0.7",
     "font-awesome": "^4.7.0",
     "gitment": "^0.0.3",
@@ -23,6 +24,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/color": "^2.0.0",
     "@types/nprogress": "^0.0.29",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.26.0",
