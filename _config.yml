@@ -18,7 +18,7 @@ background:
   # Gradient color
   gradient_color:
     enable: false # switch to 'true' will make custom background picture lose efficacy
-    gradient_color: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
+    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
 
 
 # -------------------------------------------------------
