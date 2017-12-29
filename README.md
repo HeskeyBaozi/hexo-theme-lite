@@ -117,7 +117,7 @@ blur:
     opacity_value: 0.4
 ```
 
-![linear](./docs/linear.png)
+![linear](./docs/linear2.png)
 
 - top menu item | 顶部导航菜单项目设置
 
