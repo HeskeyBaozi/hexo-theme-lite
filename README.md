@@ -92,7 +92,32 @@ background:
   url: /static/images/miku.jpg
   css_size: cover
   css_position: 50%
+
+  # Gradient color
+  gradient_color:
+    enable: false # switch to 'true' will make custom background picture lose efficacy
+    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
 ```
+
+Note that we can use the gradient color, it works by modify the css `background-image`, so it will make the custom background picture lose efficacy.
+
+注意到这里可以设置渐变色背景，实际上内部实现就是修改了css的`background-image`，所以启用渐变色会让自定义背景图片失效。
+
+**Example:**
+
+```yml
+background:
+  gradient_color:
+    enable: true
+    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
+
+blur:
+  opacity:
+    enable: true # switch to 'true' will make the gaussian blur lose efficacy
+    opacity_value: 0.4
+```
+
+![linear](./docs/linear.png)
 
 - top menu item | 顶部导航菜单项目设置
 
@@ -127,6 +152,12 @@ blur:
   # 设置为'true'则对应模糊容器'overflow'选项
   hide_overflow: true
 
+  # Alpha Value of the background color
+  # 背景颜色透明值, 启用会导致高斯模糊失效
+  opacity:
+    enable: false # switch to 'true' will make the gaussian blur lose efficacy
+    opacity_value: 0.4
+
   gaussian_radius: # 高斯模糊程度，数值越大越模糊
     top_navigator: 30 # 30+ preferred
     header: 30 # 5 ~ 50 preferred
@@ -135,6 +166,7 @@ blur:
   font:
     color: '#ffffff'
 ```
+
 
 Notice that the `font.color` will only affect the font color in the blur area.
 
