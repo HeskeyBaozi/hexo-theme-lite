@@ -103,8 +103,6 @@ Note that we can use the gradient color, it works by modify the css `background-
 
 注意到这里可以设置渐变色背景，实际上内部实现就是修改了css的`background-image`，所以启用渐变色会让自定义背景图片失效。
 
-**Example:**
-
 ![linear](./docs/linear2.png)
 
 ```yml
