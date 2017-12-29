@@ -71,6 +71,10 @@ hexo s
 
 ## Features
 
+Edit the file [lite/__config.yml](https://github.com/HeskeyBaozi/hexo-theme-lite/blob/master/_config.yml) to customize your theme.
+
+编辑文件[lite/__config.yml](https://github.com/HeskeyBaozi/hexo-theme-lite/blob/master/_config.yml)来自定义你的主题.
+
 ### Custom many things
 
 - avatar | 头像
