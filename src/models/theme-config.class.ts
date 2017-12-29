@@ -104,8 +104,17 @@ export class ThemeAvatar {
   }
 }
 
+export interface ThemeBackgroundGradientColor {
+  enable: boolean;
+  css_value: string;
+}
+
 export class ThemeBackground {
   background_color = '';
+  gradient_color: ThemeBackgroundGradientColor = {
+    enable: false,
+    css_value: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
+  };
   enable_picture = false;
   url = '';
   css_size = '';
@@ -122,6 +131,11 @@ export class ThemeBackground {
   }
 }
 
+interface BlurOpacity {
+  enable: boolean;
+  opacity_value: number;
+}
+
 export class ThemeBlur {
   background_color = 'white';
 
@@ -133,6 +147,11 @@ export class ThemeBlur {
     footer: 80
   };
 
+  opacity: BlurOpacity = {
+    enable: false,
+    opacity_value: 0.6
+  };
+
   font = {
     color: 'white',
     shadow: '1px 1px 8px #444',
@@ -142,6 +161,10 @@ export class ThemeBlur {
     if (raw) {
       this.background_color = raw.background_color;
       this.hide_overflow = raw.hide_overflow;
+      this.opacity = {
+        ...this.opacity,
+        ...raw.opacity
+      };
       this.gaussian_radius = {
         ...this.gaussian_radius,
         ...raw.gaussian_radius

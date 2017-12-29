@@ -36,7 +36,17 @@ export default class AppLayout extends Vue {
     const $app = document.getElementById('app') as HTMLElement;
 
     // setting Backgound Picture
-    const { url, css_size, css_position, background_color, enable_picture } = this.theme.background;
+    const {
+      url, css_size,
+      css_position,
+      background_color,
+      enable_picture,
+      gradient_color
+    } = this.theme.background;
+    if (gradient_color.enable) {
+      $app.style.backgroundImage = gradient_color.css_value;
+    }
+
     if (enable_picture) {
       $app.style.background = `url(${url}) ${css_position} / ${css_size} no-repeat fixed`;
     }

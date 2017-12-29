@@ -15,6 +15,11 @@ background:
   css_size: cover
   css_position: 50%
 
+  # Gradient color
+  gradient_color:
+    enable: false # switch to 'true' will make custom background picture lose efficacy
+    gradient_color: 'linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))'
+
 
 # -------------------------------------------------------
 # Menu
@@ -52,6 +57,11 @@ blur:
   background_color: '#ffffff'
 
   hide_overflow: true
+
+  # Alpha Value of the background color
+  opacity:
+    enable: false # switch to 'true' will make the gaussian blur lose efficacy
+    opacity_value: 0.4
 
   gaussian_radius:
     top_navigator: 30 # 30px+ preferred
