@@ -85,6 +85,42 @@ avatar:
   url: /static/images/kamuyi.jpg
 ```
 
+- theme filter blur | 主题模糊滤镜设置
+
+you can set the gaussian radius here.
+
+你可以在这里设置高斯模糊半径，效果如下.
+
+![gr](./docs/gr.png)
+
+```yml
+blur:
+  background_color: '#ffffff'
+
+  # 'true' corresponding to css style 'overflow: hidden'
+  # 设置为'true'则对应模糊容器'overflow'选项
+  hide_overflow: true
+
+  # Alpha Value of the background color
+  # 背景颜色透明值, 启用会导致高斯模糊失效
+  opacity:
+    enable: false # switch to 'true' will make the gaussian blur lose efficacy
+    opacity_value: 0.4
+
+  gaussian_radius: # 高斯模糊程度，数值越大越模糊
+    top_navigator: 50 # 40+ preferred
+    header: 30 # 5 ~ 50 preferred
+    footer: 40 # 5 ~ 100 preferred
+
+  font:
+    color: '#ffffff'
+```
+
+
+Notice that the `font.color` will only affect the font color in the blur area.
+
+注意，这里的`font.color`只会影响模糊区域的字体颜色.
+
 - background picture | 背景图片
 
 ```yml
@@ -138,41 +174,7 @@ menu:
   # 这里是一个导航到'关于我'的页面，前提是你需要在你的'source'文件夹有'/about/index.md'文件
   About: /pages/about/index
 ```
-- theme filter blur | 主题模糊滤镜设置
 
-you can set the gaussian radius here.
-
-你可以在这里设置高斯模糊半径，效果如下.
-
-![gr](./docs/gr.png)
-
-```yml
-blur:
-  background_color: '#ffffff'
-
-  # 'true' corresponding to css style 'overflow: hidden'
-  # 设置为'true'则对应模糊容器'overflow'选项
-  hide_overflow: true
-
-  # Alpha Value of the background color
-  # 背景颜色透明值, 启用会导致高斯模糊失效
-  opacity:
-    enable: false # switch to 'true' will make the gaussian blur lose efficacy
-    opacity_value: 0.4
-
-  gaussian_radius: # 高斯模糊程度，数值越大越模糊
-    top_navigator: 30 # 30+ preferred
-    header: 30 # 5 ~ 50 preferred
-    footer: 40 # 5 ~ 100 preferred
-
-  font:
-    color: '#ffffff'
-```
-
-
-Notice that the `font.color` will only affect the font color in the blur area.
-
-注意，这里的`font.color`只会影响模糊区域的字体颜色.
 
 - social links | 社交链接
 
@@ -194,6 +196,17 @@ social_icons:
   wechat: fa-weixin
   qq: fa-qq
 ```
+
+- favicon | 网站图标
+
+![icon](./docs/ico.png)
+
+you can use your own `.ico` file (`32px * 32px` preferred) to replace the original `favicon.ico` under the directory `/themes/lite/source/static/`.
+
+你可以用你自己的图标文件，最好是`32px * 32px`大小，来替换目录`/themes/lite/source/static/`下的`favicon.ico`文件。
+
+![directory](./docs/replace.png)
+
 
 - page 404 | 404 页面
 
