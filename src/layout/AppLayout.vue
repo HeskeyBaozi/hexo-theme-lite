@@ -5,7 +5,7 @@
       <top-header :avatar="theme.avatar" :site="site" :blur="gaussian_radius.header"></top-header>
     </header>
 
-    <section class="app-body container">
+    <section :class="bodyClass">
       <transition name="fade" mode="out-in">
         <keep-alive>
           <router-view></router-view>
@@ -13,7 +13,7 @@
       </transition>
     </section>
 
-    <footer class="app-footer">
+    <footer :class="footerClass">
       <bottom-footer :powered="theme.powered_by" :social="theme.social" :icons="theme.social_icons"
                      :site="site" :blur="gaussian_radius.footer"></bottom-footer>
     </footer>
@@ -44,13 +44,28 @@
     flex-grow: 1;
   }
 
+  .app-dep-footer {
+    margin-top: 0;
+    margin-bottom: 8rem;
+    align-items: flex-start;
+    > div {
+      border-bottom-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
+    }
+  }
+
   .app-body {
     box-sizing: border-box;
     background-color: white;
     padding: 2rem 1rem;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
+
   }
+
+  .app-dep-footer-body {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
 </style>
 
 <style lang="scss">
