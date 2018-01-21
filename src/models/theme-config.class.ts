@@ -35,7 +35,7 @@ export class Theme {
       this.powered_by = raw_theme.powered_by;
       this.blur = new ThemeBlur(raw_theme.blur);
       this.google_analytics = new GoogleAnalytics(raw_theme.google_analytics);
-      this.layout = new ThemeLayout(raw_theme.layout);
+      this.layout = new ThemeLayout(raw_theme.theme_layout);
     }
   }
 }
