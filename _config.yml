@@ -71,6 +71,11 @@ blur:
   font:
     color: '#ffffff' # only affect the font color in the blur area.
 
+# -------------------------------------------------------
+# Layout
+# -------------------------------------------------------
+layout:
+  dependent_footer: true
 
 # -------------------------------------------------------
 # Social
