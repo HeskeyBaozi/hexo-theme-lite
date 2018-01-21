@@ -28,6 +28,15 @@ export default class ArticleCard extends Vue {
   post: Post;
   showPhotos: boolean;
 
+  imageWrapperStyles(url: string): object {
+    return {
+      backgroundImage: `url(${url})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeated'
+    } as CSSStyleDeclaration;
+  }
+
   get shouldRenderCover(): boolean {
     const reg = new RegExp(this.post.cover);
     return !reg.test(this.post.excerpt || '');
@@ -38,7 +47,7 @@ export default class ArticleCard extends Vue {
     if (!len) {
       return '';
     } else {
-      return this.post.categories[ len - 1 ].slug;
+      return this.post.categories[len - 1].slug;
     }
   }
 }

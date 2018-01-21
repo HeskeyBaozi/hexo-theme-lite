@@ -21,8 +21,8 @@
     <div class="box photos" v-if="post.photos && post.photos.length && showPhotos">
       <el-carousel arrow="always">
         <el-carousel-item v-for="url of post.photos" :key="url">
-          <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: url, post: post })">
-            <img :src="url" :alt="url"/>
+          <div class="photo-wrapper" :style="imageWrapperStyles(url)"
+               @click="$emit('photo-zoom-in', { url: url, post: post })">
           </div>
         </el-carousel-item>
       </el-carousel>
@@ -30,8 +30,8 @@
 
     <!-- cover -->
     <div class="box cover" v-else-if="!post.content && post.cover && showPhotos && shouldRenderCover">
-      <div class="photo-wrapper" @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
-        <img :src="post.cover" :alt="post.cover"/>
+      <div class="photo-wrapper" :style="imageWrapperStyles(post.cover)"
+           @click="$emit('photo-zoom-in', { url: post.cover, post: post })">
       </div>
     </div>
 
