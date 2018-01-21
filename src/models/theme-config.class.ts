@@ -1,4 +1,4 @@
-import { GitmentOptions } from "@/models/comments-system.class";
+import { GitmentOptions } from '@/models/comments-system.class';
 
 
 export class Theme {
@@ -18,6 +18,7 @@ export class Theme {
   background: ThemeBackground = new ThemeBackground();
   gitment = new GitmentOptions();
   google_analytics = new GoogleAnalytics();
+  layout = new ThemeLayout();
   powered_by = '';
 
   constructor(raw?: any) {
@@ -34,6 +35,7 @@ export class Theme {
       this.powered_by = raw_theme.powered_by;
       this.blur = new ThemeBlur(raw_theme.blur);
       this.google_analytics = new GoogleAnalytics(raw_theme.google_analytics);
+      this.layout = new ThemeLayout(raw_theme.layout);
     }
   }
 }
@@ -119,6 +121,20 @@ export class ThemeBackground {
   url = '';
   css_size = '';
   css_position = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.keys(this)) {
+        if (raw.hasOwnProperty(key)) {
+          Object.assign(this, { [key]: raw[key] });
+        }
+      }
+    }
+  }
+}
+
+export class ThemeLayout {
+  dependent_footer = true;
 
   constructor(raw?: any) {
     if (raw) {

@@ -27,6 +27,22 @@ export default class AppLayout extends Vue {
     return this.theme.blur.gaussian_radius;
   }
 
+  get footerClass() {
+    return {
+      'app-footer': true,
+      'app-dep-footer': this.theme.layout.dependent_footer,
+      'container': this.theme.layout.dependent_footer
+    };
+  }
+
+  get bodyClass() {
+    return {
+      'app-body': true,
+      'container': true,
+      'app-dep-footer-body': this.theme.layout.dependent_footer
+    }
+  }
+
   beforeMount() {
     // setting Title
     document.title = this.site.title || 'Hexo - Lite Theme';
