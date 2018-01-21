@@ -175,6 +175,18 @@ menu:
   About: /pages/about/index
 ```
 
+- theme layout | 主题布局设置
+
+```yml
+theme_layout:
+  dependent_footer: true
+```
+
+
+`dependent_footer` means that the main body is closely connected with the footer. Setting `false` will make the footer "full background, padded content".
+
+`dependent_footer` 表明主题的底部信息栏是连在一起的，如果设置为`false`，底部信息栏将会有"满幅的背景，定宽的内容"
+
 
 - social links | 社交链接
 
