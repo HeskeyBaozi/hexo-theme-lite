@@ -10,7 +10,10 @@
           </span>
       </a>
     </div>
-    <p v-if="powered.length" class="powered-by">{{ powered }}</p>
+    <p v-if="powered.text" class="powered-by">
+      <a v-if="powered.url" :href="powered.url" target="_blank">{{ powered.text }}</a>
+      <span v-else>{{ powered.text }}</span>
+    </p>
     <router-link class="title" :to="{ path: '/' }">{{ site.title }}</router-link>
     <p class="subtitle">{{ site.subtitle }}</p>
   </blur-div>

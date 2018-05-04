@@ -142,4 +142,9 @@ google_analytics:
 # -------------------------------------------------------
 # Powered by
 # -------------------------------------------------------
-powered_by: Hexo Theme Lite
+# if you want to disable powered-by
+# powered_by: false
+# powered_by: ''
+powered_by:
+  text:  Hexo Theme Lite
+  url:  https://github.com/HeskeyBaozi/hexo-theme-lite/ # or false to disable link

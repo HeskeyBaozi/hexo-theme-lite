@@ -82,8 +82,11 @@ Edit the file [lite/__config.yml](https://github.com/HeskeyBaozi/hexo-theme-lite
 ```yml
 avatar:
   enable: true
-  url: /static/images/kamuyi.jpg
+  url: /static/images/kamuyi.jpg # mapping to '<blog root>/source/static/images/kamuyi.jpg'
 ```
+
+As usual, `/` is mapped to your `<blog root>/source`, not the `static` folder in the theme.
+通常这个路径指的是你博客根目录下的`/source`文件夹，而不是主题中的`static`文件夹
 
 - theme filter blur | 主题模糊滤镜设置
 
@@ -159,6 +162,11 @@ blur:
     opacity_value: 0.4
 ```
 
+- Post Excerpt | 文章摘要
+
+insert `<!-- more -->` in your raw markdown post. [Example](https://github.com/HeskeyBaozi/hexo-theme-lite/issues/41).
+在你的文章markdown中插入`<!-- more -->`来进行手动截断. [例子](https://github.com/HeskeyBaozi/hexo-theme-lite/issues/41).
+
 - top menu item | 顶部导航菜单项目设置
 
 ```yml
@@ -207,6 +215,14 @@ social_icons:
   email: fa-envelope
   wechat: fa-weixin
   qq: fa-qq
+```
+
+- powered by
+
+```yml
+powered_by:
+  text:  Hexo Theme Lite
+  url:  https://github.com/HeskeyBaozi/hexo-theme-lite/ # or false to disable link
 ```
 
 - favicon | 网站图标

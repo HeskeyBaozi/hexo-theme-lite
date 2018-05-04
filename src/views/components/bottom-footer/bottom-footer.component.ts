@@ -8,8 +8,8 @@ import BlurDiv from '@/views/components/blur-div/blur-div.component.ts';
   components: { BlurDiv },
   props: {
     powered: {
-      type: String,
-      'default': 'Hexo Theme Lite'
+      type: Object,
+      required: true
     },
     social: {
       required: true,
@@ -40,8 +40,8 @@ export default class BottomFooter extends Vue {
     return Object.keys(this.social)
       .map(key => ({
         name: key,
-        url: this.social[key],
-        icon: this.icons[key]
+        url: this.social[ key ],
+        icon: this.icons[ key ]
       }));
   }
 }

@@ -19,10 +19,10 @@ export class Theme {
   gitment = new GitmentOptions();
   google_analytics = new GoogleAnalytics();
   layout = new ThemeLayout();
-  powered_by = '';
+  powered_by = new ThemePoweredBy();
 
   constructor(raw?: any) {
-    const raw_theme = raw && raw['theme_config'];
+    const raw_theme = raw && raw[ 'theme_config' ];
     if (raw_theme) {
       this.menu = new ThemeMenu(raw_theme.menu);
       this.menu_icons = raw_theme.menu_icons;
@@ -36,6 +36,7 @@ export class Theme {
       this.blur = new ThemeBlur(raw_theme.blur);
       this.google_analytics = new GoogleAnalytics(raw_theme.google_analytics);
       this.layout = new ThemeLayout(raw_theme.theme_layout);
+      this.powered_by = new ThemePoweredBy(raw_theme.powered_by);
     }
   }
 }
@@ -48,7 +49,7 @@ export class ThemeCustom404 {
     if (raw) {
       for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [key]: raw[key] });
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -77,14 +78,14 @@ export class ThemeMenu implements LiteMenu {
     const basicKeys = Object.keys(extract);
     if (raw) {
       for (const basicKey of basicKeys) {
-        if (typeof raw[basicKey] === 'boolean' && raw[basicKey]) {
-          Object.assign(this, { [basicKey]: extract[basicKey] });
+        if (typeof raw[ basicKey ] === 'boolean' && raw[ basicKey ]) {
+          Object.assign(this, { [ basicKey ]: extract[ basicKey ] });
         }
       }
 
       for (const otherKey of Object.keys(raw)) {
         if (basicKeys.every(basicKey => otherKey !== basicKey)) {
-          Object.assign(this, { [otherKey]: raw[otherKey] });
+          Object.assign(this, { [ otherKey ]: raw[ otherKey ] });
         }
       }
     }
@@ -99,7 +100,7 @@ export class ThemeAvatar {
     if (raw) {
       for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [key]: raw[key] });
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -126,7 +127,7 @@ export class ThemeBackground {
     if (raw) {
       for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [key]: raw[key] });
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -140,7 +141,7 @@ export class ThemeLayout {
     if (raw) {
       for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          Object.assign(this, { [key]: raw[key] });
+          Object.assign(this, { [ key ]: raw[ key ] });
         }
       }
     }
@@ -202,6 +203,26 @@ export class GoogleAnalytics {
     if (raw) {
       this.enable = raw.enable;
       this.track_id = raw.track_id;
+    }
+  }
+}
+
+export class ThemePoweredBy {
+  text: string = '';
+  url: string | boolean = false;
+
+  constructor(raw?: { text: string, url: string | false } | string | boolean) {
+    if (raw) {
+      if (typeof raw === 'string') {
+        this.text = raw;
+        this.url = false;
+      } else if (typeof raw === 'boolean') {
+        this.text = '';
+        this.url = raw;
+      } else {
+        this.text = raw.text;
+        this.url = raw.url;
+      }
     }
   }
 }
