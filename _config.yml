@@ -55,8 +55,8 @@ blur:
 
   gaussian_radius:
     top_navigator: 30 # 30px+ preferred
-    header: 30 # 5 ~ 50px preferred
-    footer: 40 # 5 ~ 100px preferred
+    header: 5 # 5 ~ 50px preferred
+    footer: 5 # 5 ~ 100px preferred
 
   font:
     color: '#ffffff' # only affect the font color in the blur area.
@@ -67,11 +67,11 @@ blur:
 # -------------------------------------------------------
 
 social:
-  github: https://github.com/heskeybaozi
+  github: https://github.com/XiaoDangyh
   weibo: http://weibo.com/52hezhiyu
 
   # Email link, reference to https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links
-  email: mailto:hezhiyu233@foxmail.com
+  email: mailto:2670440804@qq.com
 
 
 social_icons:
