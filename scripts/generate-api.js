@@ -83,7 +83,7 @@ function generator(cfg, site) {
         keywords: posts_props('keywords', cfg.keywords),
         cover: posts_props('cover', post.cover || fetchCover(post.content)),
         content: posts_props('content', post.excerpt ? null : post.content),
-        text: posts_props('text', filterHTMLTags(post.content).substring(0, 140)),
+        text: posts_props('text', post.content ? filterHTMLTags(post.content).substring(0, 140) : ''),
         link: posts_props('link', post.link),
         raw: posts_props('raw', post.raw),
         photos: posts_props('photos', post.photos),
